@@ -98,6 +98,9 @@ A practical pricing reference for major Google Cloud services, including pricing
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
 | 🟢 **IAM** | No direct service fee | Access control itself is free | https://cloud.google.com/iam/pricing |
+| 🟢 **Organization Policy** | No direct service fee | Constraint enforcement at org/folder/project level is free | https://cloud.google.com/resource-manager/docs/organization-policy/overview |
+| 🟢 **Essential Contacts** | No direct service fee | Notification contact registration is free | https://cloud.google.com/resource-manager/docs/managing-notification-contacts |
+| 🟢 **Resource Manager (Org/Folder/Project)** | No direct service fee | Managing the hierarchy is free; costs come from resources deployed within projects | https://cloud.google.com/resource-manager/pricing |
 | 🟡 **Secret Manager** | Per active secret version + access operations | Large numbers of secrets/reads can become moderate monthly spend | https://cloud.google.com/secret-manager/pricing |
 | 🟡 **Cloud KMS / Cloud HSM** | Per key version + cryptographic operations (and HSM premium for HSM-backed keys) | High request rate encryption can grow cost steadily | https://cloud.google.com/kms/pricing |
 | 🔴 **Security Command Center (premium tiers)** | Per protected resource / tier-based features | Enterprise-scale orgs can incur substantial security tooling costs | https://cloud.google.com/security-command-center/pricing |

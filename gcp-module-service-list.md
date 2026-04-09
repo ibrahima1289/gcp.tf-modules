@@ -13,7 +13,7 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **94** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **0 (planned)** |
+| **Terraform Modules in repo** | **1** — [Organization](modules/hierarchy/organization/README.md) |
 
 ---
 
@@ -36,12 +36,14 @@ Organization
 
 ### Hierarchy Levels
 
-| Level | Purpose | Notes |
-|------|---------|-------|
-| **Organization** | Top-most node representing a company/domain tenant in Google Cloud. | Central point for org-wide policies, IAM, and governance. |
-| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. |
-| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. |
-| **Resources** | Actual cloud services (VMs, buckets, databases, load balancers, etc.). | Inherit policies from Organization → Folder → Project unless overridden. |
+> **Legend:** ✅ Full Terraform support · ⚠️ Partial/limited support · ❌ No Terraform resource (API/console only)
+
+| Level | Purpose | Notes | Terraform | Terraform Resource |
+|-------|---------|-------|:---------:|--------------------|
+| **Organization** | Top-most node representing a company/domain tenant in Google Cloud. | Central point for org-wide policies, IAM, and governance. Org node itself is created outside Terraform via Google Workspace/Cloud Identity. | ⚠️ | [`google_organization_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_organization_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/hierarchy/organization/README.md)** |
+| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_folder_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam) |
+| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. | ✅ | [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) · [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) |
+| **Resources** | Actual cloud services (VMs, buckets, databases, load balancers, etc.). | Inherit policies from Organization → Folder → Project unless overridden. | ✅ | See [Service Hierarchy](#service-hierarchy-domain--services) tables below |
 
 ### Inheritance Model
 
@@ -53,123 +55,161 @@ Organization
 
 ## Service Hierarchy (Domain → Services)
 
-- **Compute**
-  - Compute Engine
-  - Google Kubernetes Engine (GKE)
-  - Cloud Run
-  - App Engine
-  - Batch
-  - Spot VMs
-  - Bare Metal Solution
+> **Legend:** ✅ Full Terraform support · ⚠️ Partial/limited support · ❌ No Terraform resource (API/console only)
 
-- **Storage**
-  - Cloud Storage
-  - Filestore
-  - Persistent Disk
-  - Hyperdisk
-  - Local SSD
-  - Backup and DR Service
+### Compute
 
-- **Databases**
-  - Cloud SQL
-  - AlloyDB for PostgreSQL
-  - Cloud Spanner
-  - Firestore
-  - Bigtable
-  - Memorystore
-  - Datastream
-  - Database Migration Service
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Compute Engine | ✅ | [`google_compute_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) |
+| Google Kubernetes Engine (GKE) | ✅ | [`google_container_cluster`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster) |
+| Cloud Run | ✅ | [`google_cloud_run_v2_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_v2_service) |
+| App Engine | ✅ | [`google_app_engine_application`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_application) |
+| Batch | ✅ | [`google_batch_job`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/batch_job) |
+| Spot VMs | ✅ | Via `scheduling` block in `google_compute_instance` |
+| Bare Metal Solution | ❌ | Provisioned via Google Sales; no Terraform resource |
 
-- **Analytics & Data Engineering**
-  - BigQuery
-  - BigQuery Omni
-  - Dataflow
-  - Dataproc
-  - Pub/Sub
-  - Data Fusion
-  - Dataplex
-  - Dataform
-  - Dataprep (Trifacta)
-  - Composer
+### Storage
 
-- **AI & Machine Learning**
-  - Vertex AI
-  - Vertex AI Pipelines
-  - Vertex AI Feature Store
-  - Vertex AI Model Garden
-  - Vertex AI Agent Builder
-  - Generative AI Studio
-  - Document AI
-  - Vision AI / Vision API
-  - Speech-to-Text
-  - Text-to-Speech
-  - Translation API
-  - Natural Language API
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Cloud Storage | ✅ | [`google_storage_bucket`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) |
+| Filestore | ✅ | [`google_filestore_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/filestore_instance) |
+| Persistent Disk | ✅ | [`google_compute_disk`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk) |
+| Hyperdisk | ✅ | [`google_compute_disk`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk) (type = `hyperdisk-*`) |
+| Local SSD | ✅ | Via `scratch_disk` block in `google_compute_instance` |
+| Backup and DR Service | ⚠️ | [`google_backup_dr_management_server`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/backup_dr_management_server) (limited) |
 
-- **Networking**
-  - Virtual Private Cloud (VPC)
-  - Cloud Load Balancing
-  - Cloud CDN
-  - Cloud DNS
-  - Cloud NAT
-  - Cloud Router
-  - Cloud Interconnect
-  - Cloud VPN
-  - Network Connectivity Center
-  - Traffic Director
+### Databases
 
-- **Security & Identity**
-  - Identity and Access Management (IAM)
-  - Cloud Identity
-  - Secret Manager
-  - Cloud Key Management Service (KMS)
-  - Cloud HSM
-  - Certificate Authority Service
-  - Security Command Center
-  - Cloud Armor
-  - reCAPTCHA Enterprise
-  - BeyondCorp Enterprise
-  - VPC Service Controls
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Cloud SQL | ✅ | [`google_sql_database_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance) |
+| AlloyDB for PostgreSQL | ✅ | [`google_alloydb_cluster`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/alloydb_cluster) |
+| Cloud Spanner | ✅ | [`google_spanner_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/spanner_instance) |
+| Firestore | ✅ | [`google_firestore_database`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/firestore_database) |
+| Bigtable | ✅ | [`google_bigtable_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigtable_instance) |
+| Memorystore | ✅ | [`google_redis_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/redis_instance) / [`google_memcache_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/memcache_instance) |
+| Datastream | ✅ | [`google_datastream_stream`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/datastream_stream) |
+| Database Migration Service | ✅ | [`google_database_migration_service_migration_job`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/database_migration_service_migration_job) |
 
-- **Management, Monitoring & DevOps**
-  - Cloud Monitoring
-  - Cloud Logging
-  - Cloud Trace
-  - Cloud Profiler
-  - Error Reporting
-  - Cloud Audit Logs
-  - Cloud Build
-  - Artifact Registry
-  - Cloud Deploy
-  - Source Repositories
-  - Infrastructure Manager
+### Analytics & Data Engineering
 
-- **Integration & APIs**
-  - API Gateway
-  - Apigee
-  - Eventarc
-  - Workflows
-  - Cloud Tasks
-  - Cloud Scheduler
-  - Service Directory
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| BigQuery | ✅ | [`google_bigquery_dataset`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset) / [`google_bigquery_table`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_table) |
+| BigQuery Omni | ⚠️ | Via `google_bigquery_connection` (external data source) |
+| Dataflow | ✅ | [`google_dataflow_job`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataflow_job) |
+| Dataproc | ✅ | [`google_dataproc_cluster`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataproc_cluster) |
+| Pub/Sub | ✅ | [`google_pubsub_topic`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) / [`google_pubsub_subscription`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription) |
+| Data Fusion | ✅ | [`google_data_fusion_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/data_fusion_instance) |
+| Dataplex | ✅ | [`google_dataplex_lake`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataplex_lake) |
+| Dataform | ✅ | [`google_dataform_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dataform_repository) |
+| Dataprep (Trifacta) | ❌ | SaaS UI tool; no Terraform resource |
+| Composer | ✅ | [`google_composer_environment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/composer_environment) |
 
-- **End-User & Business Applications**
-  - Looker
-  - Looker Studio
-  - Contact Center AI Platform (CCAI)
-  - Google Maps Platform
+### AI & Machine Learning
 
-- **Hybrid & Multi-Cloud**
-  - Anthos
-  - Google Distributed Cloud
-  - Migrate to Virtual Machines
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Vertex AI | ✅ | [`google_vertex_ai_endpoint`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_endpoint) / [`google_vertex_ai_dataset`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_dataset) |
+| Vertex AI Pipelines | ⚠️ | [`google_vertex_ai_pipeline_job`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_pipeline_job) (limited; typically invoked via SDK) |
+| Vertex AI Feature Store | ✅ | [`google_vertex_ai_feature_store`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_feature_store) |
+| Vertex AI Model Garden | ❌ | API/console based; no direct Terraform resource |
+| Vertex AI Agent Builder | ✅ | [`google_discovery_engine_data_store`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/discovery_engine_data_store) |
+| Generative AI Studio | ❌ | Console/API/SDK based; no Terraform resource |
+| Document AI | ✅ | [`google_document_ai_processor`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/document_ai_processor) |
+| Vision AI / Vision API | ❌ | API consumed in code; enable via `google_project_service` |
+| Speech-to-Text | ❌ | API consumed in code; enable via `google_project_service` |
+| Text-to-Speech | ❌ | API consumed in code; enable via `google_project_service` |
+| Translation API | ❌ | API consumed in code; enable via `google_project_service` |
+| Natural Language API | ❌ | API consumed in code; enable via `google_project_service` |
 
-- **Cost Management & Governance**
-  - Cloud Billing
-  - Billing Budgets & Alerts
-  - Cost Table / Billing Export
-  - FinOps Hub
-  - Recommender
+### Networking
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Virtual Private Cloud (VPC) | ✅ | [`google_compute_network`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) / [`google_compute_subnetwork`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) |
+| Cloud Load Balancing | ✅ | [`google_compute_backend_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service) / [`google_compute_url_map`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_url_map) |
+| Cloud CDN | ✅ | Via `enable_cdn` on `google_compute_backend_bucket` / `google_compute_backend_service` |
+| Cloud DNS | ✅ | [`google_dns_managed_zone`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone) / [`google_dns_record_set`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) |
+| Cloud NAT | ✅ | [`google_compute_router_nat`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat) |
+| Cloud Router | ✅ | [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) |
+| Cloud Interconnect | ✅ | [`google_compute_interconnect_attachment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_interconnect_attachment) |
+| Cloud VPN | ✅ | [`google_compute_vpn_tunnel`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_vpn_tunnel) / [`google_compute_ha_vpn_gateway`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ha_vpn_gateway) |
+| Network Connectivity Center | ✅ | [`google_network_connectivity_hub`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/network_connectivity_hub) |
+| Traffic Director | ✅ | Via `google_compute_backend_service` with Traffic Director config |
+
+### Security & Identity
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Identity and Access Management (IAM) | ✅ | [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) / [`google_service_account`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account) |
+| Cloud Identity | ✅ | [`google_cloud_identity_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group) |
+| Secret Manager | ✅ | [`google_secret_manager_secret`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret) |
+| Cloud KMS | ✅ | [`google_kms_key_ring`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) / [`google_kms_crypto_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key) |
+| Cloud HSM | ✅ | Via `protection_level = "HSM"` on `google_kms_crypto_key` |
+| Certificate Authority Service | ✅ | [`google_privateca_certificate_authority`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/privateca_certificate_authority) |
+| Security Command Center | ⚠️ | [`google_scc_notification_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/scc_notification_config) (limited) |
+| Cloud Armor | ✅ | [`google_compute_security_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy) |
+| reCAPTCHA Enterprise | ✅ | [`google_recaptcha_enterprise_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/recaptcha_enterprise_key) |
+| BeyondCorp Enterprise | ✅ | [`google_beyondcorp_app_connection`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/beyondcorp_app_connection) |
+| VPC Service Controls | ✅ | [`google_access_context_manager_service_perimeter`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/access_context_manager_service_perimeter) |
+
+### Management, Monitoring & DevOps
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Cloud Monitoring | ✅ | [`google_monitoring_alert_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy) / [`google_monitoring_dashboard`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_dashboard) |
+| Cloud Logging | ✅ | [`google_logging_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink) / [`google_logging_bucket_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config) |
+| Cloud Trace | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
+| Cloud Profiler | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
+| Error Reporting | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
+| Cloud Audit Logs | ✅ | [`google_folder_iam_audit_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_audit_config) |
+| Cloud Build | ✅ | [`google_cloudbuild_trigger`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudbuild_trigger) |
+| Artifact Registry | ✅ | [`google_artifact_registry_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) |
+| Cloud Deploy | ✅ | [`google_clouddeploy_delivery_pipeline`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/clouddeploy_delivery_pipeline) |
+| Source Repositories | ✅ | [`google_sourcerepo_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sourcerepo_repository) |
+| Infrastructure Manager | ✅ | [`google_infra_manager_deployment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/infra_manager_deployment) |
+
+### Integration & APIs
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| API Gateway | ✅ | [`google_api_gateway_api`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/api_gateway_api) / [`google_api_gateway_gateway`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/api_gateway_gateway) |
+| Apigee | ✅ | [`google_apigee_organization`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/apigee_organization) / [`google_apigee_environment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/apigee_environment) |
+| Eventarc | ✅ | [`google_eventarc_trigger`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/eventarc_trigger) |
+| Workflows | ✅ | [`google_workflows_workflow`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workflows_workflow) |
+| Cloud Tasks | ✅ | [`google_cloud_tasks_queue`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_tasks_queue) |
+| Cloud Scheduler | ✅ | [`google_cloud_scheduler_job`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_scheduler_job) |
+| Service Directory | ✅ | [`google_service_directory_namespace`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_directory_namespace) |
+
+### End-User & Business Applications
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Looker | ✅ | [`google_looker_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/looker_instance) |
+| Looker Studio | ❌ | Web-based reporting UI; no Terraform resource |
+| Contact Center AI Platform (CCAI) | ❌ | Managed via Dialogflow and CCAI Insights APIs; no single TF resource |
+| Google Maps Platform | ❌ | Enable API via `google_project_service`; SDKs consumed in application code |
+
+### Hybrid & Multi-Cloud
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Anthos | ✅ | [`google_gke_hub_membership`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gke_hub_membership) / [`google_gke_hub_feature`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/gke_hub_feature) |
+| Google Distributed Cloud | ⚠️ | Limited; some resources via `google_edge_container_cluster` |
+| Migrate to Virtual Machines | ✅ | [`google_vmmigration_source`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vmmigration_source) |
+
+### Cost Management & Governance
+
+| Service | Terraform | Terraform Resource |
+|---------|:---------:|--------------------|
+| Cloud Billing | ✅ | [`google_billing_budget`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) |
+| Billing Budgets & Alerts | ✅ | [`google_billing_budget`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) |
+| Cost Table / Billing Export | ⚠️ | Via `google_logging_billing_account_sink` / BigQuery export config |
+| FinOps Hub | ❌ | Console/API only; no Terraform resource |
+| Recommender | ❌ | Read-only advisory service; no Terraform resource |
 
 ---
 

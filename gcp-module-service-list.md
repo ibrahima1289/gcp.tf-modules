@@ -13,7 +13,7 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **94** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **1** — [Organization](modules/hierarchy/organization/README.md) |
+| **Terraform Modules in repo** | **3** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md) |
 
 ---
 
@@ -41,8 +41,8 @@ Organization
 | Level | Purpose | Notes | Terraform | Terraform Resource |
 |-------|---------|-------|:---------:|--------------------|
 | **Organization** | Top-most node representing a company/domain tenant in Google Cloud. | Central point for org-wide policies, IAM, and governance. Org node itself is created outside Terraform via Google Workspace/Cloud Identity. | ⚠️ | [`google_organization_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_organization_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/hierarchy/organization/README.md)** |
-| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_folder_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam) |
-| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. | ✅ | [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) · [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) |
+| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_folder_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_folder_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_folder_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/hierarchy/folder/README.md)** |
+| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. | ✅ | [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) — **[Module](modules/hierarchy/project/README.md)** |
 | **Resources** | Actual cloud services (VMs, buckets, databases, load balancers, etc.). | Inherit policies from Organization → Folder → Project unless overridden. | ✅ | See [Service Hierarchy](#service-hierarchy-domain--services) tables below |
 
 ### Inheritance Model
@@ -217,4 +217,7 @@ Organization
 
 - [Google Cloud Service List — Definitions](gcp-service-list-definitions.md)
 - [Google Cloud Services Pricing Guide](gcp-services-pricing-guide.md)
+- [GCP Organization Module](modules/hierarchy/organization/README.md)
+- [GCP Folder Module](modules/hierarchy/folder/README.md)
+- [GCP Project Module](modules/hierarchy/project/README.md)
 - [Release Notes](RELEASE.md)

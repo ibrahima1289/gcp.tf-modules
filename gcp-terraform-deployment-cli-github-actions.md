@@ -59,7 +59,10 @@ gcloud init
 gcp.tf-modules/
 ├── modules/
 ├── tf-plans/
-└── main.tf
+│   ├── gcp_organization/
+│   ├── gcp_folder/
+│   └── gcp_project/
+└── README.md
 ```
 
 You can run Terraform from a root stack (e.g., `tf-plans/<stack>` or your own `envs/dev`).
@@ -124,7 +127,7 @@ Optional hardening:
 Use Application Default Credentials:
 
 ```bash
-gcloud auth application-default login
+gcloud auth application-default login --no-launch-browser
 
 or
 
@@ -328,4 +331,7 @@ Recommended production workflow:
 - [GCP Module & Service Hierarchy](gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](gcp-service-list-definitions.md)
 - [Google Cloud Services Pricing Guide](gcp-services-pricing-guide.md)
+- [GCP Organization Deployment Plan](tf-plans/gcp_organization/README.md)
+- [GCP Folder Deployment Plan](tf-plans/gcp_folder/README.md)
+- [GCP Project Deployment Plan](tf-plans/gcp_project/README.md)
 - [Release Notes](RELEASE.md)

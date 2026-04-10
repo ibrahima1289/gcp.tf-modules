@@ -35,6 +35,29 @@ Manages [Google Cloud Organization](https://cloud.google.com/resource-manager/do
 
 ---
 
+## Requirements
+
+| Requirement | Version / Note |
+|---|---|
+| Terraform | `>= 1.5` |
+| Provider | `hashicorp/google >= 6.0` |
+| Auth | Application Default Credentials (ADC) or Workload Identity Federation |
+| Permission scope | Organization-level IAM / policy / logging / essential contacts permissions |
+
+---
+
+## Resources Managed
+
+| Resource | Purpose |
+|---|---|
+| `data.google_organization` | Resolve organization by domain when `org_id` is not provided |
+| `google_organization_iam_member` | Additive IAM role grants at organization scope |
+| `google_org_policy_policy` | OrgPolicy v2 boolean/list policy enforcement |
+| `google_logging_organization_sink` | Organization-wide logging export |
+| `google_essential_contacts_contact` | Organization notification contacts |
+
+---
+
 ## Required Variables
 
 | Name | Type | Description |
@@ -146,7 +169,21 @@ resource "google_storage_bucket_iam_member" "sink_writer" {
 
 ---
 
+## Validation & Behavior
+
+- Input objects use stable `key` fields for safe `for_each` identities.
+- The module avoids authoritative IAM resources to reduce accidental permission removals.
+- For list-style org policies, configure one of: `allow_all`, `deny_all`, `allowed_values`, or `denied_values`.
+- Labels are tracked in locals/outputs as metadata; most org-level resources do not support labels directly.
+
+---
+
 ## Related Docs
 
+- [What is a Google Cloud Organization?](gcp-organization.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Terraform Deployment Guide](../../../gcp-terraform-deployment-cli-github-actions.md)
+- [GCP Folder Module](../folder/README.md)
+- [GCP Project Module](../project/README.md)
+- [GCP Folder Deployment Plan](../../../tf-plans/gcp_folder/README.md)
+- [GCP Project Deployment Plan](../../../tf-plans/gcp_project/README.md)

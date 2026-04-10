@@ -178,6 +178,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
+| Cloud Resource Manager (Organization/Folders/Projects) | Hierarchy and policy control plane for organizing cloud resources and delegating governance boundaries. |
 | Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. |
 | Billing Budgets & Alerts | Budget threshold monitoring and alerting to control spend. |
 | Cost Table / Billing Export | Detailed cost and usage export to BigQuery for analysis and reporting. |
@@ -190,4 +191,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 - [GCP Module & Service Hierarchy](gcp-module-service-list.md)
 - [Google Cloud Services Pricing Guide](gcp-services-pricing-guide.md)
+- [GCP Organization Module](modules/hierarchy/organization/README.md)
+- [GCP Folder Module](modules/hierarchy/folder/README.md)
+- [GCP Project Module](modules/hierarchy/project/README.md)
 - [Release Notes](RELEASE.md)

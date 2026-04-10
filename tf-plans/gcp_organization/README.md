@@ -157,6 +157,8 @@ org_policies = [
 ## Related Docs
 
 - [Organization Module README](../../modules/hierarchy/organization/README.md)
+- [Folder Module README](../../modules/hierarchy/folder/README.md)
+- [Folder Deployment Plan](../gcp_folder/README.md)
 - [GCP Module Service List](../../gcp-module-service-list.md)
 - [GCP Services Pricing Guide](../../gcp-services-pricing-guide.md)
 - [Terraform Deployment Guide (CLI & GitHub Actions)](../../gcp-terraform-deployment-cli-github-actions.md)

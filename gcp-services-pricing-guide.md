@@ -161,4 +161,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 - [GCP Module & Service Hierarchy](gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](gcp-service-list-definitions.md)
+- [GCP Organization Module](modules/hierarchy/organization/README.md)
+- [GCP Folder Module](modules/hierarchy/folder/README.md)
+- [GCP Project Module](modules/hierarchy/project/README.md)
 - [Release Notes](RELEASE.md)

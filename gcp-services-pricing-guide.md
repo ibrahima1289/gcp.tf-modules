@@ -83,7 +83,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
-| 🟢 **VPC** | Core VPC constructs are free; pay for dependent resources and egress | Main cost drivers are NAT, load balancers, and data transfer | https://cloud.google.com/vpc/pricing |
+| 🟢 **VPC** | Core VPC constructs are free; pay for dependent resources and egress | Main cost drivers are NAT, load balancers, and data transfer — **[Module](modules/networking/gcp_networks/README.md)** | https://cloud.google.com/vpc/pricing |
+| 🟢 **VPC Subnets** | No standalone subnet fee | Subnets themselves are free; costs come from attached resources, Private Google access traffic patterns, and network egress | https://cloud.google.com/vpc/pricing |
 | 🟡 **Cloud Load Balancing** | Forwarding rules + data processing + optional features | Public global LB with steady traffic usually incurs recurring monthly cost | https://cloud.google.com/load-balancing/pricing |
 | 🟡 **Cloud CDN** | Cache egress + cache fill + HTTP(S) request components | Global content delivery costs correlate with egress volume | https://cloud.google.com/cdn/pricing |
 | 🟡 **Cloud NAT** | Gateway uptime + data processed | Frequent outbound internet traffic can materially increase bill | https://cloud.google.com/nat/pricing |
@@ -164,4 +165,6 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Organization Module](modules/hierarchy/organization/README.md)
 - [GCP Folder Module](modules/hierarchy/folder/README.md)
 - [GCP Project Module](modules/hierarchy/project/README.md)
+- [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
+- [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [Release Notes](RELEASE.md)

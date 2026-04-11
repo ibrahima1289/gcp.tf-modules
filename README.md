@@ -20,6 +20,8 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Organization](modules/hierarchy/organization/README.md) | `modules/hierarchy/organization` | Manages org-level IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. Org node is looked up via data source. |
 | [GCP Folder](modules/hierarchy/folder/README.md) | `modules/hierarchy/folder` | Creates one or many folders with optional nested hierarchy, folder IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. |
 | [GCP Project](modules/hierarchy/project/README.md) | `modules/hierarchy/project` | Creates one or many projects with parent validation (org or folder), optional API enablement, labels, and safe lifecycle handling. |
+| [GCP Subnetworks](modules/networking/gcp_subnetworks/README.md) | `modules/networking/gcp_subnetworks` | Creates one or many regional VPC subnetworks with secondary ranges, private Google access, and optional VPC Flow Logs. |
+| [GCP Networks (VPC)](modules/networking/gcp_networks/README.md) | `modules/networking/gcp_networks` | Creates one or many custom-mode VPC networks with configurable routing mode, MTU, internal IPv6, firewall policy order, and optional Shared VPC host registration. |
 
 ## Deployment Plans
 
@@ -28,3 +30,5 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Organization](tf-plans/gcp_organization/README.md) | `tf-plans/gcp_organization` | [modules/hierarchy/organization](modules/hierarchy/organization/README.md) |
 | [GCP Folder](tf-plans/gcp_folder/README.md) | `tf-plans/gcp_folder` | [modules/hierarchy/folder](modules/hierarchy/folder/README.md) |
 | [GCP Project](tf-plans/gcp_project/README.md) | `tf-plans/gcp_project` | [modules/hierarchy/project](modules/hierarchy/project/README.md) |
+| [GCP Subnetworks](tf-plans/gcp_subnetworks/README.md) | `tf-plans/gcp_subnetworks` | [modules/networking/gcp_subnetworks](modules/networking/gcp_subnetworks/README.md) |
+| [GCP Networks (VPC)](tf-plans/gcp_networks/README.md) | `tf-plans/gcp_networks` | [modules/networking/gcp_networks](modules/networking/gcp_networks/README.md) |

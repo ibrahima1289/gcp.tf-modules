@@ -11,9 +11,9 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | Metric | Count |
 |--------|-------|
 | **Service Domains** | **12** |
-| **Services Listed** | **94** |
+| **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **3** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md) |
+| **Terraform Modules in repo** | **5** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md) |
 
 ---
 
@@ -129,7 +129,8 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Virtual Private Cloud (VPC) | ✅ | [`google_compute_network`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) / [`google_compute_subnetwork`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) |
+| Virtual Private Cloud (VPC) | ✅ | [`google_compute_network`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) · [`google_compute_shared_vpc_host_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_shared_vpc_host_project) — **[Module](modules/networking/gcp_networks/README.md)** |
+| VPC Subnets | ✅ | [`google_compute_subnetwork`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) — **[Module](modules/networking/gcp_subnetworks/README.md)** |
 | Cloud Load Balancing | ✅ | [`google_compute_backend_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service) / [`google_compute_url_map`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_url_map) |
 | Cloud CDN | ✅ | Via `enable_cdn` on `google_compute_backend_bucket` / `google_compute_backend_service` |
 | Cloud DNS | ✅ | [`google_dns_managed_zone`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone) / [`google_dns_record_set`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) |
@@ -220,4 +221,6 @@ Organization
 - [GCP Organization Module](modules/hierarchy/organization/README.md)
 - [GCP Folder Module](modules/hierarchy/folder/README.md)
 - [GCP Project Module](modules/hierarchy/project/README.md)
+- [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
+- [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [Release Notes](RELEASE.md)

@@ -61,7 +61,9 @@ gcp.tf-modules/
 ├── tf-plans/
 │   ├── gcp_organization/
 │   ├── gcp_folder/
-│   └── gcp_project/
+│   ├── gcp_project/
+│   ├── gcp_subnetworks/
+│   └── gcp_networks/
 └── README.md
 ```
 
@@ -334,4 +336,6 @@ Recommended production workflow:
 - [GCP Organization Deployment Plan](tf-plans/gcp_organization/README.md)
 - [GCP Folder Deployment Plan](tf-plans/gcp_folder/README.md)
 - [GCP Project Deployment Plan](tf-plans/gcp_project/README.md)
+- [GCP Subnetworks Deployment Plan](tf-plans/gcp_subnetworks/README.md)
+- [GCP Networks (VPC) Deployment Plan](tf-plans/gcp_networks/README.md)
 - [Release Notes](RELEASE.md)

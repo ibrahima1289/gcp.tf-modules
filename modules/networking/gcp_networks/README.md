@@ -35,7 +35,7 @@ var.labels  →  created_date / managed_by  →  networks[*].labels
 | [Terraform](https://developer.hashicorp.com/terraform/downloads) | `>= 1.5` |
 | [hashicorp/google](https://registry.terraform.io/providers/hashicorp/google/latest) | `>= 6.0` |
 
-> **Note:** This module does not own a `provider "google"` block. The provider must be configured in the calling wrapper (see [tf-plans/gcp_vpc](../../../tf-plans/gcp_vpc/README.md)). This is required to allow `for_each` on the module call.
+> **Note:** This module does not own a `provider "google"` block. The provider must be configured in the calling wrapper (see [tf-plans/gcp_networks](../../../tf-plans/gcp_networks/README.md)). This is required to allow `for_each` on the module call.
 
 ---
 
@@ -105,7 +105,7 @@ Each item in the `networks` list maps to one `google_compute_network` resource.
 
 ```hcl
 module "vpc" {
-  source = "../../modules/networking/gcp_vpc"
+  source = "../../modules/networking/gcp_networks"
 
   project_id = "my-platform-project"
   region     = "us-central1"
@@ -157,7 +157,7 @@ Consume outputs in downstream modules (e.g., subnet module):
 
 ```hcl
 module "subnets" {
-  source = "../../modules/networking/gcp_subnet"
+  source = "../../modules/networking/gcp_subnetworks"
 
   project_id = "my-platform-project"
   region     = "us-central1"
@@ -201,8 +201,10 @@ module "subnets" {
 
 ## Related Docs
 
-- [GCP VPC Deployment Plan](../../../tf-plans/gcp_vpc/README.md)
-- [GCP Subnet Module](../gcp_subnet/README.md) — create subnets inside VPC networks
+- [GCP Networks Deployment Plan](../../../tf-plans/gcp_networks/README.md)
+- [GCP Subnetworks Module](../gcp_subnetworks/README.md) — create subnets inside VPC networks
+- [GCP Cloud NAT Module](../gcp_cloud_nat/README.md) — provide private outbound internet access for private subnets
+- [GCP Cloud Router Module](../gcp_cloud_router/README.md) — BGP routing for VPN and Interconnect hybrid connectivity
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)
 - [Google Cloud VPC Overview](https://cloud.google.com/vpc/docs/vpc)

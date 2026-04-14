@@ -1,0 +1,53 @@
+name: Auto Open PR to Main
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    name: Open PR from branch to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create pull request to main
+        env:
+          GH_TOKEN: ${{ secrets.AWS_GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          head_branch="${REF_NAME}"
+          base_branch="main"
+
+          if [ "$head_branch" = "$base_branch" ]; then
+            echo "Branch is main; skipping."
+            exit 0
+          fi
+
+          # Ensure gh CLI is available (Ubuntu runners typically have it preinstalled)
+          if ! command -v gh >/dev/null 2>&1; then
+            echo "Installing GitHub CLI..."
+            type -p curl >/dev/null || sudo apt-get update
+            sudo apt-get install -y git gh >/dev/null
+          fi
+
+          # Check for an existing open PR from head -> base
+          existing_pr=$(gh pr list --repo "$REPO" --state open --head "$head_branch" --base "$base_branch" --json number --jq '.[0].number // empty')
+          if [ -n "$existing_pr" ]; then
+            echo "PR already exists: #$existing_pr"
+            exit 0
+          fi
+
+          # Create the PR
+          gh pr create \
+            --repo "$REPO" \
+            --head "$head_branch" \
+            --base "$base_branch" \
+            --title "Auto PR: $head_branch -> $base_branch" \
+            --body "Automatically created pull request after push."

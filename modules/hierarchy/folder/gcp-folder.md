@@ -1,4 +1,4 @@
-# Google Cloud Folder: 
+# Google Cloud Folder
 
 ## What is a Folder in Google Cloud?
 
@@ -91,8 +91,32 @@ This model keeps foundational services centralized while app teams retain autono
 
 ---
 
+## Security and operations guidance
+
+- Grant IAM roles at the folder level when a group of projects shares common ownership — prefer folder-level over per-project assignment.
+- Apply Organization Policy constraints at the folder level for environment-specific guardrails (e.g., stricter controls in the `prod` folder than in `dev`).
+- Use separate folders for production and non-production environments; apply stricter IAM and policy constraints to the `prod` folder.
+- Keep folder structures shallow (2–3 levels); deep hierarchies are harder to govern and reason about.
+- Audit folder-level IAM bindings regularly; remove unused or over-permissive roles.
+- Configure folder-level logging sinks for environment or business-unit-specific audit trails.
+
+---
+
+## Terraform resources commonly used
+
+| Resource | Purpose |
+|----------|---------|
+| [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) | Creates a folder under an organization or parent folder |
+| [`google_folder_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam_binding) | Grants IAM roles at the folder level |
+| [`google_folder_organization_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_organization_policy) | Applies Organization Policy constraints at folder scope |
+| [`google_logging_folder_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_folder_sink) | Routes folder-level audit logs to GCS, BigQuery, or Pub/Sub |
+
+---
+
 ## Related Docs
 
 - [GCP Folder Terraform Module README](README.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Resource Hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
+- [Organization Policy Overview](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
+- [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)

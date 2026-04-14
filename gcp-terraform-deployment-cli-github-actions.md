@@ -63,6 +63,8 @@ gcp.tf-modules/
 │   ├── gcp_folder/
 │   ├── gcp_project/
 │   ├── gcp_subnetworks/
+│   ├── gcp_cloud_nat/
+│   ├── gcp_cloud_router/
 │   └── gcp_networks/
 └── README.md
 ```
@@ -337,5 +339,10 @@ Recommended production workflow:
 - [GCP Folder Deployment Plan](tf-plans/gcp_folder/README.md)
 - [GCP Project Deployment Plan](tf-plans/gcp_project/README.md)
 - [GCP Subnetworks Deployment Plan](tf-plans/gcp_subnetworks/README.md)
+- [GCP Cloud NAT Deployment Plan](tf-plans/gcp_cloud_nat/README.md)
+- [GCP Cloud Router Deployment Plan](tf-plans/gcp_cloud_router/README.md)
 - [GCP Networks (VPC) Deployment Plan](tf-plans/gcp_networks/README.md)
+- [Compute Service Explainers](modules/compute/)
+- [Storage Service Explainers](modules/storage/)
+- [Networking Service Explainers](modules/networking/)
 - [Release Notes](RELEASE.md)

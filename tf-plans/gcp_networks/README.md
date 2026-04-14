@@ -1,6 +1,6 @@
 # GCP VPC Deployment Plan
 
-Deployment wrapper for the [GCP VPC Network module](../../modules/networking/gcp_vpc/README.md). Creates one or many Google Cloud VPC networks in a single `terraform apply`, with a consistent label strategy and optional Shared VPC host registration.
+Deployment wrapper for the [GCP VPC Network module](../../modules/networking/gcp_networks/README.md). Creates one or many Google Cloud VPC networks in a single `terraform apply`, with a consistent label strategy and optional Shared VPC host registration.
 
 > Part of [gcp.tf-modules](../../README.md) · [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
 
@@ -9,8 +9,8 @@ Deployment wrapper for the [GCP VPC Network module](../../modules/networking/gcp
 ## Architecture
 
 ```text
-tf-plans/gcp_vpc/
-└── module "vpc"  →  modules/networking/gcp_vpc/
+tf-plans/gcp_networks/
+└── module "vpc"  →  modules/networking/gcp_networks/
     ├── google_compute_network          "platform-shared-vpc"   (routing_mode = GLOBAL, shared_vpc_host)
     ├── google_compute_network          "apps-dev-vpc"          (routing_mode = REGIONAL)
     ├── ...
@@ -38,7 +38,7 @@ var.labels  →  created_date / managed_by (from locals)  →  networks[*].label
 ## Quick Start
 
 ```bash
-cd tf-plans/gcp_vpc
+cd tf-plans/gcp_networks
 
 # 1. Edit terraform.tfvars with your project_id and network definitions.
 
@@ -61,7 +61,7 @@ terraform apply
 
 | File | Purpose |
 |------|---------|
-| [main.tf](main.tf) | Calls the `modules/networking/gcp_vpc` module with all inputs |
+| [main.tf](main.tf) | Calls the `modules/networking/gcp_networks` module with all inputs |
 | [variables.tf](variables.tf) | Wrapper input variable declarations |
 | [locals.tf](locals.tf) | `created_date` timestamp for labels |
 | [outputs.tf](outputs.tf) | Pass-through of all module outputs |
@@ -145,8 +145,10 @@ gcloud storage buckets create gs://my-terraform-state-bucket \
 
 ## Related Docs
 
-- [GCP VPC Network Module](../../modules/networking/gcp_vpc/README.md)
-- [GCP Subnet Deployment Plan](../gcp_subnet/README.md)
+- [GCP VPC Network Module](../../modules/networking/gcp_networks/README.md)
+- [GCP Subnetworks Deployment Plan](../gcp_subnetworks/README.md)
+- [GCP Cloud NAT Module](../../modules/networking/gcp_cloud_nat/README.md)
+- [GCP Cloud NAT Deployment Plan](../gcp_cloud_nat/README.md)
 - [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
 - [Terraform Deployment Guide (CLI + GitHub Actions)](../../gcp-terraform-deployment-cli-github-actions.md)
 - [Google Cloud VPC Overview](https://cloud.google.com/vpc/docs/vpc)

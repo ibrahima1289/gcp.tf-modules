@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-13
+- Created [GCP Cloud Router module](modules/networking/gcp_cloud_router/README.md) supporting multi-router deployments, optional BGP interfaces and peers, BFD, and custom route advertisement.
+- Added [GCP Cloud Router deployment plan](tf-plans/gcp_cloud_router/README.md) with wrapper files, two example configurations, and documented apply workflow.
+- Updated root indexes, service definitions, pricing guide, and deployment guide to include Cloud Router module and plan references.
+- Standardized all service explainer documents with consistent section headings, security guidance bullets, and corrected cross-reference links.
+
 ## 2026-04-11
 - Published [GCP Networks (VPC) module](modules/networking/gcp_networks/README.md) supporting multi-network creation, custom-mode routing, MTU controls, IPv6 options, and Shared VPC hosting.
 - Published [GCP Networks (VPC) deployment plan](tf-plans/gcp_networks/README.md) with wrapper files, examples, and documented apply workflow for repeatable provisioning.

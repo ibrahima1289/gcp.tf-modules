@@ -17,6 +17,37 @@ Subnetworks define:
 
 ---
 
+## Subnetwork quick-reference
+
+| Parameter | Description | Notes |
+|-----------|-------------|-------|
+| **Region** | Each subnet belongs to exactly one region | A VPC can have subnets in many regions |
+| **Primary CIDR range** | IPv4 range for VM/node primary IPs | e.g., `10.10.0.0/24` |
+| **Secondary ranges** | Additional IP ranges for GKE pods and services | Multiple secondary ranges per subnet |
+| **Private Google Access** | Instances without public IPs can reach Google APIs | Enabled per subnet |
+| **Private IPv6 Google Access** | Same for IPv6 instances | Optional |
+| **VPC Flow Logs** | Capture traffic metadata for observability and security | Configurable sampling rate |
+| **Purpose** | `PRIVATE` (default), `PRIVATE_SERVICE_CONNECT`, `INTERNAL_HTTPS_LOAD_BALANCER` | Affects allowed usage |
+| **Stack type** | `IPV4_ONLY` or `IPV4_IPV6` | IPv6 requires VPC-level IPv6 enablement |
+| **IPv6 access type** | `INTERNAL` (ULA) or `EXTERNAL` (GUA) | Only for IPv4_IPV6 stack type |
+
+---
+
+## Subnet sizing guidance
+
+| Subnet size | Usable IPs | Typical use |
+|:-----------:|:----------:|-------------|
+| `/29` | 4 | Load balancer proxy-only ranges |
+| `/28` | 12 | Very small services, reserve ranges |
+| `/24` | 252 | Standard team/environment subnet |
+| `/22` | ~1,000 | GKE node pool subnet |
+| `/20` | ~4,000 | Large shared platform subnet |
+| `/16` | ~65,000 | GKE secondary pod ranges |
+
+> Reserve extra space in GKE-facing subnets for pod secondary ranges (typically `/16` or `/14`).
+
+---
+
 ## How subnetworks fit into Google Cloud networking
 
 Google Cloud networking is commonly structured like this:
@@ -290,9 +321,21 @@ Do **not** create new subnets unnecessarily if the workload can safely share an 
 
 ---
 
+## Terraform resources commonly used
+
+| Resource | Purpose |
+|----------|---------|
+| [`google_compute_subnetwork`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) | Creates a subnet with primary and secondary ranges, flow logs, private access |
+| [`google_compute_subnetwork_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork_iam_binding) | Grants IAM roles on a specific subnet (Shared VPC) |
+| [`google_compute_network`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) | Parent VPC network for the subnet |
+| [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) | Enables the `compute.googleapis.com` API |
+
+---
+
 ## Related Docs
 
-- [GCP Subnet Terraform Module README](../gcp_subnet/README.md)
+- [GCP Subnetworks Module README](README.md)
+- [GCP Subnetworks Deployment Plan](../../../tf-plans/gcp_subnetworks/README.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)
 - [Google Cloud VPC Overview](https://cloud.google.com/vpc/docs/vpc)

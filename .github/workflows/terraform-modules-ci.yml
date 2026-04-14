@@ -1,0 +1,51 @@
+name: Terraform Modules Checks
+# CI workflow to enforce Terraform module hygiene:
+# - Only allowed file types in module folders
+# - Terraform formatting (fmt -check)
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  # Run on pushes to main and pull requests targeting main
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_run:
+    workflows: ["Auto Open PR to Main"]
+    types:
+      - completed
+
+concurrency:
+  # Cancel previous runs for the same ref to avoid redundant work
+  group: terraform-modules-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-linux:
+    name: Validate (Ubuntu)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.6.6'
+
+      - name: Show tool versions
+        run: |
+          python --version
+          terraform -version
+
+      - name: Run Terraform module checks
+        run: |
+          python tests/terraform_module_check.py

@@ -13,7 +13,8 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **5** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md) |
+| **Terraform Modules in repo** | **7** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md) |
+| **Service Explainer docs in modules** | **25** — [Hierarchy](modules/hierarchy/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/) |
 
 ---
 
@@ -134,8 +135,8 @@ Organization
 | Cloud Load Balancing | ✅ | [`google_compute_backend_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_backend_service) / [`google_compute_url_map`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_url_map) |
 | Cloud CDN | ✅ | Via `enable_cdn` on `google_compute_backend_bucket` / `google_compute_backend_service` |
 | Cloud DNS | ✅ | [`google_dns_managed_zone`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone) / [`google_dns_record_set`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) |
-| Cloud NAT | ✅ | [`google_compute_router_nat`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat) |
-| Cloud Router | ✅ | [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) |
+| Cloud NAT | ✅ | [`google_compute_router_nat`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat) · [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) — **[Module](modules/networking/gcp_cloud_nat/README.md)** |
+| Cloud Router | ✅ | [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) · [`google_compute_router_interface`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_interface) · [`google_compute_router_peer`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_peer) — **[Module](modules/networking/gcp_cloud_router/README.md)** |
 | Cloud Interconnect | ✅ | [`google_compute_interconnect_attachment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_interconnect_attachment) |
 | Cloud VPN | ✅ | [`google_compute_vpn_tunnel`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_vpn_tunnel) / [`google_compute_ha_vpn_gateway`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ha_vpn_gateway) |
 | Network Connectivity Center | ✅ | [`google_network_connectivity_hub`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/network_connectivity_hub) |
@@ -223,4 +224,9 @@ Organization
 - [GCP Project Module](modules/hierarchy/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
+- [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
+- [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [Compute Service Explainers](modules/compute/)
+- [Storage Service Explainers](modules/storage/)
+- [Networking Service Explainers](modules/networking/)
 - [Release Notes](RELEASE.md)

@@ -160,7 +160,9 @@ module "subnet" {
 
 ## Related Docs
 
-- [GCP Subnet Deployment Plan](../../../tf-plans/gcp_subnet/README.md)
+- [GCP Subnetworks Deployment Plan](../../../tf-plans/gcp_subnetworks/README.md)
+- [GCP Cloud NAT Module](../gcp_cloud_nat/README.md)
+- [GCP Cloud NAT Deployment Plan](../../../tf-plans/gcp_cloud_nat/README.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)
 - [Google Cloud Services Pricing Guide](../../../gcp-services-pricing-guide.md)

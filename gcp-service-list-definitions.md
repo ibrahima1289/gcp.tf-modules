@@ -95,8 +95,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Cloud CDN | Content delivery network integrated with Google edge locations for low-latency delivery. |
 | Cloud DNS | Managed authoritative DNS hosting with global anycast and high availability. |
 | VPC Subnets | Regional IP ranges inside a VPC network that segment workloads and define where private resources are placed. |
-| Cloud NAT | Managed network address translation for private instances needing outbound internet access. |
-| Cloud Router | Dynamic routing service for hybrid connectivity using BGP. |
+| Cloud NAT | Managed network address translation for private instances needing outbound internet access. — **[Module](modules/networking/gcp_cloud_nat/README.md)** |
+| Cloud Router | Dynamic routing service for hybrid connectivity using BGP. — **[Module](modules/networking/gcp_cloud_router/README.md)** |
 | Cloud Interconnect | Dedicated or partner connectivity between on-premises networks and Google Cloud. |
 | Cloud VPN | Encrypted IPSec VPN tunnels for secure hybrid or multi-cloud networking. |
 | Network Connectivity Center | Centralized hub-and-spoke management for enterprise hybrid and multi-cloud connectivity. |
@@ -197,4 +197,9 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Project Module](modules/hierarchy/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
+- [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
+- [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [Compute Service Explainers](modules/compute/)
+- [Storage Service Explainers](modules/storage/)
+- [Networking Service Explainers](modules/networking/)
 - [Release Notes](RELEASE.md)

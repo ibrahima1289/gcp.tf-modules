@@ -87,7 +87,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🟢 **VPC Subnets** | No standalone subnet fee | Subnets themselves are free; costs come from attached resources, Private Google access traffic patterns, and network egress | https://cloud.google.com/vpc/pricing |
 | 🟡 **Cloud Load Balancing** | Forwarding rules + data processing + optional features | Public global LB with steady traffic usually incurs recurring monthly cost | https://cloud.google.com/load-balancing/pricing |
 | 🟡 **Cloud CDN** | Cache egress + cache fill + HTTP(S) request components | Global content delivery costs correlate with egress volume | https://cloud.google.com/cdn/pricing |
-| 🟡 **Cloud NAT** | Gateway uptime + data processed | Frequent outbound internet traffic can materially increase bill | https://cloud.google.com/nat/pricing |
+| 🟡 **Cloud NAT** | Gateway uptime + data processed | Frequent outbound internet traffic can materially increase bill — **[Module](modules/networking/gcp_cloud_nat/README.md)** | https://cloud.google.com/nat/pricing |
+| 🟢 **Cloud Router** | No standalone fee; charges accrue from connected services (VPN, Interconnect) | Router itself is free; costs come from attached tunnel uptime and egress — **[Module](modules/networking/gcp_cloud_router/README.md)** | https://cloud.google.com/network-connectivity/docs/router/pricing |
 | 🟡 **Cloud Interconnect** | Port capacity (Dedicated) or Partner rates + egress | Enterprise hybrid links are often significant recurring spend | https://cloud.google.com/network-connectivity/docs/interconnect/pricing |
 | 🟡 **Cloud VPN** | Tunnel uptime + egress charges | Multiple HA tunnels + heavy traffic increases monthly cost | https://cloud.google.com/network-connectivity/docs/vpn/pricing |
 | 🟡 **Cloud DNS** | Managed zones + DNS queries | Usually low cost unless very high DNS query volume | https://cloud.google.com/dns/pricing |
@@ -167,4 +168,9 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Project Module](modules/hierarchy/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
+- [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
+- [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [Compute Service Explainers](modules/compute/)
+- [Storage Service Explainers](modules/storage/)
+- [Networking Service Explainers](modules/networking/)
 - [Release Notes](RELEASE.md)

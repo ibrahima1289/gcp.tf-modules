@@ -1,4 +1,4 @@
-# Google Cloud Organization: 
+# Google Cloud Organization
 ## What is an Organization in Google Cloud?
 
 A **Google Cloud Organization** is the top-level node in the [Google Cloud Resource Manager hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy):
@@ -85,8 +85,33 @@ Result: faster integration with reduced governance drift.
 
 ---
 
+## Security and operations guidance
+
+- Apply organization-level IAM only to a small set of trusted admins; delegate to folders for day-to-day operations.
+- Enable organization-level audit logging sinks to a dedicated log-storage project owned by the security team.
+- Use Organization Policy constraints to enforce guardrails globally (e.g., `constraints/compute.requireOsLogin`, `constraints/compute.vmExternalIpAccess`, `constraints/storage.publicAccessPrevention`).
+- Register essential contacts (legal, security, billing, technical) at the organization level for incident notifications.
+- Review organization-level IAM bindings regularly; remove stale or over-provisioned roles.
+- Enable Security Command Center Standard or Premium at org level for centralized threat and misconfiguration detection.
+
+---
+
+## Terraform resources commonly used
+
+| Resource | Purpose |
+|----------|---------|
+| [`google_organization_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam_binding) | Grants IAM roles at the organization level |
+| [`google_organization_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_policy) | Enforces constraint-based guardrails org-wide |
+| [`google_logging_organization_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink) | Routes org-level audit logs to GCS, BigQuery, or Pub/Sub |
+| [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) | Registers notification contacts for billing, security, and legal |
+| [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) | Creates child folders under the organization |
+
+---
+
 ## Related Docs
 
 - [GCP Organization Terraform Module README](README.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Resource Hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
+- [Organization Policy Overview](https://cloud.google.com/resource-manager/docs/organization-policy/overview)
+- [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)

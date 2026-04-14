@@ -101,6 +101,7 @@ terraform apply -var-file="terraform.tfvars"
 
 ## Related Docs
 
-- [Subnet Module README](../../modules/networking/gcp_subnet/README.md)
+- [Subnetworks Module README](../../modules/networking/gcp_subnetworks/README.md)
+- [Cloud NAT Deployment Plan](../gcp_cloud_nat/README.md)
 - [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
 - [Terraform Deployment Guide (CLI & GitHub Actions)](../../gcp-terraform-deployment-cli-github-actions.md)

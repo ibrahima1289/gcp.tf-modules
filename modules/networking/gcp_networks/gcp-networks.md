@@ -14,6 +14,48 @@ Reference: [Google Cloud VPC overview](https://cloud.google.com/vpc/docs/vpc)
 
 ---
 
+## VPC network quick-reference
+
+| Feature | Value / Options |
+|---------|----------------|
+| **Scope** | Global (one VPC spans all regions) |
+| **Network modes** | `auto` (Google-created subnets) / `custom` (you define all subnets) |
+| **Routing modes** | `REGIONAL` (routes only within region) / `GLOBAL` (routes across regions) |
+| **IPv4 support** | Always enabled |
+| **IPv6 support** | Optional (internal ULA or external GUA per subnet) |
+| **Max VPCs per project** | Default 15 (quota-adjustable) |
+| **Max subnets per VPC** | No hard limit (thousands supported) |
+| **Firewall rules** | Applied at instance level (not subnet level); stateful |
+| **MTU** | Configurable (default 1460; up to 8896 with Jumbo Frames) |
+| **Shared VPC** | One host project; multiple service projects can attach |
+| **VPC Peering** | Direct private connectivity between two VPCs (non-transitive) |
+| **Private Google Access** | Instances without public IPs reach Google APIs privately |
+| **DNS** | Automatic internal DNS; Cloud DNS for private zones |
+
+---
+
+## Routing modes compared
+
+| Routing mode | Route visibility | Use case |
+|-------------|-----------------|----------|
+| **REGIONAL** | Each Cloud Router only sees subnets in its own region | Most production deployments; clean regional isolation |
+| **GLOBAL** | Cloud Routers advertise and receive routes from all regions | Multi-region hybrid connectivity; dynamic global failover |
+
+---
+
+## VPC connectivity options
+
+| Option | Description | Transitive routing |
+|--------|-------------|:-----------------:|
+| **VPC Peering** | Private routing between two VPCs (same or different projects) | ❌ |
+| **Shared VPC** | Centralised networking; service projects share host project VPC | ✅ (within shared) |
+| **Cloud VPN** | Encrypted IPsec tunnels to external networks | ✅ (via Cloud Router) |
+| **Cloud Interconnect** | Dedicated/Partner private circuits to on-premises | ✅ (via Cloud Router) |
+| **Network Connectivity Center** | Hub-and-spoke topology for multi-site connectivity | ✅ (via NCC hub) |
+| **Private Service Connect** | Expose/consume services across VPCs without peering | N/A |
+
+---
+
 ## Where networks fit in the GCP hierarchy
 
 Typical resource flow:
@@ -201,10 +243,25 @@ Why this works:
 
 ---
 
+## Terraform resources commonly used
+
+| Resource | Purpose |
+|----------|---------|
+| [`google_compute_network`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) | Creates a VPC network (custom or auto mode) |
+| [`google_compute_subnetwork`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork) | Creates subnets within the VPC |
+| [`google_compute_firewall`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | Defines ingress/egress firewall rules |
+| [`google_compute_shared_vpc_host_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_shared_vpc_host_project) | Enables Shared VPC on the host project |
+| [`google_compute_shared_vpc_service_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_shared_vpc_service_project) | Attaches a service project to a Shared VPC host |
+| [`google_compute_network_peering`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network_peering) | Creates VPC peering between two networks |
+| [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) | Enables the `compute.googleapis.com` API |
+
+---
+
 ## Related Docs
 
-- [GCP VPC Module README](README.md)
-- [GCP Subnet Module README](../gcp_subnet/README.md)
+- [GCP Networks Module README](README.md)
+- [GCP Networks Deployment Plan](../../../tf-plans/gcp_networks/README.md)
+- [GCP Subnetworks Module README](../gcp_subnetworks/README.md)
 - [GCP Subnetworks Practical Guide](../gcp_subnetworks/gcp-subnetworks.md)
 - [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../../gcp-service-list-definitions.md)

@@ -99,7 +99,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
-| 🟢 **IAM** | No direct service fee | Access control itself is free | https://cloud.google.com/iam/pricing |
+| 🟢 **IAM** | No direct service fee | Access control itself is free — **[Module](modules/security/gcp_iam/README.md)** | https://cloud.google.com/iam/pricing |
 | 🟢 **Organization Policy** | No direct service fee | Constraint enforcement at org/folder/project level is free | https://cloud.google.com/resource-manager/docs/organization-policy/overview |
 | 🟢 **Essential Contacts** | No direct service fee | Notification contact registration is free | https://cloud.google.com/resource-manager/docs/managing-notification-contacts |
 | 🟢 **Resource Manager (Org/Folder/Project)** | No direct service fee | Managing the hierarchy is free; costs come from resources deployed within projects | https://cloud.google.com/resource-manager/pricing |
@@ -108,6 +108,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🔴 **Security Command Center (premium tiers)** | Per protected resource / tier-based features | Enterprise-scale orgs can incur substantial security tooling costs | https://cloud.google.com/security-command-center/pricing |
 | 🟡 **Cloud Armor** | Policy/rule pricing + request volume + advanced protection options | High request APIs/apps can drive WAF costs noticeably | https://cloud.google.com/armor/pricing |
 | 🟡 **reCAPTCHA Enterprise** | Per assessment / challenge volume | Public apps with high traffic can exceed free allocations quickly | https://cloud.google.com/recaptcha-enterprise/pricing |
+| 🟢 **Certificate Manager** | No standalone fee; pay for certificate map entries and operations | Typically low cost for most certificate lifecycle workflows | https://cloud.google.com/certificate-manager/pricing |
+| 🟢 **Advisory Notifications** | No standalone fee | Notification delivery and subscription management is free | https://cloud.google.com/advisory-notifications/docs/overview |
 
 ---
 
@@ -170,7 +172,10 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [GCP IAM Module](modules/security/gcp_iam/README.md)
+- [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
+- [Security Service Explainers](modules/security/)
 - [Release Notes](RELEASE.md)

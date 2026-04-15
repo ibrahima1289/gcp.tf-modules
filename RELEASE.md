@@ -4,6 +4,18 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-15
+- Created [Cloud Identity Groups service explainer](modules/security/gcp_group/gcp-group.md) covering group types, membership roles, IAM principal usage, nesting, and governance.
+- Created security service explainers for [Advisory Notifications](modules/security/gcp_advisory_notification/gcp-advisory-notification.md), [Secret Manager](modules/security/gcp_secret_manager/gcp-secret-manager.md), [Cloud KMS](modules/security/gcp_cloud_kms/gcp-cloud-kms.md), [Certificate Authority Service](modules/security/gcp_certificate_authority/gcp-certificate-authority.md), and [Certificate Manager](modules/security/gcp_certificate_manager/gcp-certificate-manager.md).
+- Added `create` boolean toggle to all four [GCP IAM module](modules/security/gcp_iam/README.md) list variables for selective resource creation.
+- Updated root indexes and service definitions to reflect new security explainer docs and IAM module enhancement.
+
+## 2026-04-14
+- Created [GCP IAM module](modules/security/gcp_iam/README.md) with service accounts, custom roles, and IAM bindings across project, folder, and org.
+- Added [GCP IAM deployment plan](tf-plans/gcp_iam/README.md) with wrapper files, two example configurations (CI/CD pipeline SA + folder-scoped member), and documented apply workflow.
+- Created [GCP IAM service explainer](modules/security/gcp_iam/gcp-iam.md) covering principals, roles, policy inheritance, custom roles, and audit logging.
+- Updated root indexes, service definitions, pricing guide, and deployment guide to include IAM module and plan references.
+
 ## 2026-04-13
 - Created [GCP Cloud Router module](modules/networking/gcp_cloud_router/README.md) supporting multi-router deployments, optional BGP interfaces and peers, BFD, and custom route advertisement.
 - Added [GCP Cloud Router deployment plan](tf-plans/gcp_cloud_router/README.md) with wrapper files, two example configurations, and documented apply workflow.

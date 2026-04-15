@@ -13,8 +13,8 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **7** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md) |
-| **Service Explainer docs in modules** | **25** — [Hierarchy](modules/hierarchy/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/) |
+| **Terraform Modules in repo** | **8** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md) |
+| **Service Explainer docs in modules** | **32** — [Hierarchy](modules/hierarchy/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/) |
 
 ---
 
@@ -146,17 +146,19 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Identity and Access Management (IAM) | ✅ | [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) / [`google_service_account`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account) |
-| Cloud Identity | ✅ | [`google_cloud_identity_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group) |
-| Secret Manager | ✅ | [`google_secret_manager_secret`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret) |
-| Cloud KMS | ✅ | [`google_kms_key_ring`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) / [`google_kms_crypto_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key) |
+| Identity and Access Management (IAM) | ✅ | [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) / [`google_service_account`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account) · [`google_project_iam_custom_role`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_custom_role) — **[Module](modules/security/gcp_iam/README.md)** |
+| Cloud Identity Groups | ✅ | [`google_cloud_identity_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group) · [`google_cloud_identity_group_membership`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) — **[Explainer](modules/security/gcp_group/gcp-group.md)** |
+| Secret Manager | ✅ | [`google_secret_manager_secret`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret) — **[Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)** |
+| Cloud KMS | ✅ | [`google_kms_key_ring`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) / [`google_kms_crypto_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key) — **[Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)** |
 | Cloud HSM | ✅ | Via `protection_level = "HSM"` on `google_kms_crypto_key` |
-| Certificate Authority Service | ✅ | [`google_privateca_certificate_authority`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/privateca_certificate_authority) |
+| Certificate Authority Service | ✅ | [`google_privateca_certificate_authority`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/privateca_certificate_authority) — **[Explainer](modules/security/gcp_certificate_authority/gcp-certificate-authority.md)** |
+| Certificate Manager | ✅ | [`google_certificate_manager_certificate`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/certificate_manager_certificate) · [`google_certificate_manager_certificate_map`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/certificate_manager_certificate_map) — **[Explainer](modules/security/gcp_certificate_manager/gcp-certificate-manager.md)** |
 | Security Command Center | ⚠️ | [`google_scc_notification_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/scc_notification_config) (limited) |
 | Cloud Armor | ✅ | [`google_compute_security_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_security_policy) |
 | reCAPTCHA Enterprise | ✅ | [`google_recaptcha_enterprise_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/recaptcha_enterprise_key) |
 | BeyondCorp Enterprise | ✅ | [`google_beyondcorp_app_connection`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/beyondcorp_app_connection) |
 | VPC Service Controls | ✅ | [`google_access_context_manager_service_perimeter`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/access_context_manager_service_perimeter) |
+| Advisory Notifications | ✅ | [`google_advisory_notifications_settings`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/advisory_notifications_settings) — **[Explainer](modules/security/gcp_advisory_notification/gcp-advisory-notification.md)** |
 
 ### Management, Monitoring & DevOps
 
@@ -226,7 +228,16 @@ Organization
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [GCP IAM Module](modules/security/gcp_iam/README.md)
+- [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [Cloud Identity Groups Explainer](modules/security/gcp_group/gcp-group.md)
+- [Secret Manager Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)
+- [Cloud KMS Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)
+- [Certificate Authority Service Explainer](modules/security/gcp_certificate_authority/gcp-certificate-authority.md)
+- [Certificate Manager Explainer](modules/security/gcp_certificate_manager/gcp-certificate-manager.md)
+- [Advisory Notifications Explainer](modules/security/gcp_advisory_notification/gcp-advisory-notification.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
+- [Security Service Explainers](modules/security/)
 - [Release Notes](RELEASE.md)

@@ -108,12 +108,14 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Identity and Access Management (IAM) | Fine-grained access control for users, groups, service accounts, and resources. |
-| Cloud Identity | Identity, endpoint, and access management platform for workforce and device governance. |
-| Secret Manager | Managed service for storing, rotating, and accessing secrets securely. |
-| Cloud Key Management Service (KMS) | Managed encryption key lifecycle service using software or HSM-backed keys. |
+| Identity and Access Management (IAM) | Fine-grained access control for users, groups, service accounts, and resources. — **[Module](modules/security/gcp_iam/README.md)** |
+| Cloud Identity | Identity, endpoint, and access management platform for workforce and device governance. — **[Explainer](modules/security/gcp_group/gcp-group.md)** |
+| Secret Manager | Managed service for storing, rotating, and accessing secrets securely. — **[Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)** |
+| Cloud Key Management Service (KMS) | Managed encryption key lifecycle service using software or HSM-backed keys. — **[Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)** |
 | Cloud HSM | Hardware security modules for dedicated cryptographic key operations. |
-| Certificate Authority Service | Managed private PKI for issuing and managing X.509 certificates. |
+| Certificate Authority Service | Managed private PKI for issuing and managing X.509 certificates. — **[Explainer](modules/security/gcp_certificate_authority/gcp-certificate-authority.md)** |
+| Certificate Manager | Managed TLS/SSL certificate provisioning, renewal, and map-based assignment service for Google Cloud load balancers. — **[Explainer](modules/security/gcp_certificate_manager/gcp-certificate-manager.md)** |
+| Advisory Notifications | Managed service that delivers security, privacy, and compliance notifications from Google to organization administrators via subscriptions and Essential Contacts. — **[Explainer](modules/security/gcp_advisory_notification/gcp-advisory-notification.md)** |
 | Security Command Center | Security posture and threat management platform for Google Cloud resources. |
 | Cloud Armor | DDoS protection and web application firewall (WAF) service. |
 | reCAPTCHA Enterprise | Fraud and abuse protection for web and mobile applications. |
@@ -199,7 +201,10 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [GCP IAM Module](modules/security/gcp_iam/README.md)
+- [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
+- [Security Service Explainers](modules/security/)
 - [Release Notes](RELEASE.md)

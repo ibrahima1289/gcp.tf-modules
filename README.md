@@ -25,6 +25,8 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud NAT](modules/networking/gcp_cloud_nat/README.md) | `modules/networking/gcp_cloud_nat` | Creates one or many Cloud NAT configurations with optional router creation, manual/auto NAT IP allocation, and logging controls. |
 | [GCP Cloud Router](modules/networking/gcp_cloud_router/README.md) | `modules/networking/gcp_cloud_router` | Creates one or many Cloud Routers with optional BGP interfaces and peers for VPN, Interconnect, and custom route advertisement. |
 | [GCP IAM](modules/security/gcp_iam/README.md) | `modules/security/gcp_iam` | Creates service accounts, custom IAM roles, and authoritative or additive IAM bindings across project, folder, and organization scopes. |
+| [GCP Cloud Storage](modules/storage/gcp_cloud_storage/README.md) | `modules/storage/gcp_cloud_storage` | Creates one or many Cloud Storage buckets with lifecycle rules, versioning, CMEK, logging, CORS, website hosting, autoclass, and soft-delete controls. |
+| [GCP Cloud Identity Groups](modules/security/gcp_group/README.md) | `modules/security/gcp_group` | Creates Cloud Identity groups with memberships and role assignments for IAM-at-scale governance. |
 
 ## Deployment Plans
 
@@ -38,6 +40,8 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud NAT](tf-plans/gcp_cloud_nat/README.md) | `tf-plans/gcp_cloud_nat` | [modules/networking/gcp_cloud_nat](modules/networking/gcp_cloud_nat/README.md) |
 | [GCP Cloud Router](tf-plans/gcp_cloud_router/README.md) | `tf-plans/gcp_cloud_router` | [modules/networking/gcp_cloud_router](modules/networking/gcp_cloud_router/README.md) |
 | [GCP IAM](tf-plans/gcp_iam/README.md) | `tf-plans/gcp_iam` | [modules/security/gcp_iam](modules/security/gcp_iam/README.md) |
+| [GCP Cloud Storage](tf-plans/gcp_cloud_storage/README.md) | `tf-plans/gcp_cloud_storage` | [modules/storage/gcp_cloud_storage](modules/storage/gcp_cloud_storage/README.md) |
+| [GCP Cloud Identity Groups](tf-plans/gcp_group/README.md) | `tf-plans/gcp_group` | [modules/security/gcp_group](modules/security/gcp_group/README.md) |
 
 ---
 
@@ -47,6 +51,6 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 |----------|------|-------------|
 | [Hierarchy Explainers](modules/hierarchy/) | `modules/hierarchy` | Practical explainers for organization, folder, and project service concepts and implementation patterns. |
 | [Compute Explainers](modules/compute/) | `modules/compute` | Practical explainers for VM, GKE, Cloud Run, App Engine, and Batch real-world usage. |
-| [Storage Explainers](modules/storage/) | `modules/storage` | Practical explainers for object, file, block, backup, and performance storage service choices. |
+| [Storage Explainers](modules/storage/) | `modules/storage` | Practical explainers for Cloud Storage, Filestore, Persistent Disk, Hyperdisk, backup, and performance storage choices. |
 | [Networking Explainers](modules/networking/) | `modules/networking` | Practical explainers for VPC, subnetworks, DNS, VPN, NAT, routing, and traffic management services. |
 | [Security Explainers](modules/security/) | `modules/security` | Practical explainers for IAM, Cloud Identity Groups, KMS, Secret Manager, Certificate Authority Service, Certificate Manager, Advisory Notifications, and related security services. |

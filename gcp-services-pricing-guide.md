@@ -32,7 +32,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
-| 🟡 **Cloud Storage** | Per GB-month by class + operations + retrieval + egress | 1 TB Standard storage is moderate monthly cost; Archive is much cheaper for cold data | https://cloud.google.com/storage/pricing |
+| 🟡 **Cloud Storage** | Per GB-month by class + operations + retrieval + egress | 1 TB Standard storage is moderate monthly cost; Archive is much cheaper for cold data — **[Module](modules/storage/gcp_cloud_storage/README.md)** | https://cloud.google.com/storage/pricing |
 | 🟡 **Filestore** | Provisioned capacity + performance tier | Enterprise and high-throughput tiers scale quickly in cost | https://cloud.google.com/filestore/pricing |
 | 🟡 **Persistent Disk / Hyperdisk** | Per provisioned GB-month + provisioned performance (for some disk types) | SSD and high-IOPS hyperdisk profiles cost more than balanced/standard | https://cloud.google.com/compute/disks-image-pricing |
 | 🟡 **Backup and DR** | Protected capacity + snapshots + backup storage + transfer | Cost depends on retention period and backup frequency | https://cloud.google.com/backup-disaster-recovery/pricing |
@@ -100,6 +100,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
 | 🟢 **IAM** | No direct service fee | Access control itself is free — **[Module](modules/security/gcp_iam/README.md)** | https://cloud.google.com/iam/pricing |
+| 🟢 **Cloud Identity Groups** | No direct service fee for group management | Groups are free; Cloud Identity Premium has per-user charges for advanced features — **[Module](modules/security/gcp_group/README.md)** | https://cloud.google.com/identity/pricing |
 | 🟢 **Organization Policy** | No direct service fee | Constraint enforcement at org/folder/project level is free | https://cloud.google.com/resource-manager/docs/organization-policy/overview |
 | 🟢 **Essential Contacts** | No direct service fee | Notification contact registration is free | https://cloud.google.com/resource-manager/docs/managing-notification-contacts |
 | 🟢 **Resource Manager (Org/Folder/Project)** | No direct service fee | Managing the hierarchy is free; costs come from resources deployed within projects | https://cloud.google.com/resource-manager/pricing |
@@ -174,6 +175,10 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
+- [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
+- [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)
+- [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

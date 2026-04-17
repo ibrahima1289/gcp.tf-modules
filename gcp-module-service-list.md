@@ -13,7 +13,7 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **8** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md) |
+| **Terraform Modules in repo** | **10** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md) |
 | **Service Explainer docs in modules** | **32** — [Hierarchy](modules/hierarchy/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/) |
 
 ---
@@ -74,7 +74,7 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Cloud Storage | ✅ | [`google_storage_bucket`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) |
+| Cloud Storage | ✅ | [`google_storage_bucket`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket) — **[Module](modules/storage/gcp_cloud_storage/README.md)** |
 | Filestore | ✅ | [`google_filestore_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/filestore_instance) |
 | Persistent Disk | ✅ | [`google_compute_disk`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk) |
 | Hyperdisk | ✅ | [`google_compute_disk`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk) (type = `hyperdisk-*`) |
@@ -147,7 +147,7 @@ Organization
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
 | Identity and Access Management (IAM) | ✅ | [`google_project_iam_binding`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) / [`google_service_account`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account) · [`google_project_iam_custom_role`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_custom_role) — **[Module](modules/security/gcp_iam/README.md)** |
-| Cloud Identity Groups | ✅ | [`google_cloud_identity_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group) · [`google_cloud_identity_group_membership`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) — **[Explainer](modules/security/gcp_group/gcp-group.md)** |
+| Cloud Identity Groups | ✅ | [`google_cloud_identity_group`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group) · [`google_cloud_identity_group_membership`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_identity_group_membership) — **[Module](modules/security/gcp_group/README.md)** |
 | Secret Manager | ✅ | [`google_secret_manager_secret`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret) — **[Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)** |
 | Cloud KMS | ✅ | [`google_kms_key_ring`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_key_ring) / [`google_kms_crypto_key`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key) — **[Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)** |
 | Cloud HSM | ✅ | Via `protection_level = "HSM"` on `google_kms_crypto_key` |
@@ -230,6 +230,10 @@ Organization
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
+- [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
+- [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)
+- [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
 - [Cloud Identity Groups Explainer](modules/security/gcp_group/gcp-group.md)
 - [Secret Manager Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)
 - [Cloud KMS Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)

@@ -26,7 +26,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Cloud Storage | Object storage for unstructured data with Standard, Nearline, Coldline, and Archive classes. |
+| Cloud Storage | Object storage for unstructured data with Standard, Nearline, Coldline, and Archive classes. — **[Module](modules/storage/gcp_cloud_storage/README.md)** |
 | Filestore | Managed NFS file storage for applications requiring shared POSIX-compatible file systems. |
 | Persistent Disk | Durable block storage for Compute Engine and GKE workloads. |
 | Hyperdisk | High-performance, scalable block storage family for demanding IOPS and throughput requirements. |
@@ -203,6 +203,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
+- [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

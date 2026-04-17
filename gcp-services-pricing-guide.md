@@ -32,7 +32,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
-| 🟡 **Cloud Storage** | Per GB-month by class + operations + retrieval + egress | 1 TB Standard storage is moderate monthly cost; Archive is much cheaper for cold data | https://cloud.google.com/storage/pricing |
+| 🟡 **Cloud Storage** | Per GB-month by class + operations + retrieval + egress | 1 TB Standard storage is moderate monthly cost; Archive is much cheaper for cold data — **[Module](modules/storage/gcp_cloud_storage/README.md)** | https://cloud.google.com/storage/pricing |
 | 🟡 **Filestore** | Provisioned capacity + performance tier | Enterprise and high-throughput tiers scale quickly in cost | https://cloud.google.com/filestore/pricing |
 | 🟡 **Persistent Disk / Hyperdisk** | Per provisioned GB-month + provisioned performance (for some disk types) | SSD and high-IOPS hyperdisk profiles cost more than balanced/standard | https://cloud.google.com/compute/disks-image-pricing |
 | 🟡 **Backup and DR** | Protected capacity + snapshots + backup storage + transfer | Cost depends on retention period and backup frequency | https://cloud.google.com/backup-disaster-recovery/pricing |
@@ -174,6 +174,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
+- [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

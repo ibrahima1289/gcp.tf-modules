@@ -4,11 +4,11 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
-## 2026-04-15
-- Created [Cloud Identity Groups service explainer](modules/security/gcp_group/gcp-group.md) covering group types, membership roles, IAM principal usage, nesting, and governance.
-- Created security service explainers for [Advisory Notifications](modules/security/gcp_advisory_notification/gcp-advisory-notification.md), [Secret Manager](modules/security/gcp_secret_manager/gcp-secret-manager.md), [Cloud KMS](modules/security/gcp_cloud_kms/gcp-cloud-kms.md), [Certificate Authority Service](modules/security/gcp_certificate_authority/gcp-certificate-authority.md), and [Certificate Manager](modules/security/gcp_certificate_manager/gcp-certificate-manager.md).
-- Added `create` boolean toggle to all four [GCP IAM module](modules/security/gcp_iam/README.md) list variables for selective resource creation.
-- Updated root indexes and service definitions to reflect new security explainer docs and IAM module enhancement.
+## 2026-04-15 — Cloud Storage
+- Created [GCP Cloud Storage module](modules/storage/gcp_cloud_storage/README.md) with versioning, lifecycle, CMEK, CORS, and autoclass.
+- Added [Cloud Storage deployment plan](tf-plans/gcp_cloud_storage/README.md) with two example bucket configurations.
+- Updated root indexes, service definitions, pricing guide, and deployment guide with Cloud Storage references.
+- Created [Cloud Identity Groups service explainer](modules/security/gcp_group/gcp-group.md) and five other security explainers.
 
 ## 2026-04-14
 - Created [GCP IAM module](modules/security/gcp_iam/README.md) with service accounts, custom roles, and IAM bindings across project, folder, and org.

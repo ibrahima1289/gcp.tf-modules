@@ -109,7 +109,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Service | Definition |
 |---------|------------|
 | Identity and Access Management (IAM) | Fine-grained access control for users, groups, service accounts, and resources. — **[Module](modules/security/gcp_iam/README.md)** |
-| Cloud Identity | Identity, endpoint, and access management platform for workforce and device governance. — **[Explainer](modules/security/gcp_group/gcp-group.md)** |
+| Cloud Identity | Identity, endpoint, and access management platform for workforce and device governance. — **[Explainer](modules/security/gcp_group/gcp-group.md)** · **[Module](modules/security/gcp_group/README.md)** |
 | Secret Manager | Managed service for storing, rotating, and accessing secrets securely. — **[Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)** |
 | Cloud Key Management Service (KMS) | Managed encryption key lifecycle service using software or HSM-backed keys. — **[Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)** |
 | Cloud HSM | Hardware security modules for dedicated cryptographic key operations. |
@@ -205,6 +205,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
+- [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)
+- [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

@@ -26,6 +26,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Router](modules/networking/gcp_cloud_router/README.md) | `modules/networking/gcp_cloud_router` | Creates one or many Cloud Routers with optional BGP interfaces and peers for VPN, Interconnect, and custom route advertisement. |
 | [GCP IAM](modules/security/gcp_iam/README.md) | `modules/security/gcp_iam` | Creates service accounts, custom IAM roles, and authoritative or additive IAM bindings across project, folder, and organization scopes. |
 | [GCP Cloud Storage](modules/storage/gcp_cloud_storage/README.md) | `modules/storage/gcp_cloud_storage` | Creates one or many Cloud Storage buckets with lifecycle rules, versioning, CMEK, logging, CORS, website hosting, autoclass, and soft-delete controls. |
+| [GCP Cloud Identity Groups](modules/security/gcp_group/README.md) | `modules/security/gcp_group` | Creates Cloud Identity groups with memberships and role assignments for IAM-at-scale governance. |
 
 ## Deployment Plans
 
@@ -40,6 +41,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Router](tf-plans/gcp_cloud_router/README.md) | `tf-plans/gcp_cloud_router` | [modules/networking/gcp_cloud_router](modules/networking/gcp_cloud_router/README.md) |
 | [GCP IAM](tf-plans/gcp_iam/README.md) | `tf-plans/gcp_iam` | [modules/security/gcp_iam](modules/security/gcp_iam/README.md) |
 | [GCP Cloud Storage](tf-plans/gcp_cloud_storage/README.md) | `tf-plans/gcp_cloud_storage` | [modules/storage/gcp_cloud_storage](modules/storage/gcp_cloud_storage/README.md) |
+| [GCP Cloud Identity Groups](tf-plans/gcp_group/README.md) | `tf-plans/gcp_group` | [modules/security/gcp_group](modules/security/gcp_group/README.md) |
 
 ---
 

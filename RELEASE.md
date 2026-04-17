@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-16 — Cloud Identity Groups
+- Created [GCP Cloud Identity Groups module](modules/security/gcp_group/README.md) with group creation, membership management, and role assignment.
+- Added [Cloud Identity Groups deployment plan](tf-plans/gcp_group/README.md) with two example groups and membership configurations.
+- Updated root indexes, service definitions, and deployment guide with Cloud Identity Groups references.
+- Cloud Identity Groups enable IAM-at-scale by binding roles to groups rather than individual principals.
+
 ## 2026-04-15 — Cloud Storage
 - Created [GCP Cloud Storage module](modules/storage/gcp_cloud_storage/README.md) with versioning, lifecycle, CMEK, CORS, and autoclass.
 - Added [Cloud Storage deployment plan](tf-plans/gcp_cloud_storage/README.md) with two example bucket configurations.

@@ -17,9 +17,9 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 
 | Module | Path | Description |
 |--------|------|-------------|
-| [GCP Organization](modules/hierarchy/organization/README.md) | `modules/hierarchy/organization` | Manages org-level IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. Org node is looked up via data source. |
-| [GCP Folder](modules/hierarchy/folder/README.md) | `modules/hierarchy/folder` | Creates one or many folders with optional nested hierarchy, folder IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. |
-| [GCP Project](modules/hierarchy/project/README.md) | `modules/hierarchy/project` | Creates one or many projects with parent validation (org or folder), optional API enablement, labels, and safe lifecycle handling. |
+| [GCP Organization](modules/governance/organization/README.md) | `modules/governance/organization` | Manages org-level IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. Org node is looked up via data source. |
+| [GCP Folder](modules/governance/folder/README.md) | `modules/governance/folder` | Creates one or many folders with optional nested hierarchy, folder IAM, OrgPolicy v2 constraints, log sinks, and essential contacts. |
+| [GCP Project](modules/governance/project/README.md) | `modules/governance/project` | Creates one or many projects with parent validation (org or folder), optional API enablement, labels, and safe lifecycle handling. |
 | [GCP Subnetworks](modules/networking/gcp_subnetworks/README.md) | `modules/networking/gcp_subnetworks` | Creates one or many regional VPC subnetworks with secondary ranges, private Google access, and optional VPC Flow Logs. |
 | [GCP Networks (VPC)](modules/networking/gcp_networks/README.md) | `modules/networking/gcp_networks` | Creates one or many custom-mode VPC networks with configurable routing mode, MTU, internal IPv6, firewall policy order, and optional Shared VPC host registration. |
 | [GCP Cloud NAT](modules/networking/gcp_cloud_nat/README.md) | `modules/networking/gcp_cloud_nat` | Creates one or many Cloud NAT configurations with optional router creation, manual/auto NAT IP allocation, and logging controls. |
@@ -33,9 +33,9 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 
 | Plan | Path | Module Used |
 |------|------|-------------|
-| [GCP Organization](tf-plans/gcp_organization/README.md) | `tf-plans/gcp_organization` | [modules/hierarchy/organization](modules/hierarchy/organization/README.md) |
-| [GCP Folder](tf-plans/gcp_folder/README.md) | `tf-plans/gcp_folder` | [modules/hierarchy/folder](modules/hierarchy/folder/README.md) |
-| [GCP Project](tf-plans/gcp_project/README.md) | `tf-plans/gcp_project` | [modules/hierarchy/project](modules/hierarchy/project/README.md) |
+| [GCP Organization](tf-plans/gcp_organization/README.md) | `tf-plans/gcp_organization` | [modules/governance/organization](modules/governance/organization/README.md) |
+| [GCP Folder](tf-plans/gcp_folder/README.md) | `tf-plans/gcp_folder` | [modules/governance/folder](modules/governance/folder/README.md) |
+| [GCP Project](tf-plans/gcp_project/README.md) | `tf-plans/gcp_project` | [modules/governance/project](modules/governance/project/README.md) |
 | [GCP Subnetworks](tf-plans/gcp_subnetworks/README.md) | `tf-plans/gcp_subnetworks` | [modules/networking/gcp_subnetworks](modules/networking/gcp_subnetworks/README.md) |
 | [GCP Networks (VPC)](tf-plans/gcp_networks/README.md) | `tf-plans/gcp_networks` | [modules/networking/gcp_networks](modules/networking/gcp_networks/README.md) |
 | [GCP Cloud NAT](tf-plans/gcp_cloud_nat/README.md) | `tf-plans/gcp_cloud_nat` | [modules/networking/gcp_cloud_nat](modules/networking/gcp_cloud_nat/README.md) |
@@ -51,8 +51,10 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 
 | Category | Path | Description |
 |----------|------|-------------|
-| [Hierarchy Explainers](modules/hierarchy/) | `modules/hierarchy` | Practical explainers for organization, folder, and project service concepts and implementation patterns. |
+| [Hierarchy Explainers](modules/governance/) | `modules/hierarchy` | Practical explainers for organization, folder, and project service concepts and implementation patterns. |
 | [Compute Explainers](modules/compute/) | `modules/compute` | Practical explainers for VM, GKE, Cloud Run, App Engine, and Batch real-world usage. |
 | [Storage Explainers](modules/storage/) | `modules/storage` | Practical explainers for Cloud Storage, Filestore, Persistent Disk, Hyperdisk, backup, and performance storage choices. |
 | [Networking Explainers](modules/networking/) | `modules/networking` | Practical explainers for VPC, subnetworks, DNS, VPN, NAT, routing, and traffic management services. |
 | [Security Explainers](modules/security/) | `modules/security` | Practical explainers for IAM, Cloud Identity Groups, KMS, Secret Manager, Certificate Authority Service, Certificate Manager, Advisory Notifications, and related security services. |
+| [Database Explainers](modules/database/) | `modules/database` | Practical explainers for Cloud SQL, AlloyDB, Spanner, Firestore, Bigtable, Memorystore, Datastream, and Database Migration Service. |
+| [Governance Explainers](modules/governance/) | `modules/governance` | Practical explainers for Resource Manager, Cloud Billing, Cloud Quotas, and Labels. |

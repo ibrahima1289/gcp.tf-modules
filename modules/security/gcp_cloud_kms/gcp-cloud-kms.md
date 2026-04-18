@@ -2,7 +2,7 @@
 
 Google Cloud Key Management Service (Cloud KMS) is a managed cryptographic key lifecycle service. It provides centralized creation, storage, rotation, and destruction of encryption keys, and exposes a consistent API for encrypt, decrypt, sign, and verify operations across Google Cloud services and customer applications.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -165,7 +165,7 @@ All Cloud KMS operations are captured in Cloud Audit Logs:
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP IAM Service Explainer](../gcp_iam/gcp-iam.md)
 - [GCP Secret Manager Service Explainer](../gcp_secret_manager/gcp-secret-manager.md)

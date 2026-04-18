@@ -354,4 +354,6 @@ Recommended production workflow:
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
 - [Security Service Explainers](modules/security/)
+- [Database Service Explainers](modules/database/)
+- [Governance Service Explainers](modules/governance/)
 - [Release Notes](RELEASE.md)

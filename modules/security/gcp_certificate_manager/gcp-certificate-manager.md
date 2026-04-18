@@ -2,7 +2,7 @@
 
 Google Cloud Certificate Manager is a managed service for provisioning, deploying, and renewing TLS/SSL certificates at scale on Google Cloud load balancers and other supported endpoints. It supports Google-managed certificates (automatic issuance and renewal), self-managed certificates (bring your own), and certificates issued from a private CA via Certificate Authority Service.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -137,7 +137,7 @@ DnsAuthorization (proves domain ownership)
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP Certificate Authority Service Explainer](../gcp_certificate_authority/gcp-certificate-authority.md)
 - [GCP Cloud KMS Service Explainer](../gcp_cloud_kms/gcp-cloud-kms.md)

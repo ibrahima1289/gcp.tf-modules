@@ -103,7 +103,10 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🟢 **Cloud Identity Groups** | No direct service fee for group management | Groups are free; Cloud Identity Premium has per-user charges for advanced features — **[Module](modules/security/gcp_group/README.md)** | https://cloud.google.com/identity/pricing |
 | 🟢 **Organization Policy** | No direct service fee | Constraint enforcement at org/folder/project level is free | https://cloud.google.com/resource-manager/docs/organization-policy/overview |
 | 🟢 **Essential Contacts** | No direct service fee | Notification contact registration is free | https://cloud.google.com/resource-manager/docs/managing-notification-contacts |
-| 🟢 **Resource Manager (Org/Folder/Project)** | No direct service fee | Managing the hierarchy is free; costs come from resources deployed within projects | https://cloud.google.com/resource-manager/pricing |
+| 🟢 **Resource Manager (Org/Folder/Project)** | No direct service fee | Managing the hierarchy is free; costs come from resources deployed within projects — **[Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)** | https://cloud.google.com/resource-manager/pricing |
+| 🟢 **Cloud Billing** | No direct service fee | Billing account management, budget alerts, and export are free — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** | https://cloud.google.com/billing/pricing |
+| 🟢 **Cloud Quotas** | No direct service fee | Quota preference requests and monitoring are free — **[Explainer](modules/governance/gcp_quotas/gcp-quotas.md)** | https://cloud.google.com/docs/quota |
+| 🟢 **Labels** | No direct service fee | Label metadata and billing export attribution are free — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** | https://cloud.google.com/resource-manager/docs/creating-managing-labels |
 | 🟡 **Secret Manager** | Per active secret version + access operations | Large numbers of secrets/reads can become moderate monthly spend | https://cloud.google.com/secret-manager/pricing |
 | 🟡 **Cloud KMS / Cloud HSM** | Per key version + cryptographic operations (and HSM premium for HSM-backed keys) | High request rate encryption can grow cost steadily | https://cloud.google.com/kms/pricing |
 | 🔴 **Security Command Center (premium tiers)** | Per protected resource / tier-based features | Enterprise-scale orgs can incur substantial security tooling costs | https://cloud.google.com/security-command-center/pricing |
@@ -166,9 +169,9 @@ A practical pricing reference for major Google Cloud services, including pricing
 
 - [GCP Module & Service Hierarchy](gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](gcp-service-list-definitions.md)
-- [GCP Organization Module](modules/hierarchy/organization/README.md)
-- [GCP Folder Module](modules/hierarchy/folder/README.md)
-- [GCP Project Module](modules/hierarchy/project/README.md)
+- [GCP Organization Module](modules/governance/organization/README.md)
+- [GCP Folder Module](modules/governance/folder/README.md)
+- [GCP Project Module](modules/governance/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
@@ -179,8 +182,12 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
+- [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)
+- [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
 - [Security Service Explainers](modules/security/)
+- [Database Service Explainers](modules/database/)
+- [Governance Service Explainers](modules/governance/)
 - [Release Notes](RELEASE.md)

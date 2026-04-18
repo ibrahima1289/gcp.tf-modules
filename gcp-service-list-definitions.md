@@ -39,7 +39,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Cloud SQL | Fully managed relational database service for MySQL, PostgreSQL, and SQL Server. |
+| Cloud SQL | Fully managed relational database service for MySQL, PostgreSQL, and SQL Server. — **[Module](modules/database/gcp_cloud_sql/README.md)** |
 | AlloyDB for PostgreSQL | High-performance PostgreSQL-compatible managed database for transactional workloads. |
 | Cloud Spanner | Globally distributed, strongly consistent relational database with horizontal scalability. |
 | Firestore | Serverless NoSQL document database for mobile, web, and backend app development. |

@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-17 — Cloud SQL
+- Created [GCP Cloud SQL module](modules/database/gcp_cloud_sql/README.md) for MySQL, PostgreSQL, and SQL Server with HA, PITR, and private IP.
+- Added [Cloud SQL deployment plan](tf-plans/gcp_cloud_sql/README.md) with four example configurations covering all engine types.
+- Updated root indexes, service definitions, pricing guide, and deployment guide with Cloud SQL references.
+- Cloud SQL supports REGIONAL availability, Query Insights, IAM database auth, and Cloud SQL Auth Proxy connectivity.
+
 ## 2026-04-16 — Cloud Identity Groups
 - Created [GCP Cloud Identity Groups module](modules/security/gcp_group/README.md) with group creation, membership management, and role assignment.
 - Added [Cloud Identity Groups deployment plan](tf-plans/gcp_group/README.md) with two example groups and membership configurations.

@@ -2,7 +2,7 @@
 
 Google Cloud Secret Manager is a fully managed service for storing, accessing, and managing sensitive configuration data — API keys, passwords, certificates, database credentials, and other secrets — with fine-grained access control, automatic versioning, and audit logging built in.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -149,7 +149,7 @@ All Secret Manager operations are recorded in Cloud Audit Logs:
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP IAM Service Explainer](../gcp_iam/gcp-iam.md)
 - [GCP Cloud KMS Service Explainer](../gcp_cloud_kms/gcp-cloud-kms.md)

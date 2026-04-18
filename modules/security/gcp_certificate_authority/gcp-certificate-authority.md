@@ -2,7 +2,7 @@
 
 Google Cloud Certificate Authority Service (CAS) is a managed private PKI service for issuing, managing, and revoking X.509 certificates within an organization. It eliminates the operational burden of running self-managed CA infrastructure while providing full control over certificate policies, issuance rules, and key custody.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -147,7 +147,7 @@ CAS integrates with Google Cloud Certificate Manager, which handles certificate 
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP Cloud KMS Service Explainer](../gcp_cloud_kms/gcp-cloud-kms.md)
 - [GCP Certificate Manager Service Explainer](../gcp_certificate_manager/gcp-certificate-manager.md)

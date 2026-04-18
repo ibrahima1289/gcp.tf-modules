@@ -13,8 +13,8 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **10** — [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), [Project](modules/hierarchy/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md) |
-| **Service Explainer docs in modules** | **32** — [Hierarchy](modules/hierarchy/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/) |
+| **Terraform Modules in repo** | **11** — [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), [Project](modules/governance/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md), [Cloud SQL](modules/database/gcp_cloud_sql/README.md) |
+| **Service Explainer docs in modules** | **36** — [Hierarchy](modules/governance/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/), [Database](modules/database/), [Governance](modules/governance/) |
 
 ---
 
@@ -41,9 +41,9 @@ Organization
 
 | Level | Purpose | Notes | Terraform | Terraform Resource |
 |-------|---------|-------|:---------:|--------------------|
-| **Organization** | Top-most node representing a company/domain tenant in Google Cloud. | Central point for org-wide policies, IAM, and governance. Org node itself is created outside Terraform via Google Workspace/Cloud Identity. | ⚠️ | [`google_organization_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_organization_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/hierarchy/organization/README.md)** |
-| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_folder_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_folder_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_folder_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/hierarchy/folder/README.md)** |
-| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. | ✅ | [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) — **[Module](modules/hierarchy/project/README.md)** |
+| **Organization** | Top-most node representing a company/domain tenant in Google Cloud. | Central point for org-wide policies, IAM, and governance. Org node itself is created outside Terraform via Google Workspace/Cloud Identity. | ⚠️ | [`google_organization_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_organization_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/governance/organization/README.md)** |
+| **Folder** | Logical grouping for projects (e.g., by environment, business unit, or team). | Can be nested for delegated administration and policy boundaries. | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_folder_iam_member`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) · [`google_logging_folder_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_folder_sink) · [`google_essential_contacts_contact`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/essential_contacts_contact) — **[Module](modules/governance/folder/README.md)** |
+| **Project** | Primary isolation boundary for APIs, billing, quotas, and IAM bindings. | All deployable resources live inside a project. | ✅ | [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_project_service`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) — **[Module](modules/governance/project/README.md)** |
 | **Resources** | Actual cloud services (VMs, buckets, databases, load balancers, etc.). | Inherit policies from Organization → Folder → Project unless overridden. | ✅ | See [Service Hierarchy](#service-hierarchy-domain--services) tables below |
 
 ### Inheritance Model
@@ -85,7 +85,7 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Cloud SQL | ✅ | [`google_sql_database_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance) |
+| Cloud SQL | ✅ | [`google_sql_database_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance) · [`google_sql_database`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database) · [`google_sql_user`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) — **[Module](modules/database/gcp_cloud_sql/README.md)** |
 | AlloyDB for PostgreSQL | ✅ | [`google_alloydb_cluster`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/alloydb_cluster) |
 | Cloud Spanner | ✅ | [`google_spanner_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/spanner_instance) |
 | Firestore | ✅ | [`google_firestore_database`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/firestore_database) |
@@ -209,8 +209,11 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Cloud Billing | ✅ | [`google_billing_budget`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) |
+| Cloud Resource Manager | ✅ | [`google_folder`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder) · [`google_project`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) · [`google_org_policy_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_policy) — **[Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)** |
+| Cloud Billing | ✅ | [`google_billing_budget`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) · [`google_billing_project_info`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_project_info) — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** |
 | Billing Budgets & Alerts | ✅ | [`google_billing_budget`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) |
+| Cloud Quotas | ✅ | [`google_cloud_quotas_quota_preference`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_quotas_quota_preference) — **[Explainer](modules/governance/gcp_quotas/gcp-quotas.md)** |
+| Labels | ✅ | `labels` argument on most resources · [`google_org_policy_custom_constraint`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/org_policy_custom_constraint) — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** |
 | Cost Table / Billing Export | ⚠️ | Via `google_logging_billing_account_sink` / BigQuery export config |
 | FinOps Hub | ❌ | Console/API only; no Terraform resource |
 | Recommender | ❌ | Read-only advisory service; no Terraform resource |
@@ -221,9 +224,9 @@ Organization
 
 - [Google Cloud Service List — Definitions](gcp-service-list-definitions.md)
 - [Google Cloud Services Pricing Guide](gcp-services-pricing-guide.md)
-- [GCP Organization Module](modules/hierarchy/organization/README.md)
-- [GCP Folder Module](modules/hierarchy/folder/README.md)
-- [GCP Project Module](modules/hierarchy/project/README.md)
+- [GCP Organization Module](modules/governance/organization/README.md)
+- [GCP Folder Module](modules/governance/folder/README.md)
+- [GCP Project Module](modules/governance/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
@@ -244,4 +247,10 @@ Organization
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
 - [Security Service Explainers](modules/security/)
+- [Database Service Explainers](modules/database/)
+- [Governance Service Explainers](modules/governance/)
+- [Resource Manager Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)
+- [Cloud Billing Explainer](modules/governance/gcp_billing/gcp-billing.md)
+- [Cloud Quotas Explainer](modules/governance/gcp_quotas/gcp-quotas.md)
+- [Labels Explainer](modules/governance/gcp_labels/gcp-labels.md)
 - [Release Notes](RELEASE.md)

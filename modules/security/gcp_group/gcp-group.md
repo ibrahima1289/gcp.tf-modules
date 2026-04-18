@@ -2,7 +2,7 @@
 
 Google Cloud Identity Groups is a managed group service that organizes users, service accounts, and other groups into named collections for IAM policy assignment, access management, and organizational governance. Groups are the recommended mechanism for granting IAM access to sets of users — binding roles to groups rather than individual principals simplifies access management and reduces policy sprawl.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -178,7 +178,7 @@ Security group membership changes are additionally subject to access approvals i
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP IAM Service Explainer](../gcp_iam/gcp-iam.md)
 - [GCP Advisory Notifications Service Explainer](../gcp_advisory_notification/gcp-advisory-notification.md)

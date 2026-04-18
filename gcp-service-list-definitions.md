@@ -39,7 +39,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Cloud SQL | Fully managed relational database service for MySQL, PostgreSQL, and SQL Server. |
+| Cloud SQL | Fully managed relational database service for MySQL, PostgreSQL, and SQL Server. — **[Module](modules/database/gcp_cloud_sql/README.md)** |
 | AlloyDB for PostgreSQL | High-performance PostgreSQL-compatible managed database for transactional workloads. |
 | Cloud Spanner | Globally distributed, strongly consistent relational database with horizontal scalability. |
 | Firestore | Serverless NoSQL document database for mobile, web, and backend app development. |
@@ -181,8 +181,10 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Cloud Resource Manager (Organization/Folders/Projects) | Hierarchy and policy control plane for organizing cloud resources and delegating governance boundaries. |
-| Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. |
+| Cloud Resource Manager (Organization/Folders/Projects) | Hierarchy and policy control plane for organizing cloud resources and delegating governance boundaries. — **[Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)** |
+| Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** |
+| Cloud Quotas | System-enforced resource limits per project/region with self-service adjustment requests. — **[Explainer](modules/governance/gcp_quotas/gcp-quotas.md)** |
+| Labels | Key-value metadata for cost attribution, filtering, and automation targeting across GCP resources. — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** |
 | Billing Budgets & Alerts | Budget threshold monitoring and alerting to control spend. |
 | Cost Table / Billing Export | Detailed cost and usage export to BigQuery for analysis and reporting. |
 | FinOps Hub | Cost optimization insights and recommendations for cloud financial management. |
@@ -194,15 +196,23 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 - [GCP Module & Service Hierarchy](gcp-module-service-list.md)
 - [Google Cloud Services Pricing Guide](gcp-services-pricing-guide.md)
-- [GCP Organization Module](modules/hierarchy/organization/README.md)
-- [GCP Folder Module](modules/hierarchy/folder/README.md)
-- [GCP Project Module](modules/hierarchy/project/README.md)
+- [GCP Organization Module](modules/governance/organization/README.md)
+- [GCP Folder Module](modules/governance/folder/README.md)
+- [GCP Project Module](modules/governance/project/README.md)
 - [GCP Subnetworks Module](modules/networking/gcp_subnetworks/README.md)
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
+- [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)
+- [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
+- [Database Service Explainers](modules/database/)
+- [Governance Service Explainers](modules/governance/)
+- [Resource Manager Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)
+- [Cloud Billing Explainer](modules/governance/gcp_billing/gcp-billing.md)
+- [Cloud Quotas Explainer](modules/governance/gcp_quotas/gcp-quotas.md)
+- [Labels Explainer](modules/governance/gcp_labels/gcp-labels.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)

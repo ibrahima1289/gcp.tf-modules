@@ -2,7 +2,7 @@
 
 Google Cloud Advisory Notifications is a managed service that delivers security bulletins, incident notifications, and product advisory messages directly to designated contacts within a Google Cloud organization. It centralizes the delivery of critical operational and compliance communications that were previously scattered across email lists, support portals, and console banners.
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 
 ---
 
@@ -112,7 +112,7 @@ Essential Contacts (`google_essential_contacts_contact`) is a related service th
 
 ## Related Docs
 
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [GCP IAM Service Explainer](../gcp_iam/gcp-iam.md)
 - [GCP Secret Manager Service Explainer](../gcp_secret_manager/gcp-secret-manager.md)

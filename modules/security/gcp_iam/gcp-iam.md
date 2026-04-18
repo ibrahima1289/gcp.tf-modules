@@ -2,7 +2,7 @@
 
 Google Cloud IAM is the access control plane for all Google Cloud resources. It defines **who** (identity) can perform **what actions** (permissions) on **which resources** (projects, folders, organizations, and individual services).
 
-> Back to [GCP Module & Service Hierarchy](../../gcp-module-service-list.md) · [Module README](README.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md) · [Module README](README.md)
 
 ---
 
@@ -216,7 +216,7 @@ All IAM policy changes are recorded in **Cloud Audit Logs** (Admin Activity log)
 - [GCP Organization Module](../hierarchy/organization/README.md)
 - [GCP Folder Module](../hierarchy/folder/README.md)
 - [GCP Project Module](../hierarchy/project/README.md)
-- [GCP Module & Service Hierarchy](../../gcp-module-service-list.md)
+- [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
 - [Google Cloud Service List — Definitions](../../gcp-service-list-definitions.md)
 - [Terraform Deployment Guide](../../gcp-terraform-deployment-cli-github-actions.md)
 - [Release Notes](../../RELEASE.md)

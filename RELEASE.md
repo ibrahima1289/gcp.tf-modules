@@ -4,6 +4,18 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-18 — Governance Service Explainers
+- Created [Resource Manager explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md) covering org/folder/project hierarchy, org policies, tags, and liens.
+- Created [Cloud Billing explainer](modules/governance/gcp_billing/gcp-billing.md) covering billing accounts, budgets, BigQuery export, and IAM roles.
+- Created [Cloud Quotas explainer](modules/governance/gcp_quotas/gcp-quotas.md) covering quota preferences, overrides, monitoring alerts, and common quota limits.
+- Created [Labels explainer](modules/governance/gcp_labels/gcp-labels.md) covering label schema, billing attribution, BigQuery queries, and org policy enforcement.
+
+## 2026-04-17 — Cloud SQL
+- Created [GCP Cloud SQL module](modules/database/gcp_cloud_sql/README.md) for MySQL, PostgreSQL, and SQL Server with HA, PITR, and private IP.
+- Added [Cloud SQL deployment plan](tf-plans/gcp_cloud_sql/README.md) with four example configurations covering all engine types.
+- Updated root indexes, service definitions, pricing guide, and deployment guide with Cloud SQL references.
+- Cloud SQL supports REGIONAL availability, Query Insights, IAM database auth, and Cloud SQL Auth Proxy connectivity.
+
 ## 2026-04-16 — Cloud Identity Groups
 - Created [GCP Cloud Identity Groups module](modules/security/gcp_group/README.md) with group creation, membership management, and role assignment.
 - Added [Cloud Identity Groups deployment plan](tf-plans/gcp_group/README.md) with two example groups and membership configurations.
@@ -36,15 +48,15 @@ All notable changes to root markdown documentation in this repository are docume
 
 ## 2026-04-10
 
-- Expanded [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), and [Project](modules/hierarchy/project/README.md) module READMEs with architecture diagrams, validations, examples, and operational guidance.
+- Expanded [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), and [Project](modules/governance/project/README.md) module READMEs with architecture diagrams, validations, examples, and operational guidance.
 - Added [Project deployment plan](tf-plans/gcp_project/README.md) documentation covering wrapper structure, required inputs, optional settings, and output consumption patterns.
 - Refreshed [README](README.md) module and plan indexes to include project hierarchy components and consistent navigation links.
 - Aligned cross-document references across [Definitions](gcp-service-list-definitions.md), [Pricing](gcp-services-pricing-guide.md), and [Deployment Guide](gcp-terraform-deployment-cli-github-actions.md) for accurate project-level hierarchy documentation coverage.
 
 ## 2026-04-09
 
-- Published [GCP Organization module](modules/hierarchy/organization/README.md) supporting IAM memberships, OrgPolicy v2 constraints, log sinks, and essential contact management.
-- Published [GCP Folder module](modules/hierarchy/folder/README.md) with multi-folder creation, nested hierarchy support, IAM bindings, policies, sinks, and contacts.
+- Published [GCP Organization module](modules/governance/organization/README.md) supporting IAM memberships, OrgPolicy v2 constraints, log sinks, and essential contact management.
+- Published [GCP Folder module](modules/governance/folder/README.md) with multi-folder creation, nested hierarchy support, IAM bindings, policies, sinks, and contacts.
 - Added deployment wrappers [gcp_organization](tf-plans/gcp_organization/README.md) and [gcp_folder](tf-plans/gcp_folder/README.md), including standard Terraform files, examples, and clear usage instructions.
 - Updated [README](README.md), [Service Hierarchy](gcp-module-service-list.md), and [Pricing Guide](gcp-services-pricing-guide.md) to reflect governance modules and folder hierarchy coverage.
 

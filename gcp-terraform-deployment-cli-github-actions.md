@@ -68,7 +68,8 @@ gcp.tf-modules/
 │   ├── gcp_networks/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
-│   └── gcp_group/
+│   ├── gcp_group/
+│   └── gcp_cloud_sql/
 └── README.md
 ```
 
@@ -347,9 +348,12 @@ Recommended production workflow:
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
+- [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
 - [GCP Networks (VPC) Deployment Plan](tf-plans/gcp_networks/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)
 - [Security Service Explainers](modules/security/)
+- [Database Service Explainers](modules/database/)
+- [Governance Service Explainers](modules/governance/)
 - [Release Notes](RELEASE.md)

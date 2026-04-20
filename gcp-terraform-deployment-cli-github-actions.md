@@ -69,7 +69,9 @@ gcp.tf-modules/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
 │   ├── gcp_group/
-│   └── gcp_cloud_sql/
+│   ├── gcp_cloud_sql/
+│   └── gcp_cloud_monitoring/
+│   └── gcp_cloud_monitoring/
 └── README.md
 ```
 
@@ -356,4 +358,13 @@ Recommended production workflow:
 - [Security Service Explainers](modules/security/)
 - [Database Service Explainers](modules/database/)
 - [Governance Service Explainers](modules/governance/)
+- [Monitoring & DevOps Service Explainers](modules/monitoring_devops/)
+- [Cloud Monitoring Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)
+- [Cloud Logging Module](modules/monitoring_devops/gcp_cloud_logging/README.md)
+- [Cloud Logging Deployment Plan](tf-plans/gcp_cloud_logging/README.md)
+- [Cloud Logging Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)
+- [Cloud Build Explainer](modules/monitoring_devops/gcp_cloud_build/gcp-cloud-build.md)
+- [Artifact Registry Explainer](modules/monitoring_devops/gcp_artifact_registry/gcp-artifact-registry.md)
+- [Cloud Deploy Explainer](modules/monitoring_devops/gcp_cloud_deploy/gcp-cloud-deploy.md)
+- [Infrastructure Manager Explainer](modules/monitoring_devops/gcp_infrastructure_manager/gcp-infrastructure-manager.md)
 - [Release Notes](RELEASE.md)

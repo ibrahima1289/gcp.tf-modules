@@ -128,8 +128,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Cloud Monitoring | Metrics, dashboards, uptime checks, and alerting for infrastructure and applications. |
-| Cloud Logging | Centralized log collection, routing, analysis, and export service. |
+| Cloud Monitoring | Metrics, dashboards, uptime checks, and alerting for infrastructure and applications. — **[Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)** · **[Module](modules/monitoring_devops/gcp_cloud_monitoring/README.md)** |
+| Cloud Logging | Centralized log collection, routing, analysis, and export service. — **[Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)** · **[Module](modules/monitoring_devops/gcp_cloud_logging/README.md)** |
 | Cloud Trace | Distributed tracing service for latency analysis and performance diagnostics. |
 | Cloud Profiler | Continuous production profiling for CPU and memory optimization. |
 | Error Reporting | Automatic grouping and alerting for runtime application errors. |
@@ -209,6 +209,13 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
 - [Database Service Explainers](modules/database/)
 - [Governance Service Explainers](modules/governance/)
+- [Monitoring & DevOps Service Explainers](modules/monitoring_devops/)
+- [Cloud Monitoring Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)
+- [Cloud Logging Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)
+- [Cloud Build Explainer](modules/monitoring_devops/gcp_cloud_build/gcp-cloud-build.md)
+- [Artifact Registry Explainer](modules/monitoring_devops/gcp_artifact_registry/gcp-artifact-registry.md)
+- [Cloud Deploy Explainer](modules/monitoring_devops/gcp_cloud_deploy/gcp-cloud-deploy.md)
+- [Infrastructure Manager Explainer](modules/monitoring_devops/gcp_infrastructure_manager/gcp-infrastructure-manager.md)
 - [Resource Manager Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)
 - [Cloud Billing Explainer](modules/governance/gcp_billing/gcp-billing.md)
 - [Cloud Quotas Explainer](modules/governance/gcp_quotas/gcp-quotas.md)

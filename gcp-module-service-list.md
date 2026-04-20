@@ -13,8 +13,8 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **11** — [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), [Project](modules/governance/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md), [Cloud SQL](modules/database/gcp_cloud_sql/README.md) |
-| **Service Explainer docs in modules** | **36** — [Hierarchy](modules/governance/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/), [Database](modules/database/), [Governance](modules/governance/) |
+| **Terraform Modules in repo** | **13** — [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), [Project](modules/governance/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md), [Cloud SQL](modules/database/gcp_cloud_sql/README.md), [Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md), [Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
+| **Service Explainer docs in modules** | **47** — [Hierarchy](modules/governance/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/), [Database](modules/database/), [Governance](modules/governance/), [Monitoring & DevOps](modules/monitoring_devops/) |
 
 ---
 
@@ -164,17 +164,17 @@ Organization
 
 | Service | Terraform | Terraform Resource |
 |---------|:---------:|--------------------|
-| Cloud Monitoring | ✅ | [`google_monitoring_alert_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy) / [`google_monitoring_dashboard`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_dashboard) |
-| Cloud Logging | ✅ | [`google_logging_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink) / [`google_logging_bucket_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config) |
-| Cloud Trace | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
-| Cloud Profiler | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
-| Error Reporting | ⚠️ | Enable via `google_project_service`; no dedicated config resource |
-| Cloud Audit Logs | ✅ | [`google_folder_iam_audit_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_audit_config) |
-| Cloud Build | ✅ | [`google_cloudbuild_trigger`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudbuild_trigger) |
-| Artifact Registry | ✅ | [`google_artifact_registry_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) |
-| Cloud Deploy | ✅ | [`google_clouddeploy_delivery_pipeline`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/clouddeploy_delivery_pipeline) |
-| Source Repositories | ✅ | [`google_sourcerepo_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sourcerepo_repository) |
-| Infrastructure Manager | ✅ | [`google_infra_manager_deployment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/infra_manager_deployment) |
+| Cloud Monitoring | ✅ | [`google_monitoring_alert_policy`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy) / [`google_monitoring_dashboard`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_dashboard) — **[Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)** |
+| Cloud Logging | ✅ | [`google_logging_sink`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_sink) / [`google_logging_bucket_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_project_bucket_config) — **[Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)** · **[Module](modules/monitoring_devops/gcp_cloud_logging/README.md)** |
+| Cloud Trace | ⚠️ | Enable via `google_project_service`; no dedicated config resource — **[Explainer](modules/monitoring_devops/gcp_cloud_trace/gcp-cloud-trace.md)** |
+| Cloud Profiler | ⚠️ | Enable via `google_project_service`; no dedicated config resource — **[Explainer](modules/monitoring_devops/gcp_cloud_profiler/gcp-cloud-profiler.md)** |
+| Error Reporting | ⚠️ | Enable via `google_project_service`; no dedicated config resource — **[Explainer](modules/monitoring_devops/gcp_error_reporting/gcp-error-reporting.md)** |
+| Cloud Audit Logs | ✅ | [`google_folder_iam_audit_config`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_folder_iam#google_folder_iam_audit_config) — **[Explainer](modules/monitoring_devops/gcp_cloud_audits_logs/gcp-cloud-audit-logs.md)** |
+| Cloud Build | ✅ | [`google_cloudbuild_trigger`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudbuild_trigger) — **[Explainer](modules/monitoring_devops/gcp_cloud_build/gcp-cloud-build.md)** |
+| Artifact Registry | ✅ | [`google_artifact_registry_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) — **[Explainer](modules/monitoring_devops/gcp_artifact_registry/gcp-artifact-registry.md)** |
+| Cloud Deploy | ✅ | [`google_clouddeploy_delivery_pipeline`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/clouddeploy_delivery_pipeline) — **[Explainer](modules/monitoring_devops/gcp_cloud_deploy/gcp-cloud-deploy.md)** |
+| Source Repositories | ✅ | [`google_sourcerepo_repository`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sourcerepo_repository) — **[Explainer](modules/monitoring_devops/gcp_source_repositories/gcp-source-repositories.md)** |
+| Infrastructure Manager | ✅ | [`google_infra_manager_deployment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/infra_manager_deployment) — **[Explainer](modules/monitoring_devops/gcp_infrastructure_manager/gcp-infrastructure-manager.md)** |
 
 ### Integration & APIs
 
@@ -238,6 +238,14 @@ Organization
 - [GCP Cloud Identity Groups Module](modules/security/gcp_group/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
 - [Cloud Identity Groups Explainer](modules/security/gcp_group/gcp-group.md)
+- [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)
+- [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
+- [GCP Cloud Monitoring Module](modules/monitoring_devops/gcp_cloud_monitoring/README.md)
+- [GCP Cloud Monitoring Deployment Plan](tf-plans/gcp_cloud_monitoring/README.md)
+- [Cloud Monitoring Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)
+- [GCP Cloud Logging Module](modules/monitoring_devops/gcp_cloud_logging/README.md)
+- [GCP Cloud Logging Deployment Plan](tf-plans/gcp_cloud_logging/README.md)
+- [Cloud Logging Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)
 - [Secret Manager Explainer](modules/security/gcp_secret_manager/gcp-secret-manager.md)
 - [Cloud KMS Explainer](modules/security/gcp_cloud_kms/gcp-cloud-kms.md)
 - [Certificate Authority Service Explainer](modules/security/gcp_certificate_authority/gcp-certificate-authority.md)
@@ -249,6 +257,18 @@ Organization
 - [Security Service Explainers](modules/security/)
 - [Database Service Explainers](modules/database/)
 - [Governance Service Explainers](modules/governance/)
+- [Monitoring & DevOps Service Explainers](modules/monitoring_devops/)
+- [Cloud Monitoring Explainer](modules/monitoring_devops/gcp_cloud_monitoring/gcp-cloud-monitoring.md)
+- [Cloud Logging Explainer](modules/monitoring_devops/gcp_cloud_logging/gcp-cloud-logging.md)
+- [Cloud Trace Explainer](modules/monitoring_devops/gcp_cloud_trace/gcp-cloud-trace.md)
+- [Cloud Profiler Explainer](modules/monitoring_devops/gcp_cloud_profiler/gcp-cloud-profiler.md)
+- [Error Reporting Explainer](modules/monitoring_devops/gcp_error_reporting/gcp-error-reporting.md)
+- [Cloud Audit Logs Explainer](modules/monitoring_devops/gcp_cloud_audits_logs/gcp-cloud-audit-logs.md)
+- [Cloud Build Explainer](modules/monitoring_devops/gcp_cloud_build/gcp-cloud-build.md)
+- [Artifact Registry Explainer](modules/monitoring_devops/gcp_artifact_registry/gcp-artifact-registry.md)
+- [Cloud Deploy Explainer](modules/monitoring_devops/gcp_cloud_deploy/gcp-cloud-deploy.md)
+- [Source Repositories Explainer](modules/monitoring_devops/gcp_source_repositories/gcp-source-repositories.md)
+- [Infrastructure Manager Explainer](modules/monitoring_devops/gcp_infrastructure_manager/gcp-infrastructure-manager.md)
 - [Resource Manager Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)
 - [Cloud Billing Explainer](modules/governance/gcp_billing/gcp-billing.md)
 - [Cloud Quotas Explainer](modules/governance/gcp_quotas/gcp-quotas.md)

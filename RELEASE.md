@@ -4,6 +4,24 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-19 — Cloud Logging Terraform Module
+- Created [GCP Cloud Logging module](modules/monitoring_devops/gcp_cloud_logging/README.md) supporting custom log buckets, log sinks (GCS, BigQuery, Pub/Sub, log bucket), project-wide log exclusions, and log-based metrics.
+- Added [Cloud Logging deployment plan](tf-plans/gcp_cloud_logging/README.md) with examples for all four resource types, sink IAM guidance, and metric filter reference.
+- Updated module count from 12 to 13 in the service hierarchy index; added module and plan links to all root markdown files.
+- All resources support `create = optional(bool, true)` and common governance labels via `tags`; `writer_identity` outputs enable declarative sink IAM.
+
+## 2026-04-19 — Cloud Monitoring Terraform Module
+- Created [GCP Cloud Monitoring module](modules/monitoring_devops/gcp_cloud_monitoring/README.md) supporting notification channels, alert policies (threshold, absent, log-based), uptime checks, and dashboards.
+- Added [Cloud Monitoring deployment plan](tf-plans/gcp_cloud_monitoring/README.md) with examples for all four resource types including a CPU alert, log-based error policy, and HTTPS uptime check.
+- Updated module count from 11 to 12 in the service hierarchy index; added module and plan links to all root markdown files.
+- All resources support `create = optional(bool, true)` and common governance labels via `tags`.
+
+## 2026-04-19 — Monitoring & DevOps Service Explainers
+- Created 11 explainers for all `modules/monitoring_devops/` services: Monitoring, Logging, Trace, Profiler, Error Reporting, Audit Logs, Build, Artifact Registry, Deploy, Source Repositories, and Infrastructure Manager.
+- Each explainer covers Core Concepts, HCL examples, Terraform resources, and Security Guidance.
+- Updated `gcp-module-service-list.md` explainer count from 36 to 47 and added `Monitoring & DevOps` to the domain list.
+- Synced all root markdown files with Monitoring & DevOps explainer links and `Related Docs` entries.
+
 ## 2026-04-18 — Governance Service Explainers
 - Created [Resource Manager explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md) covering org/folder/project hierarchy, org policies, tags, and liens.
 - Created [Cloud Billing explainer](modules/governance/gcp_billing/gcp-billing.md) covering billing accounts, budgets, BigQuery export, and IAM roles.
@@ -48,15 +66,15 @@ All notable changes to root markdown documentation in this repository are docume
 
 ## 2026-04-10
 
-- Expanded [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), and [Project](modules/governance/project/README.md) module READMEs with architecture diagrams, validations, examples, and operational guidance.
+- Expanded [Organization](modules/hierarchy/organization/README.md), [Folder](modules/hierarchy/folder/README.md), and [Project](modules/hierarchy/project/README.md) module READMEs with architecture diagrams, validations, examples, and operational guidance.
 - Added [Project deployment plan](tf-plans/gcp_project/README.md) documentation covering wrapper structure, required inputs, optional settings, and output consumption patterns.
 - Refreshed [README](README.md) module and plan indexes to include project hierarchy components and consistent navigation links.
 - Aligned cross-document references across [Definitions](gcp-service-list-definitions.md), [Pricing](gcp-services-pricing-guide.md), and [Deployment Guide](gcp-terraform-deployment-cli-github-actions.md) for accurate project-level hierarchy documentation coverage.
 
 ## 2026-04-09
 
-- Published [GCP Organization module](modules/governance/organization/README.md) supporting IAM memberships, OrgPolicy v2 constraints, log sinks, and essential contact management.
-- Published [GCP Folder module](modules/governance/folder/README.md) with multi-folder creation, nested hierarchy support, IAM bindings, policies, sinks, and contacts.
+- Published [GCP Organization module](modules/hierarchy/organization/README.md) supporting IAM memberships, OrgPolicy v2 constraints, log sinks, and essential contact management.
+- Published [GCP Folder module](modules/hierarchy/folder/README.md) with multi-folder creation, nested hierarchy support, IAM bindings, policies, sinks, and contacts.
 - Added deployment wrappers [gcp_organization](tf-plans/gcp_organization/README.md) and [gcp_folder](tf-plans/gcp_folder/README.md), including standard Terraform files, examples, and clear usage instructions.
 - Updated [README](README.md), [Service Hierarchy](gcp-module-service-list.md), and [Pricing Guide](gcp-services-pricing-guide.md) to reflect governance modules and folder hierarchy coverage.
 

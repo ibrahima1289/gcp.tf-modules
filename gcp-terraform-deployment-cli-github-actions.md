@@ -65,6 +65,7 @@ gcp.tf-modules/
 │   ├── gcp_subnetworks/
 │   ├── gcp_cloud_nat/
 │   ├── gcp_cloud_router/
+│   ├── gcp_cloud_vpn/
 │   ├── gcp_networks/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
@@ -347,6 +348,8 @@ Recommended production workflow:
 - [GCP Subnetworks Deployment Plan](tf-plans/gcp_subnetworks/README.md)
 - [GCP Cloud NAT Deployment Plan](tf-plans/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Deployment Plan](tf-plans/gcp_cloud_router/README.md)
+- [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
+- [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)

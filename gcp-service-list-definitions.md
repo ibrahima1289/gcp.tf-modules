@@ -98,7 +98,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Cloud NAT | Managed network address translation for private instances needing outbound internet access. — **[Module](modules/networking/gcp_cloud_nat/README.md)** |
 | Cloud Router | Dynamic routing service for hybrid connectivity using BGP. — **[Module](modules/networking/gcp_cloud_router/README.md)** |
 | Cloud Interconnect | Dedicated or partner connectivity between on-premises networks and Google Cloud. |
-| Cloud VPN | Encrypted IPSec VPN tunnels for secure hybrid or multi-cloud networking. |
+| Cloud VPN | Encrypted IPSec VPN tunnels for secure hybrid or multi-cloud networking. — **[Explainer](modules/networking/gcp_cloud_vpn/gcp-cloud-vpn.md)** · **[Module](modules/networking/gcp_cloud_vpn/README.md)** |
 | Network Connectivity Center | Centralized hub-and-spoke management for enterprise hybrid and multi-cloud connectivity. |
 | Traffic Director | Managed service mesh traffic control plane for advanced service networking. |
 
@@ -203,6 +203,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
+- [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)

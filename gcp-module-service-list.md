@@ -13,7 +13,7 @@ Hierarchical view of Google Cloud service domains used in this repository docume
 | **Service Domains** | **12** |
 | **Services Listed** | **95** |
 | **Resource Hierarchy Levels** | **4** |
-| **Terraform Modules in repo** | **13** — [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), [Project](modules/governance/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md), [Cloud SQL](modules/database/gcp_cloud_sql/README.md), [Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md), [Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
+| **Terraform Modules in repo** | **14** — [Organization](modules/governance/organization/README.md), [Folder](modules/governance/folder/README.md), [Project](modules/governance/project/README.md), [Subnetworks](modules/networking/gcp_subnetworks/README.md), [Networks (VPC)](modules/networking/gcp_networks/README.md), [Cloud NAT](modules/networking/gcp_cloud_nat/README.md), [Cloud Router](modules/networking/gcp_cloud_router/README.md), [Cloud VPN](modules/networking/gcp_cloud_vpn/README.md), [IAM](modules/security/gcp_iam/README.md), [Cloud Storage](modules/storage/gcp_cloud_storage/README.md), [Cloud Identity Groups](modules/security/gcp_group/README.md), [Cloud SQL](modules/database/gcp_cloud_sql/README.md), [Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md), [Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
 | **Service Explainer docs in modules** | **47** — [Hierarchy](modules/governance/), [Compute](modules/compute/), [Storage](modules/storage/), [Networking](modules/networking/), [Security](modules/security/), [Database](modules/database/), [Governance](modules/governance/), [Monitoring & DevOps](modules/monitoring_devops/) |
 
 ---
@@ -138,7 +138,7 @@ Organization
 | Cloud NAT | ✅ | [`google_compute_router_nat`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_nat) · [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) — **[Module](modules/networking/gcp_cloud_nat/README.md)** |
 | Cloud Router | ✅ | [`google_compute_router`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router) · [`google_compute_router_interface`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_interface) · [`google_compute_router_peer`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_router_peer) — **[Module](modules/networking/gcp_cloud_router/README.md)** |
 | Cloud Interconnect | ✅ | [`google_compute_interconnect_attachment`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_interconnect_attachment) |
-| Cloud VPN | ✅ | [`google_compute_vpn_tunnel`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_vpn_tunnel) / [`google_compute_ha_vpn_gateway`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ha_vpn_gateway) |
+| Cloud VPN | ✅ | [`google_compute_vpn_tunnel`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_vpn_tunnel) / [`google_compute_ha_vpn_gateway`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ha_vpn_gateway) — **[Explainer](modules/networking/gcp_cloud_vpn/gcp-cloud-vpn.md)** · **[Module](modules/networking/gcp_cloud_vpn/README.md)** |
 | Network Connectivity Center | ✅ | [`google_network_connectivity_hub`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/network_connectivity_hub) |
 | Traffic Director | ✅ | Via `google_compute_backend_service` with Traffic Director config |
 
@@ -231,7 +231,9 @@ Organization
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
-- [GCP IAM Module](modules/security/gcp_iam/README.md)
+- [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
+- [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
+- [Cloud VPN Explainer](modules/networking/gcp_cloud_vpn/gcp-cloud-vpn.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)

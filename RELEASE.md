@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-22 — Cloud VPN Terraform Module
+- Created [GCP Cloud VPN module](modules/networking/gcp_cloud_vpn/README.md) supporting multiple HA VPN gateways, external peer gateways, IPsec tunnels, Cloud Router interfaces, and BGP peers.
+- Added [Cloud VPN deployment plan](tf-plans/gcp_cloud_vpn/README.md) with on-premises and AWS peer examples, shared secret guidance, and post-apply device configuration workflow.
+- Updated module count from 13 to 14; added module and plan links to all root markdown files.
+- All resources support `create = optional(bool, true)`; tunnels are flattened to `<gateway_key>/<tunnel_key>` keys for stable Terraform state.
+
 ## 2026-04-19 — Cloud Logging Terraform Module
 - Created [GCP Cloud Logging module](modules/monitoring_devops/gcp_cloud_logging/README.md) supporting custom log buckets, log sinks (GCS, BigQuery, Pub/Sub, log bucket), project-wide log exclusions, and log-based metrics.
 - Added [Cloud Logging deployment plan](tf-plans/gcp_cloud_logging/README.md) with examples for all four resource types, sink IAM guidance, and metric filter reference.

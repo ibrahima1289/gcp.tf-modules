@@ -176,6 +176,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Networks (VPC) Module](modules/networking/gcp_networks/README.md)
 - [GCP Cloud NAT Module](modules/networking/gcp_cloud_nat/README.md)
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
+- [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
+- [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)

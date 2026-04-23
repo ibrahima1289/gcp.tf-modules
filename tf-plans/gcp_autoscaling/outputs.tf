@@ -1,3 +1,18 @@
+output "instance_template_ids" {
+  description = "Instance template IDs keyed by template key."
+  value       = { for k, t in google_compute_instance_template.mig_template : k => t.id }
+}
+
+output "regional_mig_ids" {
+  description = "Regional MIG instance group manager IDs keyed by MIG key."
+  value       = { for k, m in google_compute_region_instance_group_manager.regional_mig : k => m.id }
+}
+
+output "regional_mig_self_links" {
+  description = "Regional MIG self-links keyed by MIG key."
+  value       = { for k, m in google_compute_region_instance_group_manager.regional_mig : k => m.self_link }
+}
+
 output "autoscaler_ids" {
   description = "All autoscaler resource IDs keyed by autoscaler key."
   value       = module.gcp_autoscaling.autoscaler_ids

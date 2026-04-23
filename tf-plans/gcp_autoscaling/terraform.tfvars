@@ -7,6 +7,39 @@ tags = {
   team        = "infrastructure"
 }
 
+# ── Instance Templates ─────────────────────────────────────────────────────
+# Define the VM boot configuration for each MIG.
+# Update 'name' to a new value (e.g. v2) to trigger a rolling replacement.
+
+instance_templates = [
+  {
+    key          = "web-template"
+    name         = "web-mig-template-v1"
+    machine_type = "e2-medium"
+    image        = "debian-cloud/debian-12"
+    disk_size_gb = 20
+    disk_type    = "pd-balanced"
+    network      = "default"
+  },
+]
+
+# ── Regional MIGs ──────────────────────────────────────────────────────────
+# Each entry creates a google_compute_region_instance_group_manager.
+# autoscaler_key links the MIG to the autoscaler entry so the target is
+# resolved automatically — no need to hardcode the self-link.
+
+regional_migs = [
+  {
+    key                = "web-mig"
+    name               = "web-mig"
+    region             = "us-central1"
+    base_instance_name = "web"
+    template_key       = "web-template" # references instance_templates[*].key
+    target_size        = null           # null = controlled by autoscaler
+    autoscaler_key     = "web-regional" # injects this MIG's id into the autoscaler target
+  },
+]
+
 autoscalers = [
 
   # ── Web Tier — Regional, CPU + Predictive + Scale-In Control ──────────────
@@ -17,11 +50,11 @@ autoscalers = [
     key    = "web-regional"
     name   = "web-mig-autoscaler"
     region = "us-central1"
-    target = "https://www.googleapis.com/compute/v1/projects/main-project-492903/regions/us-central1/instanceGroupManagers/web-mig"
-    create = false # enable once web-mig MIG is provisioned
+    target = "https://www.googleapis.com/compute/v1/projects/main-project-492903/regions/us-central1/instanceGroupManagers/web-mig" # overridden at plan time by regional_migs[web-mig].autoscaler_key
+    create = true
 
     min_replicas    = 2
-    max_replicas    = 20
+    max_replicas    = 5
     cooldown_period = 60
     mode            = "ON"
 
@@ -77,7 +110,7 @@ autoscalers = [
       {
         name                       = "pubsub.googleapis.com/subscription/num_undelivered_messages"
         filter                     = "resource.type = pubsub_subscription AND resource.label.subscription_id = worker-task-sub"
-        single_instance_assignment = 50  # type must not be set alongside single_instance_assignment
+        single_instance_assignment = 50 # type must not be set alongside single_instance_assignment
       }
     ]
   },

@@ -63,7 +63,7 @@ resource "google_compute_region_autoscaler" "regional" {
       content {
         name                  = scaling_schedules.value.name
         min_required_replicas = scaling_schedules.value.min_required_replicas
-        schedule              = scaling_schedules.value.schedule   # cron expression
+        schedule              = scaling_schedules.value.schedule # cron expression
         time_zone             = scaling_schedules.value.time_zone
         duration_sec          = scaling_schedules.value.duration_sec
         disabled              = scaling_schedules.value.disabled

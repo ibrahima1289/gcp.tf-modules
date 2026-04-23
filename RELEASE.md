@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-22 — Autoscaling Terraform Module
+- Created [GCP Autoscaling module](modules/networking/gcp_autoscaling/README.md) supporting regional and zonal MIG autoscalers with CPU, HTTP LB, custom metric, Pub/Sub, and scheduling signals.
+- Added scale-in control to limit VM removal rate and predictive autoscaling via `OPTIMIZE_AVAILABILITY` for pre-scaling before demand.
+- Added [Autoscaling deployment plan](tf-plans/gcp_autoscaling/README.md) with CPU, LB, Pub/Sub, scheduled, and GPU zonal examples.
+- Updated module count from 14 to 15; added module and plan links to all root markdown files.
+
 ## 2026-04-22 — Cloud VPN Terraform Module
 - Created [GCP Cloud VPN module](modules/networking/gcp_cloud_vpn/README.md) supporting multiple HA VPN gateways, external peer gateways, IPsec tunnels, Cloud Router interfaces, and BGP peers.
 - Added [Cloud VPN deployment plan](tf-plans/gcp_cloud_vpn/README.md) with on-premises and AWS peer examples, shared secret guidance, and post-apply device configuration workflow.

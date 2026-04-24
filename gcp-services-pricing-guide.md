@@ -85,12 +85,13 @@ A practical pricing reference for major Google Cloud services, including pricing
 |---------|---------------|---------------|-------------------|
 | 🟢 **VPC** | Core VPC constructs are free; pay for dependent resources and egress | Main cost drivers are NAT, load balancers, and data transfer — **[Module](modules/networking/gcp_networks/README.md)** | https://cloud.google.com/vpc/pricing |
 | 🟢 **VPC Subnets** | No standalone subnet fee | Subnets themselves are free; costs come from attached resources, Private Google access traffic patterns, and network egress | https://cloud.google.com/vpc/pricing |
-| 🟡 **Cloud Load Balancing** | Forwarding rules + data processing + optional features | Public global LB with steady traffic usually incurs recurring monthly cost | https://cloud.google.com/load-balancing/pricing |
+| 🟡 **Cloud Load Balancing** | Forwarding rules + data processing + optional features | Public global LB with steady traffic usually incurs recurring monthly cost | https://cloud.google.com/load-balancing/pricing — **[Module](modules/networking/gcp_cloud_load_balancer/README.md)** · **[Plan](tf-plans/gcp_cloud_load_balancer/README.md)** |
 | 🟡 **Cloud CDN** | Cache egress + cache fill + HTTP(S) request components | Global content delivery costs correlate with egress volume | https://cloud.google.com/cdn/pricing |
 | 🟡 **Cloud NAT** | Gateway uptime + data processed | Frequent outbound internet traffic can materially increase bill — **[Module](modules/networking/gcp_cloud_nat/README.md)** | https://cloud.google.com/nat/pricing |
 | 🟢 **Cloud Router** | No standalone fee; charges accrue from connected services (VPN, Interconnect) | Router itself is free; costs come from attached tunnel uptime and egress — **[Module](modules/networking/gcp_cloud_router/README.md)** | https://cloud.google.com/network-connectivity/docs/router/pricing |
 | 🟡 **Cloud Interconnect** | Port capacity (Dedicated) or Partner rates + egress | Enterprise hybrid links are often significant recurring spend | https://cloud.google.com/network-connectivity/docs/interconnect/pricing |
 | 🟡 **Cloud VPN** | Tunnel uptime + egress charges | Multiple HA tunnels + heavy traffic increases monthly cost | https://cloud.google.com/network-connectivity/docs/vpn/pricing |
+| 🟢 **Autoscaling (MIG)** | No charge for the autoscaler itself; cost scales with VM count | Scale-in controls reduce unnecessary VM uptime costs — **[Module](modules/networking/gcp_autoscaling/README.md)** | https://cloud.google.com/compute/docs/autoscaler |
 | 🟡 **Cloud DNS** | Managed zones + DNS queries | Usually low cost unless very high DNS query volume | https://cloud.google.com/dns/pricing |
 
 ---
@@ -178,6 +179,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Router Module](modules/networking/gcp_cloud_router/README.md)
 - [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
 - [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
+- [GCP Autoscaling Module](modules/networking/gcp_autoscaling/README.md)
+- [GCP Autoscaling Deployment Plan](tf-plans/gcp_autoscaling/README.md)
 - [GCP IAM Module](modules/security/gcp_iam/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)

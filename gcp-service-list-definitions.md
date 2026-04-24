@@ -13,6 +13,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Service | Definition |
 |---------|------------|
 | Compute Engine | Infrastructure-as-a-Service (IaaS) virtual machines with full control over machine type, OS, disks, and networking. |
+| Autoscaling (MIG) | Managed Instance Group autoscaler that automatically scales the number of VMs based on CPU utilization, HTTP LB utilization, custom Cloud Monitoring metrics, Pub/Sub queue depth, or cron-based schedules — **[Explainer](modules/networking/gcp_autoscaling/gcp_autoscaling.md)** · **[Module](modules/networking/gcp_autoscaling/README.md)** |
 | Google Kubernetes Engine (GKE) | Managed Kubernetes service for deploying, scaling, and operating containerized workloads. |
 | Cloud Run | Fully managed serverless platform for stateless HTTP containers with automatic scaling to zero. |
 | App Engine | Platform-as-a-Service (PaaS) for deploying web apps and APIs in standard or flexible runtimes. |
@@ -91,7 +92,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Service | Definition |
 |---------|------------|
 | Virtual Private Cloud (VPC) | Global virtual networking service with subnets, routing, firewalling, and connectivity controls. — **[Module](modules/networking/gcp_networks/README.md)** |
-| Cloud Load Balancing | Global and regional managed load balancing across HTTP(S), TCP/UDP, and internal/external traffic. |
+| Cloud Load Balancing | Global and regional managed load balancing across HTTP(S), TCP/UDP, and internal/external traffic. — **[Explainer](modules/networking/gcp_cloud_load_balancer/gcp-cloud-load-balancer.md)** · **[Module](modules/networking/gcp_cloud_load_balancer/README.md)** · **[Plan](tf-plans/gcp_cloud_load_balancer/README.md)** |
 | Cloud CDN | Content delivery network integrated with Google edge locations for low-latency delivery. |
 | Cloud DNS | Managed authoritative DNS hosting with global anycast and high availability. |
 | VPC Subnets | Regional IP ranges inside a VPC network that segment workloads and define where private resources are placed. |

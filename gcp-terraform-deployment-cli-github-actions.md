@@ -67,6 +67,7 @@ gcp.tf-modules/
 │   ├── gcp_cloud_router/
 │   ├── gcp_cloud_vpn/
 │   ├── gcp_autoscaling/
+│   ├── gcp_cloud_load_balancer/
 │   ├── gcp_networks/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
@@ -353,6 +354,8 @@ Recommended production workflow:
 - [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)
 - [GCP Autoscaling Module](modules/networking/gcp_autoscaling/README.md)
 - [GCP Autoscaling Deployment Plan](tf-plans/gcp_autoscaling/README.md)
+- [GCP Cloud Load Balancer Module](modules/networking/gcp_cloud_load_balancer/README.md)
+- [GCP Cloud Load Balancer Deployment Plan](tf-plans/gcp_cloud_load_balancer/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)

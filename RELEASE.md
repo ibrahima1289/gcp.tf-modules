@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-24 — Cloud CDN Terraform Module
+- Created [GCP Cloud CDN module](modules/networking/gcp_cloud_cdn/README.md) supporting GCS-backed (backend bucket) and compute/NEG-backed (backend service) CDN origins with full cache policy control.
+- Cache mode, TTL, cache key policy, negative caching, and signed URL settings are all configurable per entry; all entries support `create = optional(bool, true)`.
+- Added [Cloud CDN deployment plan](tf-plans/gcp_cloud_cdn/README.md) with static asset, media, and cacheable API backend examples.
+- Updated module count from 16 to 17; added module and plan links to all root markdown files.
+
 ## 2026-04-23 — Cloud Load Balancer Terraform Module
 - Created [GCP Cloud Load Balancer module](modules/networking/gcp_cloud_load_balancer/README.md) supporting global external, regional external/internal application LBs (HTTP/HTTPS L7) and external/internal passthrough NLBs (TCP/UDP L4).
 - All four LB families are optional via `create = optional(bool, true)`; health checks, backend services, URL maps, and proxies are fully managed per entry.

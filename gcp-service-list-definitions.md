@@ -93,7 +93,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 |---------|------------|
 | Virtual Private Cloud (VPC) | Global virtual networking service with subnets, routing, firewalling, and connectivity controls. — **[Module](modules/networking/gcp_networks/README.md)** |
 | Cloud Load Balancing | Global and regional managed load balancing across HTTP(S), TCP/UDP, and internal/external traffic. — **[Explainer](modules/networking/gcp_cloud_load_balancer/gcp-cloud-load-balancer.md)** · **[Module](modules/networking/gcp_cloud_load_balancer/README.md)** · **[Plan](tf-plans/gcp_cloud_load_balancer/README.md)** |
-| Cloud CDN | Content delivery network integrated with Google edge locations for low-latency delivery. |
+| Cloud CDN | Content delivery network integrated with Google edge locations for low-latency delivery. — **[Explainer](modules/networking/gcp_cloud_cdn/gcp-cloud-cdn.md)** · **[Module](modules/networking/gcp_cloud_cdn/README.md)** · **[Plan](tf-plans/gcp_cloud_cdn/README.md)** |
 | Cloud DNS | Managed authoritative DNS hosting with global anycast and high availability. |
 | VPC Subnets | Regional IP ranges inside a VPC network that segment workloads and define where private resources are placed. |
 | Cloud NAT | Managed network address translation for private instances needing outbound internet access. — **[Module](modules/networking/gcp_cloud_nat/README.md)** |

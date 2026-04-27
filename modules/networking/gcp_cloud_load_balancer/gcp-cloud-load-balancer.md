@@ -68,6 +68,43 @@ Client
 
 ---
 
+## When and how to use each load balancer type
+
+The table below maps every GCP load balancer type to its key decision criteria, ideal workloads, unsupported scenarios, and the Terraform `load_balancing_scheme` value to set.
+
+| LB Type | Scope | Layer | Traffic | When to use | Don't use when | `load_balancing_scheme` | Key Terraform resources |
+|---------|-------|-------|---------|-------------|----------------|------------------------|-------------------------|
+| **[Global External Application LB](https://cloud.google.com/load-balancing/docs/https)** | Global | L7 | External | Public web apps, REST/gRPC APIs, SPAs served globally; need CDN, Cloud Armor, managed certs, or URL routing; Google anycast IP for lowest global latency | Backends are regional-only, internal-only, or protocol is raw TCP/UDP | `EXTERNAL_MANAGED` | `google_compute_global_forwarding_rule`, `google_compute_url_map`, `google_compute_backend_service` |
+| **[Regional External Application LB](https://cloud.google.com/load-balancing/docs/https/regional-load-balancing)** | Regional | L7 | External | HTTP(S) apps that must stay within one region (data residency, low inter-region cost); same URL routing as global but scoped | Traffic needs to span regions or benefit from Google's global edge | `EXTERNAL_MANAGED` | `google_compute_forwarding_rule`, `google_compute_region_url_map`, `google_compute_region_backend_service` |
+| **[Global External Proxy Network LB (SSL)](https://cloud.google.com/load-balancing/docs/ssl)** | Global | L4 | External | Non-HTTP apps that require TLS termination and global routing (e.g. MQTT, custom binary TLS protocols) | App speaks HTTP/HTTPS — use Application LB instead for richer routing | `EXTERNAL` | `google_compute_global_forwarding_rule`, `google_compute_target_ssl_proxy`, `google_compute_backend_service` |
+| **[Global External Proxy Network LB (TCP)](https://cloud.google.com/load-balancing/docs/tcp)** | Global | L4 | External | Non-HTTP global TCP apps where TLS termination is not needed and client IP preservation is not required | Client IP must be preserved — use Passthrough NLB; app is HTTP(S) — use Application LB | `EXTERNAL` | `google_compute_global_forwarding_rule`, `google_compute_target_tcp_proxy`, `google_compute_backend_service` |
+| **[Regional External Passthrough NLB](https://cloud.google.com/load-balancing/docs/network)** | Regional | L4 | External | Game servers, VoIP, UDP apps, custom TCP where client IP must be preserved; high-throughput or low-latency non-proxied traffic | URL routing or TLS termination is required; global routing is needed | `EXTERNAL` | `google_compute_forwarding_rule` → `backend_service` (no proxy), `google_compute_region_health_check` |
+| **[Regional Internal Application LB](https://cloud.google.com/load-balancing/docs/l7-internal)** | Regional | L7 | Internal | Private microservices, internal APIs, service-mesh east-west HTTP/gRPC traffic inside a VPC; supports URL routing and IAP | Traffic originates outside the VPC, or protocol is raw TCP/UDP | `INTERNAL_MANAGED` | `google_compute_forwarding_rule`, `google_compute_region_url_map`, `google_compute_region_backend_service` |
+| **[Regional Internal Passthrough NLB](https://cloud.google.com/load-balancing/docs/internal)** | Regional | L4 | Internal | Internal TCP/UDP workloads where client IP must reach the backend (DB proxies, syslog collectors, stateful TCP services inside a VPC) | URL routing is required; traffic is HTTP — use Internal Application LB | `INTERNAL` | `google_compute_forwarding_rule` → `backend_service` (no proxy), `google_compute_region_health_check` |
+| **[Cross-region Internal Application LB](https://cloud.google.com/load-balancing/docs/l7-internal/setting-up-l7-cross-reg-internal)** | Global | L7 | Internal | Multi-region private HTTP/gRPC services where internal clients across regions need a single VIP; global anycast for internal traffic | Single-region; TCP/UDP internal traffic — use Regional Internal Passthrough NLB | `INTERNAL_MANAGED` | `google_compute_global_forwarding_rule`, `google_compute_url_map`, `google_compute_backend_service` |
+
+---
+
+### Quick decision guide
+
+```text
+Is traffic internal (VPC-only)?
+  ├── Yes, HTTP/gRPC → Regional Internal Application LB  (INTERNAL_MANAGED)
+  │                  → Cross-region Internal App LB if multi-region
+  └── Yes, raw TCP/UDP → Regional Internal Passthrough NLB  (INTERNAL)
+
+Is traffic external (internet-facing)?
+  ├── HTTP / HTTPS / gRPC?
+  │   ├── Need global routing / CDN / Armor → Global External Application LB  (EXTERNAL_MANAGED)
+  │   └── Stay in one region               → Regional External Application LB  (EXTERNAL_MANAGED)
+  └── Non-HTTP protocol?
+      ├── Need TLS termination + global    → Global External Proxy Network LB — SSL  (EXTERNAL)
+      ├── Raw TCP + global                 → Global External Proxy Network LB — TCP  (EXTERNAL)
+      └── Raw TCP/UDP + client IP preserved → Regional External Passthrough NLB  (EXTERNAL)
+```
+
+---
+
 ## When to use Cloud Load Balancing
 
 - You run multiple backend instances and need even traffic distribution.

@@ -70,6 +70,7 @@ gcp.tf-modules/
 │   ├── gcp_cloud_load_balancer/
 │   ├── gcp_cloud_cdn/
 │   ├── gcp_gke/
+│   ├── gcp_cloud_run/
 │   ├── gcp_networks/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
@@ -362,6 +363,8 @@ Recommended production workflow:
 - [GCP Cloud CDN Deployment Plan](tf-plans/gcp_cloud_cdn/README.md)
 - [GCP GKE Module](modules/compute/gcp_gke/README.md)
 - [GCP GKE Deployment Plan](tf-plans/gcp_gke/README.md)
+- [GCP Cloud Run Module](modules/compute/gcp_cloud_run/README.md)
+- [GCP Cloud Run Deployment Plan](tf-plans/gcp_cloud_run/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)

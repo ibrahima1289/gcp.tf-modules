@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-26 — GKE Terraform Module
+- Created [GCP GKE module](modules/compute/gcp_gke/README.md) supporting standard and Autopilot clusters with configurable node pools, private networking, Workload Identity, and Managed Prometheus.
+- Node pools are managed as separate resources keyed by `<cluster_key>/<pool_key>` for stable Terraform state; autoscaling, Spot VMs, taints, and surge upgrades are all configurable per pool.
+- Added [GKE deployment plan](tf-plans/gcp_gke/README.md) with examples for a regional standard cluster with two pools, an Autopilot cluster, and a zonal GPU cluster.
+- Updated module count from 17 to 18; added module and plan links to all root markdown files.
+
 ## 2026-04-24 — Cloud CDN Terraform Module
 - Created [GCP Cloud CDN module](modules/networking/gcp_cloud_cdn/README.md) supporting GCS-backed (backend bucket) and compute/NEG-backed (backend service) CDN origins with full cache policy control.
 - Cache mode, TTL, cache key policy, negative caching, and signed URL settings are all configurable per entry; all entries support `create = optional(bool, true)`.

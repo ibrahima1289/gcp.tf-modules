@@ -9,9 +9,9 @@ Terraform module for deploying [Google Cloud Run v2](https://cloud.google.com/ru
 ## Architecture
 
 ```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│  var.services (list)                  var.jobs (list)                   │
-│                                                                         │
+┌────────────────────────────────────────────────────────────────────────┐
+│  var.services (list)                  var.jobs (list)                  │
+│                                                                        │
 │  ┌─────────────────────────────┐   ┌──────────────────────────────┐    │
 │  │  google_cloud_run_v2_service│   │  google_cloud_run_v2_job     │    │
 │  │  ─────────────────────────  │   │  ──────────────────────────  │    │
@@ -20,14 +20,14 @@ Terraform module for deploying [Google Cloud Run v2](https://cloud.google.com/ru
 │  │  • CPU always-allocated     │   │  • Secret env vars           │    │
 │  │  • Direct VPC egress        │   │  • Direct VPC egress         │    │
 │  │  • Secret env vars/volumes  │   └──────────────────────────────┘    │
-│  └────────────┬────────────────┘                                        │
-│               │                                                         │
-│   ┌───────────▼────────────────┐                                        │
-│   │  IAM (Step 3 + 4)          │                                        │
-│   │  allUsers → public service │                                        │
-│   │  invoker_members → private │                                        │
-│   └────────────────────────────┘                                        │
-└─────────────────────────────────────────────────────────────────────────┘
+│  └────────────┬────────────────┘                                       │
+│               │                                                        │
+│   ┌───────────▼────────────────┐                                       │
+│   │  IAM (Step 3 + 4)          │                                       │
+│   │  allUsers → public service │                                       │
+│   │  invoker_members → private │                                       │
+│   └────────────────────────────┘                                       │
+└────────────────────────────────────────────────────────────────────────┘
 
 Traffic flow (Service):
 

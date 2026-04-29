@@ -1,11 +1,11 @@
-project_id = "my-gcp-project"
+project_id = "main-project-492903"
 region     = "us-central1"
 
 tags = {
   env     = "dev"
   team    = "platform"
   owner   = "infra-team"
-  project = "my-gcp-project"
+  project = "main-project"
 }
 
 # ===========================================================================

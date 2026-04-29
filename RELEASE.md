@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-04-28 — Cloud Run Terraform Module
+- Created [GCP Cloud Run module](modules/compute/gcp_cloud_run/README.md) supporting Cloud Run v2 Services (HTTP, scale-to-zero) and Jobs (batch, finite tasks) with full configuration support.
+- Services support direct VPC egress, traffic splitting, Secret Manager env vars and volumes, IAM invoker bindings, and per-service concurrency and scaling controls.
+- Added [Cloud Run deployment plan](tf-plans/gcp_cloud_run/README.md) with examples for a public API, internal backend with canary traffic split, frontend web app, ETL job, and DB migration job.
+- Updated module count from 18 to 19; added module and plan links to all root markdown files.
+
 ## 2026-04-26 — GKE Terraform Module
 - Created [GCP GKE module](modules/compute/gcp_gke/README.md) supporting standard and Autopilot clusters with configurable node pools, private networking, Workload Identity, and Managed Prometheus.
 - Node pools are managed as separate resources keyed by `<cluster_key>/<pool_key>` for stable Terraform state; autoscaling, Spot VMs, taints, and surge upgrades are all configurable per pool.

@@ -15,7 +15,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Compute Engine | Infrastructure-as-a-Service (IaaS) virtual machines with full control over machine type, OS, disks, and networking. |
 | Autoscaling (MIG) | Managed Instance Group autoscaler that automatically scales the number of VMs based on CPU utilization, HTTP LB utilization, custom Cloud Monitoring metrics, Pub/Sub queue depth, or cron-based schedules — **[Explainer](modules/networking/gcp_autoscaling/gcp_autoscaling.md)** · **[Module](modules/networking/gcp_autoscaling/README.md)** |
 | Google Kubernetes Engine (GKE) | Managed Kubernetes service for deploying, scaling, and operating containerized workloads. — **[Module](modules/compute/gcp_gke/README.md)** · **[Plan](tf-plans/gcp_gke/README.md)** |
-| Cloud Run | Fully managed serverless platform for stateless HTTP containers with automatic scaling to zero. |
+| Cloud Run | Fully managed serverless platform for stateless HTTP containers with automatic scaling to zero. — **[Explainer](modules/compute/gcp_cloud_run/gcp-cloud-run.md)** · **[Module](modules/compute/gcp_cloud_run/README.md)** · **[Plan](tf-plans/gcp_cloud_run/README.md)** |
 | App Engine | Platform-as-a-Service (PaaS) for deploying web apps and APIs in standard or flexible runtimes. |
 | Batch | Managed service for scheduling and running large-scale batch jobs on Google Cloud compute resources. |
 | Spot VMs | Deeply discounted Compute Engine capacity for fault-tolerant workloads with possible preemption. |

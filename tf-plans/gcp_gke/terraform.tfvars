@@ -1,11 +1,11 @@
-project_id = "my-gcp-project"
+project_id = "main-project-492903"
 region     = "us-central1"
 
 tags = {
   env     = "dev"
   team    = "platform"
   owner   = "infra-team"
-  project = "my-gcp-project"
+  project = "main-project-492903"
 }
 
 clusters = [
@@ -31,13 +31,13 @@ clusters = [
     enable_private_endpoint = false
     master_ipv4_cidr_block  = "172.16.0.0/28"
     master_authorized_networks = [
-      { 
-        cidr_block = "10.0.0.0/8",
-        display_name = "corp-vpn" 
+      {
+        cidr_block   = "10.0.0.0/8",
+        display_name = "corp-vpn"
       },
-      { 
-        cidr_block = "35.235.240.0/20",
-        display_name = "cloud-shell" 
+      {
+        cidr_block   = "35.235.240.0/20",
+        display_name = "cloud-shell"
       }
     ]
 
@@ -91,13 +91,13 @@ clusters = [
     create    = true
     name      = "dev-autopilot-cluster"
     autopilot = true
-    location  = "us-central1"
+    location  = "us-east1"
 
     network    = "default"
     subnetwork = "default"
 
-    release_channel        = "REGULAR"
-    workload_identity_pool = "my-gcp-project.svc.id.goog"
+    release_channel        = "REGULAR" # Can also be "STABLE" or "RAPID".
+    workload_identity_pool = "main-project-492903.svc.id.goog"
     deletion_protection    = false
 
     # node_pools is ignored for autopilot clusters.

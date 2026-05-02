@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-05-02 — Pub/Sub Terraform Module
+- Created [GCP Pub/Sub module](modules/app_development/Pub_Sub/README.md) supporting topics, schemas (Avro/Protobuf), and Pull, Push, BigQuery, and Cloud Storage subscriptions with dead-letter topics and retry policies.
+- IAM bindings are configurable per topic and per subscription; all entries support `create = optional(bool, true)` for safe incremental rollout.
+- Added [Pub/Sub deployment plan](tf-plans/gcp_pubsub/README.md) with examples for an order pull subscription, Cloud Run push, BigQuery IoT ingestion, and GCS archival.
+- Updated module count from 19 to 20; added module and plan links to all root markdown files.
+
 ## 2026-04-28 — Cloud Run Terraform Module
 - Created [GCP Cloud Run module](modules/compute/gcp_cloud_run/README.md) supporting Cloud Run v2 Services (HTTP, scale-to-zero) and Jobs (batch, finite tasks) with full configuration support.
 - Services support direct VPC egress, traffic splitting, Secret Manager env vars and volumes, IAM invoker bindings, and per-service concurrency and scaling controls.

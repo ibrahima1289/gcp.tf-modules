@@ -59,7 +59,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | BigQuery Omni | Extends BigQuery query and governance capabilities across AWS and Azure data. |
 | Dataflow | Fully managed Apache Beam service for stream and batch data processing pipelines. |
 | Dataproc | Managed Spark/Hadoop ecosystem service for large-scale data processing jobs. |
-| Pub/Sub | Global messaging and event ingestion service for asynchronous and streaming architectures. |
+| Pub/Sub | Global messaging and event ingestion service for asynchronous and streaming architectures. — **[Explainer](modules/app_development/Pub_Sub/gcp-pub-sub.md)** · **[Module](modules/app_development/Pub_Sub/README.md)** · **[Plan](tf-plans/gcp_pubsub/README.md)** |
 | Data Fusion | Managed, visual data integration service for building ETL/ELT pipelines. |
 | Dataplex | Unified data management, governance, and quality platform for distributed data estates. |
 | Dataform | SQL-based data transformation and orchestration service for analytics engineering in BigQuery. |

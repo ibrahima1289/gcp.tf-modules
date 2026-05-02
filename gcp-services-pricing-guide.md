@@ -59,7 +59,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🟡 **BigQuery** | Storage (active/long-term) + query bytes processed (on-demand) or slot reservations | 1 TB queried on-demand is billed per TB; high-query volumes benefit from reservations | https://cloud.google.com/bigquery/pricing |
 | 🟡 **Dataflow** | Worker vCPU/memory time + streaming engine + shuffle/storage/network | Continuous streaming jobs can become significant monthly spend | https://cloud.google.com/dataflow/pricing |
 | 🟡 **Dataproc** | VM costs + Dataproc management surcharge + storage/network | Ephemeral clusters are cost-efficient; long-running clusters accumulate cost quickly | https://cloud.google.com/dataproc/pricing |
-| 🟡 **Pub/Sub** | Throughput (GiB) for publish/delivery + retention/storage beyond free usage | Event-heavy systems can scale cost with message volume | https://cloud.google.com/pubsub/pricing |
+| 🟡 **Pub/Sub** | Throughput (GiB) for publish/delivery + retention/storage beyond free usage | Event-heavy systems can scale cost with message volume — **[Module](modules/app_development/Pub_Sub/README.md)** · **[Plan](tf-plans/gcp_pubsub/README.md)** | https://cloud.google.com/pubsub/pricing |
 | 🟡 **Composer** | Environment resources + scheduler/workers + Cloud SQL + storage/network | Managed Airflow environments are typically not low-cost in production | https://cloud.google.com/composer/pricing |
 | 🟡 **Dataplex / Data Fusion / Dataform** | Service-specific processing units + storage + orchestration usage | ETL intensity and job runtime are major cost drivers | https://cloud.google.com/products/calculator |
 

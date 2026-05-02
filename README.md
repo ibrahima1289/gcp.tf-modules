@@ -30,6 +30,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud CDN](modules/networking/gcp_cloud_cdn/README.md) | `modules/networking/gcp_cloud_cdn` | Attaches Cloud CDN edge caching to GCS-backed (backend bucket) and compute/NEG-backed (backend service) origins with full cache policy, cache key, and negative caching controls. |
 | [GCP GKE](modules/compute/gcp_gke/README.md) | `modules/compute/gcp_gke` | Creates standard and Autopilot GKE clusters with separately managed node pools, private networking, Workload Identity, Managed Prometheus, and per-pool autoscaling, Spot VMs, and taints. |
 | [GCP Cloud Run](modules/compute/gcp_cloud_run/README.md) | `modules/compute/gcp_cloud_run` | Deploys Cloud Run v2 Services (HTTP, auto-scaled) and Jobs (batch, finite tasks) with Secret Manager integration, direct VPC egress, traffic splitting, and IAM invoker bindings. |
+| [GCP Pub/Sub](modules/app_development/Pub_Sub/README.md) | `modules/app_development/Pub_Sub` | Creates Pub/Sub topics, schemas (Avro/Protobuf), Pull/Push/BigQuery/GCS subscriptions, dead-letter topics, and per-resource IAM bindings across multiple entries. |
 | [GCP IAM](modules/security/gcp_iam/README.md) | `modules/security/gcp_iam` | Creates service accounts, custom IAM roles, and authoritative or additive IAM bindings across project, folder, and organization scopes. |
 | [GCP Cloud Storage](modules/storage/gcp_cloud_storage/README.md) | `modules/storage/gcp_cloud_storage` | Creates one or many Cloud Storage buckets with lifecycle rules, versioning, CMEK, logging, CORS, website hosting, autoclass, and soft-delete controls. |
 | [GCP Cloud Identity Groups](modules/security/gcp_group/README.md) | `modules/security/gcp_group` | Creates Cloud Identity groups with memberships and role assignments for IAM-at-scale governance. |
@@ -54,6 +55,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud CDN](tf-plans/gcp_cloud_cdn/README.md) | `tf-plans/gcp_cloud_cdn` | [modules/networking/gcp_cloud_cdn](modules/networking/gcp_cloud_cdn/README.md) |
 | [GCP GKE](tf-plans/gcp_gke/README.md) | `tf-plans/gcp_gke` | [modules/compute/gcp_gke](modules/compute/gcp_gke/README.md) |
 | [GCP Cloud Run](tf-plans/gcp_cloud_run/README.md) | `tf-plans/gcp_cloud_run` | [modules/compute/gcp_cloud_run](modules/compute/gcp_cloud_run/README.md) |
+| [GCP Pub/Sub](tf-plans/gcp_pubsub/README.md) | `tf-plans/gcp_pubsub` | [modules/app_development/Pub_Sub](modules/app_development/Pub_Sub/README.md) |
 | [GCP IAM](tf-plans/gcp_iam/README.md) | `tf-plans/gcp_iam` | [modules/security/gcp_iam](modules/security/gcp_iam/README.md) |
 | [GCP Cloud Storage](tf-plans/gcp_cloud_storage/README.md) | `tf-plans/gcp_cloud_storage` | [modules/storage/gcp_cloud_storage](modules/storage/gcp_cloud_storage/README.md) |
 | [GCP Cloud Identity Groups](tf-plans/gcp_group/README.md) | `tf-plans/gcp_group` | [modules/security/gcp_group](modules/security/gcp_group/README.md) |

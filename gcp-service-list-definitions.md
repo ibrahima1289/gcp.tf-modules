@@ -59,7 +59,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | BigQuery Omni | Extends BigQuery query and governance capabilities across AWS and Azure data. |
 | Dataflow | Fully managed Apache Beam service for stream and batch data processing pipelines. |
 | Dataproc | Managed Spark/Hadoop ecosystem service for large-scale data processing jobs. |
-| Pub/Sub | Global messaging and event ingestion service for asynchronous and streaming architectures. |
+| Pub/Sub | Global messaging and event ingestion service for asynchronous and streaming architectures. — **[Explainer](modules/app_development/Pub_Sub/gcp-pub-sub.md)** · **[Module](modules/app_development/Pub_Sub/README.md)** · **[Plan](tf-plans/gcp_pubsub/README.md)** |
 | Data Fusion | Managed, visual data integration service for building ETL/ELT pipelines. |
 | Dataplex | Unified data management, governance, and quality platform for distributed data estates. |
 | Dataform | SQL-based data transformation and orchestration service for analytics engineering in BigQuery. |
@@ -185,7 +185,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Cloud Resource Manager (Organization/Folders/Projects) | Hierarchy and policy control plane for organizing cloud resources and delegating governance boundaries. — **[Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)** |
 | Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** |
 | Cloud Quotas | System-enforced resource limits per project/region with self-service adjustment requests. — **[Explainer](modules/governance/gcp_quotas/gcp-quotas.md)** |
-| Labels | Key-value metadata for cost attribution, filtering, and automation targeting across GCP resources. — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** |
+| Labels | Key-value metadata for cost attribution, filtering, and automation targeting across GCP resources. — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** · **[Module](modules/governance/gcp_labels/README.md)** · **[Plan](tf-plans/gcp_labels/README.md)** |
 | Billing Budgets & Alerts | Budget threshold monitoring and alerting to control spend. |
 | Cost Table / Billing Export | Detailed cost and usage export to BigQuery for analysis and reporting. |
 | FinOps Hub | Cost optimization insights and recommendations for cloud financial management. |

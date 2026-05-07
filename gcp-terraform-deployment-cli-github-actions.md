@@ -72,6 +72,7 @@ gcp.tf-modules/
 │   ├── gcp_gke/
 │   ├── gcp_cloud_run/
 │   ├── gcp_pubsub/
+│   ├── gcp_labels/
 │   ├── gcp_networks/
 │   ├── gcp_iam/
 │   ├── gcp_cloud_storage/
@@ -368,6 +369,8 @@ Recommended production workflow:
 - [GCP Cloud Run Deployment Plan](tf-plans/gcp_cloud_run/README.md)
 - [GCP Pub/Sub Module](modules/app_development/Pub_Sub/README.md)
 - [GCP Pub/Sub Deployment Plan](tf-plans/gcp_pubsub/README.md)
+- [GCP Labels Module](modules/governance/gcp_labels/README.md)
+- [GCP Labels Deployment Plan](tf-plans/gcp_labels/README.md)
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud Storage Deployment Plan](tf-plans/gcp_cloud_storage/README.md)
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)

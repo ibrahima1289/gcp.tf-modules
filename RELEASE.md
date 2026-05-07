@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-05-06 — Labels Terraform Module
+- Created [GCP Labels module](modules/governance/gcp_labels/README.md) with `terraform_data` sentinels tracking computed label maps per profile; any label change surfaces in `terraform plan` before downstream resources are touched.
+- Label profiles merge governance defaults (`managed-by`, `created-date`) with required schema fields (environment, team, application, cost-center) and optional `data_classification` and `extra_labels`.
+- Added [Labels deployment plan](tf-plans/gcp_labels/README.md) with four example profiles: platform (shared infra), payments (PCI/confidential), data-eng (staging pipeline), and security (restricted audit tooling).
+- Updated module count from 20 to 21; added module and plan links to all root markdown files.
+
 ## 2026-05-02 — Pub/Sub Terraform Module
 - Created [GCP Pub/Sub module](modules/app_development/Pub_Sub/README.md) supporting topics, schemas (Avro/Protobuf), and Pull, Push, BigQuery, and Cloud Storage subscriptions with dead-letter topics and retry policies.
 - IAM bindings are configurable per topic and per subscription; all entries support `create = optional(bool, true)` for safe incremental rollout.

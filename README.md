@@ -32,6 +32,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Run](modules/compute/gcp_cloud_run/README.md) | `modules/compute/gcp_cloud_run` | Deploys Cloud Run v2 Services (HTTP, auto-scaled) and Jobs (batch, finite tasks) with Secret Manager integration, direct VPC egress, traffic splitting, and IAM invoker bindings. |
 | [GCP Pub/Sub](modules/app_development/Pub_Sub/README.md) | `modules/app_development/Pub_Sub` | Creates Pub/Sub topics, schemas (Avro/Protobuf), Pull/Push/BigQuery/GCS subscriptions, dead-letter topics, and per-resource IAM bindings across multiple entries. |
 | [GCP Labels](modules/governance/gcp_labels/README.md) | `modules/governance/gcp_labels` | Defines and tracks standardised label profiles (environment, team, application, cost-center, data-classification) as state sentinels; outputs computed label maps consumed by any GCP resource. |
+| [GCP Cloud Billing](modules/governance/gcp_billing/README.md) | `modules/governance/gcp_billing` | Links GCP projects to a billing account, creates spend budgets with multi-threshold alerting via Pub/Sub and email, and manages additive IAM bindings on the billing account. |
 | [GCP IAM](modules/security/gcp_iam/README.md) | `modules/security/gcp_iam` | Creates service accounts, custom IAM roles, and authoritative or additive IAM bindings across project, folder, and organization scopes. |
 | [GCP Cloud Storage](modules/storage/gcp_cloud_storage/README.md) | `modules/storage/gcp_cloud_storage` | Creates one or many Cloud Storage buckets with lifecycle rules, versioning, CMEK, logging, CORS, website hosting, autoclass, and soft-delete controls. |
 | [GCP Cloud Identity Groups](modules/security/gcp_group/README.md) | `modules/security/gcp_group` | Creates Cloud Identity groups with memberships and role assignments for IAM-at-scale governance. |
@@ -58,6 +59,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Run](tf-plans/gcp_cloud_run/README.md) | `tf-plans/gcp_cloud_run` | [modules/compute/gcp_cloud_run](modules/compute/gcp_cloud_run/README.md) |
 | [GCP Pub/Sub](tf-plans/gcp_pubsub/README.md) | `tf-plans/gcp_pubsub` | [modules/app_development/Pub_Sub](modules/app_development/Pub_Sub/README.md) |
 | [GCP Labels](tf-plans/gcp_labels/README.md) | `tf-plans/gcp_labels` | [modules/governance/gcp_labels](modules/governance/gcp_labels/README.md) |
+| [GCP Cloud Billing](tf-plans/gcp_billing/README.md) | `tf-plans/gcp_billing` | [modules/governance/gcp_billing](modules/governance/gcp_billing/README.md) |
 | [GCP IAM](tf-plans/gcp_iam/README.md) | `tf-plans/gcp_iam` | [modules/security/gcp_iam](modules/security/gcp_iam/README.md) |
 | [GCP Cloud Storage](tf-plans/gcp_cloud_storage/README.md) | `tf-plans/gcp_cloud_storage` | [modules/storage/gcp_cloud_storage](modules/storage/gcp_cloud_storage/README.md) |
 | [GCP Cloud Identity Groups](tf-plans/gcp_group/README.md) | `tf-plans/gcp_group` | [modules/security/gcp_group](modules/security/gcp_group/README.md) |

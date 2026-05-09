@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-05-08 — Cloud Billing Terraform Module
+- Created [GCP Cloud Billing module](modules/governance/gcp_billing/README.md) supporting multi-project billing account linkage, spend budgets with per-project and per-service filters, and additive IAM bindings on the billing account.
+- Budgets support fixed amounts or last-period auto-tracking, up to N alert thresholds (current or forecasted spend basis), Pub/Sub topics for programmatic cost control, and Cloud Monitoring notification channels.
+- Added [Cloud Billing deployment plan](tf-plans/gcp_billing/README.md) with four budget examples: org-wide cap with Pub/Sub, app-prod forecasted spend, data-prod anomaly detection, and security/audit label-filtered budget.
+- Updated module count from 21 to 22; added module and plan links to all root markdown files.
+
 ## 2026-05-06 — Labels Terraform Module
 - Created [GCP Labels module](modules/governance/gcp_labels/README.md) with `terraform_data` sentinels tracking computed label maps per profile; any label change surfaces in `terraform plan` before downstream resources are touched.
 - Label profiles merge governance defaults (`managed-by`, `created-date`) with required schema fields (environment, team, application, cost-center) and optional `data_classification` and `extra_labels`.

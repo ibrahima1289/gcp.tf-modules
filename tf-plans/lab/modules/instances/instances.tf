@@ -19,8 +19,8 @@ resource "google_compute_instance" "tf-instance-1" {
   metadata_startup_script = <<-EOT
         #!/bin/bash
     EOT
-  
-  allow_stopping_for_update = true 
+
+  allow_stopping_for_update = true
 }
 
 resource "google_compute_instance" "tf-instance-2" {
@@ -44,8 +44,8 @@ resource "google_compute_instance" "tf-instance-2" {
   metadata_startup_script = <<-EOT
         #!/bin/bash
     EOT
-  
-  allow_stopping_for_update = true 
+
+  allow_stopping_for_update = true
 }
 
 # resource "google_compute_instance" "tf-instance-3" {
@@ -68,6 +68,6 @@ resource "google_compute_instance" "tf-instance-2" {
 #   metadata_startup_script = <<-EOT
 #         #!/bin/bash
 #     EOT
-  
+
 #   allow_stopping_for_update = true 
 # }

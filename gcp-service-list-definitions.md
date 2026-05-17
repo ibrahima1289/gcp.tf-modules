@@ -12,7 +12,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 
 | Service | Definition |
 |---------|------------|
-| Compute Engine | Infrastructure-as-a-Service (IaaS) virtual machines with full control over machine type, OS, disks, and networking. |
+| Compute Engine | Infrastructure-as-a-Service (IaaS) virtual machines with full control over machine type, OS, disks, and networking. — **[Explainer](modules/compute/gcp_vm/gcp-vm.md)** · **[Module](modules/compute/gcp_vm/README.md)** · **[Plan](tf-plans/gcp_vm/README.md)** |
 | Autoscaling (MIG) | Managed Instance Group autoscaler that automatically scales the number of VMs based on CPU utilization, HTTP LB utilization, custom Cloud Monitoring metrics, Pub/Sub queue depth, or cron-based schedules — **[Explainer](modules/networking/gcp_autoscaling/gcp_autoscaling.md)** · **[Module](modules/networking/gcp_autoscaling/README.md)** |
 | Google Kubernetes Engine (GKE) | Managed Kubernetes service for deploying, scaling, and operating containerized workloads. — **[Module](modules/compute/gcp_gke/README.md)** · **[Plan](tf-plans/gcp_gke/README.md)** |
 | Cloud Run | Fully managed serverless platform for stateless HTTP containers with automatic scaling to zero. — **[Explainer](modules/compute/gcp_cloud_run/gcp-cloud-run.md)** · **[Module](modules/compute/gcp_cloud_run/README.md)** · **[Plan](tf-plans/gcp_cloud_run/README.md)** |
@@ -183,7 +183,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Service | Definition |
 |---------|------------|
 | Cloud Resource Manager (Organization/Folders/Projects) | Hierarchy and policy control plane for organizing cloud resources and delegating governance boundaries. — **[Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)** |
-| Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** |
+| Cloud Billing | Centralized billing account and invoicing framework for all Google Cloud usage. — **[Explainer](modules/governance/gcp_billing/gcp-billing.md)** · **[Module](modules/governance/gcp_billing/README.md)** · **[Plan](tf-plans/gcp_billing/README.md)** |
 | Cloud Quotas | System-enforced resource limits per project/region with self-service adjustment requests. — **[Explainer](modules/governance/gcp_quotas/gcp-quotas.md)** |
 | Labels | Key-value metadata for cost attribution, filtering, and automation targeting across GCP resources. — **[Explainer](modules/governance/gcp_labels/gcp-labels.md)** · **[Module](modules/governance/gcp_labels/README.md)** · **[Plan](tf-plans/gcp_labels/README.md)** |
 | Billing Budgets & Alerts | Budget threshold monitoring and alerting to control spend. |
@@ -221,6 +221,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [Infrastructure Manager Explainer](modules/monitoring_devops/gcp_infrastructure_manager/gcp-infrastructure-manager.md)
 - [Resource Manager Explainer](modules/governance/gcp-resource_manager/gcp-resource-manager.md)
 - [Cloud Billing Explainer](modules/governance/gcp_billing/gcp-billing.md)
+- [GCP Cloud Billing Module](modules/governance/gcp_billing/README.md)
+- [GCP Cloud Billing Deployment Plan](tf-plans/gcp_billing/README.md)
 - [Cloud Quotas Explainer](modules/governance/gcp_quotas/gcp-quotas.md)
 - [Labels Explainer](modules/governance/gcp_labels/gcp-labels.md)
 - [GCP Cloud Storage Module](modules/storage/gcp_cloud_storage/README.md)

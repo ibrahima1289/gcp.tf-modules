@@ -79,6 +79,7 @@ gcp.tf-modules/
 │   ├── gcp_cloud_storage/
 │   ├── gcp_group/
 │   ├── gcp_cloud_sql/
+│   ├── gcp_cloud_spanner/
 │   └── gcp_cloud_monitoring/
 │   └── gcp_cloud_monitoring/
 └── README.md

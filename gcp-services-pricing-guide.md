@@ -45,7 +45,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 |---------|---------------|---------------|-------------------|
 | 🟡 **Cloud SQL** | Instance vCPU/RAM + storage + backups + network | Dev instances can be low cost; HA production typically exceeds $100/month | https://cloud.google.com/sql/pricing — **[Module](modules/database/gcp_cloud_sql/README.md)** |
 | 🔴 **AlloyDB for PostgreSQL** | vCPU/RAM + storage + I/O + backups | Production clusters are usually premium-priced vs basic managed PostgreSQL | https://cloud.google.com/alloydb/pricing |
-| 🔴 **Cloud Spanner** | Compute units/nodes + storage + backup + network | Designed for high-scale workloads; minimum reliable setups can be expensive | https://cloud.google.com/spanner/pricing |
+| 🔴 **Cloud Spanner** | Compute units/nodes + storage + backup + network | Designed for high-scale workloads; minimum reliable setups can be expensive — **[Module](modules/database/gcp_cloud_spanner/README.md)** · **[Plan](tf-plans/gcp_cloud_spanner/README.md)** | https://cloud.google.com/spanner/pricing |
 | 🟡 **Firestore** | Document reads/writes/deletes + storage + egress | Write-heavy workloads can grow quickly; small apps can remain very low cost | https://cloud.google.com/firestore/pricing |
 | 🔴 **Bigtable** | Node/hour (or serverless units) + storage + backup + networking | Always-on production clusters usually exceed $100/month | https://cloud.google.com/bigtable/pricing |
 | 🟡 **Memorystore (Redis/Memcached)** | Per node/hour by tier + memory size + network | Basic caching node starts moderate; HA/large memory tiers rise quickly | https://cloud.google.com/memorystore/pricing |
@@ -189,6 +189,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Identity Groups Deployment Plan](tf-plans/gcp_group/README.md)
 - [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)
 - [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
+- [GCP Cloud Spanner Module](modules/database/gcp_cloud_spanner/README.md)
+- [GCP Cloud Spanner Deployment Plan](tf-plans/gcp_cloud_spanner/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

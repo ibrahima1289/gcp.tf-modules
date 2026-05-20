@@ -42,7 +42,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 |---------|------------|
 | Cloud SQL | Fully managed relational database service for MySQL, PostgreSQL, and SQL Server. — **[Module](modules/database/gcp_cloud_sql/README.md)** |
 | AlloyDB for PostgreSQL | High-performance PostgreSQL-compatible managed database for transactional workloads. |
-| Cloud Spanner | Globally distributed, strongly consistent relational database with horizontal scalability. |
+| Cloud Spanner | Globally distributed, strongly consistent relational database with horizontal scalability. — **[Module](modules/database/gcp_cloud_spanner/README.md)** · **[Plan](tf-plans/gcp_cloud_spanner/README.md)** |
 | Firestore | Serverless NoSQL document database for mobile, web, and backend app development. |
 | Bigtable | Petabyte-scale, low-latency NoSQL wide-column database for analytical and operational workloads. |
 | Memorystore | Managed in-memory data store for Redis and Memcached caching workloads. |
@@ -210,6 +210,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP IAM Deployment Plan](tf-plans/gcp_iam/README.md)
 - [GCP Cloud SQL Module](modules/database/gcp_cloud_sql/README.md)
 - [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
+- [GCP Cloud Spanner Module](modules/database/gcp_cloud_spanner/README.md)
+- [GCP Cloud Spanner Deployment Plan](tf-plans/gcp_cloud_spanner/README.md)
 - [Database Service Explainers](modules/database/)
 - [Governance Service Explainers](modules/governance/)
 - [Monitoring & DevOps Service Explainers](modules/monitoring_devops/)

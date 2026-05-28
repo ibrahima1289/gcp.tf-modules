@@ -94,7 +94,7 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 | Virtual Private Cloud (VPC) | Global virtual networking service with subnets, routing, firewalling, and connectivity controls. — **[Module](modules/networking/gcp_networks/README.md)** |
 | Cloud Load Balancing | Global and regional managed load balancing across HTTP(S), TCP/UDP, and internal/external traffic. — **[Explainer](modules/networking/gcp_cloud_load_balancer/gcp-cloud-load-balancer.md)** · **[Module](modules/networking/gcp_cloud_load_balancer/README.md)** · **[Plan](tf-plans/gcp_cloud_load_balancer/README.md)** |
 | Cloud CDN | Content delivery network integrated with Google edge locations for low-latency delivery. — **[Explainer](modules/networking/gcp_cloud_cdn/gcp-cloud-cdn.md)** · **[Module](modules/networking/gcp_cloud_cdn/README.md)** · **[Plan](tf-plans/gcp_cloud_cdn/README.md)** |
-| Cloud DNS | Managed authoritative DNS hosting with global anycast and high availability. |
+| Cloud DNS | Managed authoritative DNS hosting with global anycast and high availability. — **[Module](modules/networking/gcp_cloud_dns/README.md)** · **[Plan](tf-plans/gcp_cloud_dns/README.md)** |
 | VPC Subnets | Regional IP ranges inside a VPC network that segment workloads and define where private resources are placed. |
 | Cloud NAT | Managed network address translation for private instances needing outbound internet access. — **[Module](modules/networking/gcp_cloud_nat/README.md)** |
 | Cloud Router | Dynamic routing service for hybrid connectivity using BGP. — **[Module](modules/networking/gcp_cloud_router/README.md)** |
@@ -212,6 +212,8 @@ Comprehensive list of major Google Cloud services, grouped by category, with sho
 - [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
 - [GCP Cloud Spanner Module](modules/database/gcp_cloud_spanner/README.md)
 - [GCP Cloud Spanner Deployment Plan](tf-plans/gcp_cloud_spanner/README.md)
+- [GCP Cloud DNS Module](modules/networking/gcp_cloud_dns/README.md)
+- [GCP Cloud DNS Deployment Plan](tf-plans/gcp_cloud_dns/README.md)
 - [Database Service Explainers](modules/database/)
 - [Governance Service Explainers](modules/governance/)
 - [Monitoring & DevOps Service Explainers](modules/monitoring_devops/)

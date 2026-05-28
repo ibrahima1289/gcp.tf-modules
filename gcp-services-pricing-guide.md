@@ -92,7 +92,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🟡 **Cloud Interconnect** | Port capacity (Dedicated) or Partner rates + egress | Enterprise hybrid links are often significant recurring spend | https://cloud.google.com/network-connectivity/docs/interconnect/pricing |
 | 🟡 **Cloud VPN** | Tunnel uptime + egress charges | Multiple HA tunnels + heavy traffic increases monthly cost | https://cloud.google.com/network-connectivity/docs/vpn/pricing |
 | 🟢 **Autoscaling (MIG)** | No charge for the autoscaler itself; cost scales with VM count | Scale-in controls reduce unnecessary VM uptime costs — **[Module](modules/networking/gcp_autoscaling/README.md)** | https://cloud.google.com/compute/docs/autoscaler |
-| 🟡 **Cloud DNS** | Managed zones + DNS queries | Usually low cost unless very high DNS query volume | https://cloud.google.com/dns/pricing |
+| 🟡 **Cloud DNS** | Managed zones + DNS queries | Usually low cost unless very high DNS query volume — **[Module](modules/networking/gcp_cloud_dns/README.md)** · **[Plan](tf-plans/gcp_cloud_dns/README.md)** | https://cloud.google.com/dns/pricing |
 
 ---
 
@@ -191,6 +191,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud SQL Deployment Plan](tf-plans/gcp_cloud_sql/README.md)
 - [GCP Cloud Spanner Module](modules/database/gcp_cloud_spanner/README.md)
 - [GCP Cloud Spanner Deployment Plan](tf-plans/gcp_cloud_spanner/README.md)
+- [GCP Cloud DNS Module](modules/networking/gcp_cloud_dns/README.md)
+- [GCP Cloud DNS Deployment Plan](tf-plans/gcp_cloud_dns/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

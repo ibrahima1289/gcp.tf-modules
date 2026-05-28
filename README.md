@@ -41,6 +41,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Spanner](modules/database/gcp_cloud_spanner/README.md) | `modules/database/gcp_cloud_spanner` | Creates one or many Cloud Spanner instances (processing units or nodes) and one or many databases per instance with optional autoscaling, CMEK, and protection settings. |
 | [GCP Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) | `modules/monitoring_devops/gcp_cloud_monitoring` | Creates notification channels, alert policies (threshold, absent, log-based), uptime checks (HTTP/S and TCP), and dashboards for a GCP project. |
 | [GCP Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) | `modules/monitoring_devops/gcp_cloud_logging` | Creates custom log buckets, log sinks (GCS, BigQuery, Pub/Sub, log bucket), project-wide log exclusions, and log-based metrics for Cloud Monitoring. |
+| [GCP Cloud DNS](modules/networking/gcp_cloud_dns/README.md) | `modules/networking/gcp_cloud_dns` | Creates one or many DNS managed zones (public, private, forwarding, peering) with optional DNSSEC, private visibility config, forwarding/peering targets, and record sets supporting simple rrdatas and WRR/GEO routing policies. |
 
 ## Deployment Plans
 
@@ -70,6 +71,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Spanner](tf-plans/gcp_cloud_spanner/README.md) | `tf-plans/gcp_cloud_spanner` | [modules/database/gcp_cloud_spanner](modules/database/gcp_cloud_spanner/README.md) |
 | [GCP Cloud Monitoring](tf-plans/gcp_cloud_monitoring/README.md) | `tf-plans/gcp_cloud_monitoring` | [modules/monitoring_devops/gcp_cloud_monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) |
 | [GCP Cloud Logging](tf-plans/gcp_cloud_logging/README.md) | `tf-plans/gcp_cloud_logging` | [modules/monitoring_devops/gcp_cloud_logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
+| [GCP Cloud DNS](tf-plans/gcp_cloud_dns/README.md) | `tf-plans/gcp_cloud_dns` | [modules/networking/gcp_cloud_dns](modules/networking/gcp_cloud_dns/README.md) |
 
 ---
 

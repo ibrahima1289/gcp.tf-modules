@@ -64,6 +64,7 @@ gcp.tf-modules/
 │   ├── gcp_project/
 │   ├── gcp_subnetworks/
 │   ├── gcp_cloud_nat/
+│   ├── gcp_cloud_dns/
 │   ├── gcp_cloud_router/
 │   ├── gcp_cloud_vpn/
 │   ├── gcp_autoscaling/
@@ -356,6 +357,8 @@ Recommended production workflow:
 - [GCP Project Deployment Plan](tf-plans/gcp_project/README.md)
 - [GCP Subnetworks Deployment Plan](tf-plans/gcp_subnetworks/README.md)
 - [GCP Cloud NAT Deployment Plan](tf-plans/gcp_cloud_nat/README.md)
+- [GCP Cloud DNS Module](modules/networking/gcp_cloud_dns/README.md)
+- [GCP Cloud DNS Deployment Plan](tf-plans/gcp_cloud_dns/README.md)
 - [GCP Cloud Router Deployment Plan](tf-plans/gcp_cloud_router/README.md)
 - [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
 - [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)

@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-05-28 — Cloud DNS Terraform Module
+- Created [GCP Cloud DNS module](modules/networking/gcp_cloud_dns/README.md) supporting one or many DNS managed zones (public, private, forwarding, peering) with `create` toggles, optional DNSSEC configuration, private visibility VPC bindings, conditional forwarding targets (including private forwarding path), and peering zone support.
+- Added record set orchestration via [google_dns_record_set](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) with simple rrdatas and routing policy support (WRR and GEO); split into separate resource blocks to avoid argument conflicts between `rrdatas` and `routing_policy`.
+- Published [Cloud DNS deployment plan](tf-plans/gcp_cloud_dns/README.md) with wrapper files, commented tfvars examples (public zone with DNSSEC, private VPC zone, forwarding zone to on-premises, disabled toggle), architecture, and required/optional variable documentation for safe apply workflows.
+- Updated root documentation indexes and references in [README](README.md), [gcp-module-service-list](gcp-module-service-list.md), [gcp-service-list-definitions](gcp-service-list-definitions.md), [gcp-services-pricing-guide](gcp-services-pricing-guide.md), [gcp-resource-hierarchy-requirements](gcp-resource-hierarchy-requirements.md), and [gcp-terraform-deployment-cli-github-actions](gcp-terraform-deployment-cli-github-actions.md).
+
 ## 2026-05-19 — Cloud Spanner Terraform Module
 - Created [GCP Cloud Spanner module](modules/database/gcp_cloud_spanner/README.md) supporting one or many instances with `create` toggles, stable `key`-based scaling, processing-units or node capacity models, and optional autoscaling configuration.
 - Added database orchestration via [google_spanner_database](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/spanner_database) with per-database create toggles, dialect, DDL, retention, deletion/drop protection, and optional CMEK encryption settings.

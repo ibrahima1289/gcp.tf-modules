@@ -38,8 +38,10 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Storage](modules/storage/gcp_cloud_storage/README.md) | `modules/storage/gcp_cloud_storage` | Creates one or many Cloud Storage buckets with lifecycle rules, versioning, CMEK, logging, CORS, website hosting, autoclass, and soft-delete controls. |
 | [GCP Cloud Identity Groups](modules/security/gcp_group/README.md) | `modules/security/gcp_group` | Creates Cloud Identity groups with memberships and role assignments for IAM-at-scale governance. |
 | [GCP Cloud SQL](modules/database/gcp_cloud_sql/README.md) | `modules/database/gcp_cloud_sql` | Creates one or many Cloud SQL instances (MySQL, PostgreSQL, SQL Server) with databases, users, backups, private IP, Query Insights, and maintenance window controls. |
+| [GCP Cloud Spanner](modules/database/gcp_cloud_spanner/README.md) | `modules/database/gcp_cloud_spanner` | Creates one or many Cloud Spanner instances (processing units or nodes) and one or many databases per instance with optional autoscaling, CMEK, and protection settings. |
 | [GCP Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) | `modules/monitoring_devops/gcp_cloud_monitoring` | Creates notification channels, alert policies (threshold, absent, log-based), uptime checks (HTTP/S and TCP), and dashboards for a GCP project. |
 | [GCP Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) | `modules/monitoring_devops/gcp_cloud_logging` | Creates custom log buckets, log sinks (GCS, BigQuery, Pub/Sub, log bucket), project-wide log exclusions, and log-based metrics for Cloud Monitoring. |
+| [GCP Cloud DNS](modules/networking/gcp_cloud_dns/README.md) | `modules/networking/gcp_cloud_dns` | Creates one or many DNS managed zones (public, private, forwarding, peering) with optional DNSSEC, private visibility config, forwarding/peering targets, and record sets supporting simple rrdatas and WRR/GEO routing policies. |
 
 ## Deployment Plans
 
@@ -66,8 +68,10 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Storage](tf-plans/gcp_cloud_storage/README.md) | `tf-plans/gcp_cloud_storage` | [modules/storage/gcp_cloud_storage](modules/storage/gcp_cloud_storage/README.md) |
 | [GCP Cloud Identity Groups](tf-plans/gcp_group/README.md) | `tf-plans/gcp_group` | [modules/security/gcp_group](modules/security/gcp_group/README.md) |
 | [GCP Cloud SQL](tf-plans/gcp_cloud_sql/README.md) | `tf-plans/gcp_cloud_sql` | [modules/database/gcp_cloud_sql](modules/database/gcp_cloud_sql/README.md) |
+| [GCP Cloud Spanner](tf-plans/gcp_cloud_spanner/README.md) | `tf-plans/gcp_cloud_spanner` | [modules/database/gcp_cloud_spanner](modules/database/gcp_cloud_spanner/README.md) |
 | [GCP Cloud Monitoring](tf-plans/gcp_cloud_monitoring/README.md) | `tf-plans/gcp_cloud_monitoring` | [modules/monitoring_devops/gcp_cloud_monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) |
 | [GCP Cloud Logging](tf-plans/gcp_cloud_logging/README.md) | `tf-plans/gcp_cloud_logging` | [modules/monitoring_devops/gcp_cloud_logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
+| [GCP Cloud DNS](tf-plans/gcp_cloud_dns/README.md) | `tf-plans/gcp_cloud_dns` | [modules/networking/gcp_cloud_dns](modules/networking/gcp_cloud_dns/README.md) |
 
 ---
 

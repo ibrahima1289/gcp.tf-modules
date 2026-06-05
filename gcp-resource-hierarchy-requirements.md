@@ -84,6 +84,17 @@ scope at which each resource is anchored — **Organization**, **Folder**, or **
 
 ---
 
+## Databases
+
+| Name | Module | Resource | Organization | Folder | Project |
+|------|--------|----------|:---:|:---:|:---:|
+| Cloud SQL Instance | `database/gcp_cloud_sql` | `google_sql_database_instance` | ➖ | ➖ | ✅ |
+| Cloud SQL Database | `database/gcp_cloud_sql` | `google_sql_database` | ➖ | ➖ | ✅ |
+| Cloud Spanner Instance | `database/gcp_cloud_spanner` | `google_spanner_instance` | ➖ | ➖ | ✅ |
+| Cloud Spanner Database | `database/gcp_cloud_spanner` | `google_spanner_database` | ➖ | ➖ | ✅ |
+
+---
+
 ## Compute
 
 | Name | Module | Resource | Organization | Folder | Project |

@@ -23,7 +23,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 | 🟡 **Compute Engine** | Per vCPU-second + memory + disk + network egress | e2-medium running 24/7 + boot disk often lands in low-to-mid monthly range depending on region — **[Module](modules/compute/gcp_vm/README.md)** · **[Plan](tf-plans/gcp_vm/README.md)** | https://cloud.google.com/compute/all-pricing |
 | 🔴 **GKE** | Cluster management fee (standard mode) + node costs + egress | Small production cluster + 3 worker nodes commonly exceeds $100/month — **[Module](modules/compute/gcp_gke/README.md)** · **[Plan](tf-plans/gcp_gke/README.md)** | https://cloud.google.com/kubernetes-engine/pricing |
 | 🟡 **Cloud Run** | Per request + vCPU-second + GiB-second (with free tier) | Low-traffic APIs often stay near free/low cost; sustained traffic scales linearly — **[Module](modules/compute/gcp_cloud_run/README.md)** · **[Plan](tf-plans/gcp_cloud_run/README.md)** | https://cloud.google.com/run/pricing |
-| 🟡 **App Engine** | Instance hours + requests + outgoing bandwidth (free quotas for standard env) | Low traffic apps can remain low; always-on flexible instances cost more | https://cloud.google.com/appengine/pricing |
+| 🟡 **App Engine** | Instance hours + requests + outgoing bandwidth (free quotas for standard env) | Low traffic apps can remain low; always-on flexible instances cost more — **[Module](modules/compute/gcp_app_engine/README.md)** · **[Plan](tf-plans/gcp_app_engine/README.md)** | https://cloud.google.com/appengine/pricing |
 | 🟢 **Batch** | No standalone fee; pay for underlying compute/storage/network | Cost equals VM resources used by jobs | https://cloud.google.com/batch/pricing |
 
 ---
@@ -193,6 +193,8 @@ A practical pricing reference for major Google Cloud services, including pricing
 - [GCP Cloud Spanner Deployment Plan](tf-plans/gcp_cloud_spanner/README.md)
 - [GCP Cloud DNS Module](modules/networking/gcp_cloud_dns/README.md)
 - [GCP Cloud DNS Deployment Plan](tf-plans/gcp_cloud_dns/README.md)
+- [GCP App Engine Module](modules/compute/gcp_app_engine/README.md)
+- [GCP App Engine Deployment Plan](tf-plans/gcp_app_engine/README.md)
 - [Compute Service Explainers](modules/compute/)
 - [Storage Service Explainers](modules/storage/)
 - [Networking Service Explainers](modules/networking/)

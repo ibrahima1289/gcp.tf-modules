@@ -104,7 +104,11 @@ scope at which each resource is anchored — **Organization**, **Folder**, or **
 | GKE Cluster | `compute/gcp_gke` | `google_container_cluster` | ➖ | ➖ | ✅ |
 | GKE Node Pool | `compute/gcp_gke` | `google_container_node_pool` | ➖ | ➖ | ✅ |
 | Cloud Run Service | `compute/gcp_cloud_run` | `google_cloud_run_v2_service` | ➖ | ➖ | ✅ |
-| App Engine Application | `compute/gcp_app_engine` | `google_app_engine_application` | ➖ | ➖ | ✅ |
+| App Engine Application | [`compute/gcp_app_engine`](modules/compute/gcp_app_engine/README.md) | [`google_app_engine_application`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_application) | ➖ | ➖ | ✅ |
+| App Engine Standard Version | [`compute/gcp_app_engine`](modules/compute/gcp_app_engine/README.md) | [`google_app_engine_standard_app_version`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_standard_app_version) | ➖ | ➖ | ✅ |
+| App Engine Flexible Version | [`compute/gcp_app_engine`](modules/compute/gcp_app_engine/README.md) | [`google_app_engine_flexible_app_version`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_flexible_app_version) | ➖ | ➖ | ✅ |
+| App Engine Traffic Split | [`compute/gcp_app_engine`](modules/compute/gcp_app_engine/README.md) | [`google_app_engine_service_split_traffic`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_service_split_traffic) | ➖ | ➖ | ✅ |
+| App Engine Firewall Rule | [`compute/gcp_app_engine`](modules/compute/gcp_app_engine/README.md) | [`google_app_engine_firewall_rule`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_firewall_rule) | ➖ | ➖ | ✅ |
 | Batch Job | `compute/gcp_batch` | `google_batch_job` | ➖ | ➖ | ✅ |
 
 ---

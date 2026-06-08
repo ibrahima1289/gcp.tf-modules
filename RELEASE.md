@@ -4,6 +4,12 @@ All notable changes to root markdown documentation in this repository are docume
 
 > Ordering: newest entries first (latest on top).
 
+## 2026-06-05 — App Engine Terraform Module
+- Created [GCP App Engine module](modules/compute/gcp_app_engine/README.md) supporting an App Engine application singleton (standard and flexible environment service versions) with `create` toggles, stable `key`-based `for_each`, and configurable automatic, basic (standard only), and manual scaling; standard and flexible resources are split into separate Terraform resource blocks to avoid provider-level argument conflicts (`liveness_check`, `readiness_check`, and `resources` are flexible-only fields).
+- Added traffic split orchestration via [google_app_engine_service_split_traffic](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/app_engine_service_split_traffic) for canary and blue/green rollouts with COOKIE, IP, or RANDOM sharding; firewall rules (priority-ordered inbound access control) and custom domain mappings with automatic SSL management are also supported.
+- Published [App Engine deployment plan](tf-plans/gcp_app_engine/README.md) with wrapper files and commented tfvars examples covering a standard Python web service, Node.js API with basic scaling, flexible container worker with health checks, and a disabled-toggle entry for safe rollout.
+- Updated root documentation indexes and references in [README](README.md), [gcp-module-service-list](gcp-module-service-list.md), [gcp-service-list-definitions](gcp-service-list-definitions.md), [gcp-services-pricing-guide](gcp-services-pricing-guide.md), [gcp-resource-hierarchy-requirements](gcp-resource-hierarchy-requirements.md), and [gcp-terraform-deployment-cli-github-actions](gcp-terraform-deployment-cli-github-actions.md).
+
 ## 2026-05-28 — Cloud DNS Terraform Module
 - Created [GCP Cloud DNS module](modules/networking/gcp_cloud_dns/README.md) supporting one or many DNS managed zones (public, private, forwarding, peering) with `create` toggles, optional DNSSEC configuration, private visibility VPC bindings, conditional forwarding targets (including private forwarding path), and peering zone support.
 - Added record set orchestration via [google_dns_record_set](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) with simple rrdatas and routing policy support (WRR and GEO); split into separate resource blocks to avoid argument conflicts between `rrdatas` and `routing_policy`.

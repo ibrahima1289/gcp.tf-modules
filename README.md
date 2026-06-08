@@ -42,6 +42,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) | `modules/monitoring_devops/gcp_cloud_monitoring` | Creates notification channels, alert policies (threshold, absent, log-based), uptime checks (HTTP/S and TCP), and dashboards for a GCP project. |
 | [GCP Cloud Logging](modules/monitoring_devops/gcp_cloud_logging/README.md) | `modules/monitoring_devops/gcp_cloud_logging` | Creates custom log buckets, log sinks (GCS, BigQuery, Pub/Sub, log bucket), project-wide log exclusions, and log-based metrics for Cloud Monitoring. |
 | [GCP Cloud DNS](modules/networking/gcp_cloud_dns/README.md) | `modules/networking/gcp_cloud_dns` | Creates one or many DNS managed zones (public, private, forwarding, peering) with optional DNSSEC, private visibility config, forwarding/peering targets, and record sets supporting simple rrdatas and WRR/GEO routing policies. |
+| [GCP App Engine](modules/compute/gcp_app_engine/README.md) | `modules/compute/gcp_app_engine` | Creates an App Engine application (singleton per project) with one or many standard and flexible service versions, traffic splits for canary and blue/green deployments, firewall rules, and custom domain mappings. |
 
 ## Deployment Plans
 
@@ -72,6 +73,7 @@ Terraform Modules for Google Cloud services. This repo is used only for learning
 | [GCP Cloud Monitoring](tf-plans/gcp_cloud_monitoring/README.md) | `tf-plans/gcp_cloud_monitoring` | [modules/monitoring_devops/gcp_cloud_monitoring](modules/monitoring_devops/gcp_cloud_monitoring/README.md) |
 | [GCP Cloud Logging](tf-plans/gcp_cloud_logging/README.md) | `tf-plans/gcp_cloud_logging` | [modules/monitoring_devops/gcp_cloud_logging](modules/monitoring_devops/gcp_cloud_logging/README.md) |
 | [GCP Cloud DNS](tf-plans/gcp_cloud_dns/README.md) | `tf-plans/gcp_cloud_dns` | [modules/networking/gcp_cloud_dns](modules/networking/gcp_cloud_dns/README.md) |
+| [GCP App Engine](tf-plans/gcp_app_engine/README.md) | `tf-plans/gcp_app_engine` | [modules/compute/gcp_app_engine](modules/compute/gcp_app_engine/README.md) |
 
 ---
 

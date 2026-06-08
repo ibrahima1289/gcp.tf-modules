@@ -72,6 +72,7 @@ gcp.tf-modules/
 │   ├── gcp_cloud_cdn/
 │   ├── gcp_gke/
 │   ├── gcp_cloud_run/
+│   ├── gcp_app_engine/
 │   ├── gcp_pubsub/
 │   ├── gcp_labels/
 │   ├── gcp_billing/
@@ -359,6 +360,8 @@ Recommended production workflow:
 - [GCP Cloud NAT Deployment Plan](tf-plans/gcp_cloud_nat/README.md)
 - [GCP Cloud DNS Module](modules/networking/gcp_cloud_dns/README.md)
 - [GCP Cloud DNS Deployment Plan](tf-plans/gcp_cloud_dns/README.md)
+- [GCP App Engine Module](modules/compute/gcp_app_engine/README.md)
+- [GCP App Engine Deployment Plan](tf-plans/gcp_app_engine/README.md)
 - [GCP Cloud Router Deployment Plan](tf-plans/gcp_cloud_router/README.md)
 - [GCP Cloud VPN Module](modules/networking/gcp_cloud_vpn/README.md)
 - [GCP Cloud VPN Deployment Plan](tf-plans/gcp_cloud_vpn/README.md)

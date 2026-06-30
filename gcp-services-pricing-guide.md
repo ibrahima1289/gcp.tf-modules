@@ -44,7 +44,7 @@ A practical pricing reference for major Google Cloud services, including pricing
 | Service | Pricing Model | Cost Examples | Pricing Reference |
 |---------|---------------|---------------|-------------------|
 | 🟡 **Cloud SQL** | Instance vCPU/RAM + storage + backups + network | Dev instances can be low cost; HA production typically exceeds $100/month | https://cloud.google.com/sql/pricing — **[Module](modules/database/gcp_cloud_sql/README.md)** |
-| 🔴 **AlloyDB for PostgreSQL** | vCPU/RAM + storage + I/O + backups | Production clusters are usually premium-priced vs basic managed PostgreSQL | https://cloud.google.com/alloydb/pricing |
+| 🔴 **AlloyDB for PostgreSQL** | vCPU/RAM + storage + I/O + backups | Production clusters are usually premium-priced vs basic managed PostgreSQL — **[Explainer](modules/database/gcp_alloyDB/gcp-alloydb.md)** · **[Module](modules/database/gcp_alloyDB/README.md)** · **[Plan](tf-plans/gcp_alloydb/README.md)** | https://cloud.google.com/alloydb/pricing |
 | 🔴 **Cloud Spanner** | Compute units/nodes + storage + backup + network | Designed for high-scale workloads; minimum reliable setups can be expensive — **[Module](modules/database/gcp_cloud_spanner/README.md)** · **[Plan](tf-plans/gcp_cloud_spanner/README.md)** | https://cloud.google.com/spanner/pricing |
 | 🟡 **Firestore** | Document reads/writes/deletes + storage + egress | Write-heavy workloads can grow quickly; small apps can remain very low cost | https://cloud.google.com/firestore/pricing |
 | 🔴 **Bigtable** | Node/hour (or serverless units) + storage + backup + networking | Always-on production clusters usually exceed $100/month | https://cloud.google.com/bigtable/pricing |

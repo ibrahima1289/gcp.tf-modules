@@ -2,7 +2,7 @@
 
 [AlloyDB for PostgreSQL](https://cloud.google.com/alloydb/docs) is a fully managed, PostgreSQL-compatible database service engineered for demanding transactional and analytical workloads. It uses a disaggregated storage-compute architecture — separating the query-processing layer from a distributed, log-structured storage layer — to deliver significantly higher throughput and lower latency than standard PostgreSQL deployments while remaining fully wire-compatible with PostgreSQL 14+.
 
-> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md)
+> Back to [GCP Module & Service Hierarchy](../../../gcp-module-service-list.md) · [Module](README.md) · [Deployment Plan](../../../tf-plans/gcp_alloydb/README.md)
 
 ---
 
@@ -142,3 +142,5 @@ The [AlloyDB Auth Proxy](https://cloud.google.com/alloydb/docs/auth-proxy/overvi
 - [AlloyDB vs Cloud SQL](https://cloud.google.com/blog/products/databases/alloydb-for-postgresql-vs-cloud-sql-for-postgresql)
 - [google_alloydb_cluster](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/alloydb_cluster)
 - [google_alloydb_instance](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/alloydb_instance)
+- [Terraform Module](README.md) — deploy AlloyDB with Terraform
+- [Deployment Plan](../../../tf-plans/gcp_alloydb/README.md) — wrapper with tfvars examples
